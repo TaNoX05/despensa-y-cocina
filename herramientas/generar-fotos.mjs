@@ -4,6 +4,7 @@
 //   node herramientas/generar-fotos.mjs <id> [<id>]  → esas recetas, aunque ya tengan foto
 //   --estilo=gouache | realista                      → estilo (por defecto gouache, el de la app)
 //   --prueba                                         → no toca la foto de la app: guarda en herramientas/salida/pruebas/
+//   --modelo=<id de OpenRouter>                      → otro modelo de imagen (por defecto MODELO_POR_DEFECTO)
 //
 // Lee la clave de OPENROUTER_API_KEY (variable de entorno o fichero .env, que no se sube a GitHub).
 // Cada receta describe su plato en "foto_prompt"; aquí se le añade el estilo común para que
@@ -14,8 +15,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const MODELO = 'openai/gpt-image-2.5-sunburst';
+const MODELO_POR_DEFECTO = 'openai/gpt-image-2.5-sunburst';
 const CALIDAD = 'medium';
+const opcionArg = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1];
+const MODELO = opcionArg('modelo') || MODELO_POR_DEFECTO;
+const ES_OPENAI = MODELO.startsWith('openai/');
 
 const ESTILOS = {
   realista:
@@ -33,8 +37,7 @@ const ESTILOS = {
     'alrededor. Sin texto, sin letras, sin logotipos, sin manos y sin personas.',
 };
 const ESTILO_POR_DEFECTO = 'gouache';   // estilo de la app desde el 2026-11-21
-const opcion = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1];
-const ESTILO_ELEGIDO = opcion('estilo') || ESTILO_POR_DEFECTO;
+const ESTILO_ELEGIDO = opcionArg('estilo') || ESTILO_POR_DEFECTO;
 const PRUEBA = process.argv.includes('--prueba');
 if (!ESTILOS[ESTILO_ELEGIDO]) throw new Error(`Estilo desconocido: ${ESTILO_ELEGIDO} (hay: ${Object.keys(ESTILOS).join(', ')})`);
 const ESTILO = ESTILOS[ESTILO_ELEGIDO];
@@ -53,15 +56,10 @@ async function generar(receta, KEY) {
   const r = await fetch('https://openrouter.ai/api/v1/images', {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json', 'X-Title': 'Despensa y cocina' },
-    body: JSON.stringify({
-      model: MODELO,
-      prompt,
-      quality: CALIDAD,
-      aspect_ratio: '3:2',
-      output_format: 'webp',
-      output_compression: 82,
-      n: 1,
-    }),
+    // GPT Image entiende calidad y webp; los demás (Gemini, Qwen…) van por resolución y devuelven su formato.
+    body: JSON.stringify(ES_OPENAI
+      ? { model: MODELO, prompt, quality: CALIDAD, aspect_ratio: '3:2', output_format: 'webp', output_compression: 82, n: 1 }
+      : { model: MODELO, prompt, aspect_ratio: '3:2', resolution: '1K', n: 1 }),
   });
   const texto = await r.text();
   let j;
@@ -78,11 +76,19 @@ async function generar(receta, KEY) {
     fs.writeFileSync(crudo, texto);
     throw new Error(`No encuentro la imagen en la respuesta; guardada en ${path.relative(RAIZ, crudo)}`);
   }
-  const destino = PRUEBA
-    ? path.join(RAIZ, `herramientas/salida/pruebas/${receta.id}-${ESTILO_ELEGIDO}.webp`)
+  const bytes = Buffer.from(b64, 'base64');
+  const ext = bytes.subarray(0, 4).toString('hex') === '89504e47' ? 'png'
+    : bytes[0] === 0xff && bytes[1] === 0xd8 ? 'jpg' : 'webp';
+  const sufijoModelo = MODELO === MODELO_POR_DEFECTO ? '' : '-' + MODELO.split('/')[1];
+  let destino = PRUEBA
+    ? path.join(RAIZ, `herramientas/salida/pruebas/${receta.id}-${ESTILO_ELEGIDO}${sufijoModelo}.${ext}`)
     : path.join(RAIZ, receta.foto || `img/recetas/${receta.id}.webp`);
+  if (!PRUEBA && ext !== 'webp') {
+    destino = destino.replace(/\.webp$/, '.' + ext);
+    console.log(`\n  (el modelo devuelve ${ext}: actualiza "foto" de la receta a ${path.relative(RAIZ, destino).split(path.sep).join('/')})`);
+  }
   fs.mkdirSync(path.dirname(destino), { recursive: true });
-  fs.writeFileSync(destino, Buffer.from(b64, 'base64'));
+  fs.writeFileSync(destino, bytes);
   return { id: receta.id, fichero: path.relative(RAIZ, destino), kb: Math.round(fs.statSync(destino).size / 1024),
     segundos: Math.round((Date.now() - t0) / 1000), coste: j.usage?.cost ?? null, usage: j.usage ?? null, idGeneracion: j.id ?? null };
 }
