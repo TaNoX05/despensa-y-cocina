@@ -3,7 +3,7 @@
 App web para el iPad con dos partes:
 
 - **Despensa por voz.** Pulsas el botón grande, dices «he comprado dos bricks de leche y se ha acabado el chorizo» y lo apunta. Separa nevera, congelador y despensa, avisa de lo que caduca y lo que se acaba pasa a «Para comprar».
-- **Recetas paso a paso.** Por categorías, con foto, la nota de cómo queda en el robot, ingredientes que se marcan, y un modo cocina a pantalla completa: el paso actual en grande, el panel con los ajustes de la **Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)** o, si el paso es fuera del robot, dónde se hace (olla, sartén, horno…), el fuego y cómo saber que está. Temporizadores con alarma, notas por paso y, al terminar, tu valoración y lo que cambiarías, que se guarda en tu historial.
+- **Recetas paso a paso.** Por categorías, con una ilustración en gouache de cada plato, la nota de cómo queda en el robot, ingredientes que se marcan, y un modo cocina a pantalla completa: el paso actual en grande, el panel con los ajustes de la **Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)** o, si el paso es fuera del robot, dónde se hace (olla, sartén, horno…), el fuego y cómo saber que está. Temporizadores con alarma, notas por paso y, al terminar, tu valoración y lo que cambiarías, que se guarda en tu historial.
 
 Funciona sin conexión (menos la voz), la pantalla no se apaga mientras está abierta y se instala en la pantalla de inicio como una app más.
 
@@ -80,7 +80,7 @@ A partir de ahí se sincroniza sola: a los pocos segundos de cada cambio, al abr
 Pídemelas como siempre («guárdala», «añádela a la app»). La skill `monsieur-cuisine-plus` (recetas de robot) y la skill `recetario-app` (cualquier receta) hacen esto:
 
 1. Escriben la receta en `datos/recetas.json` con el formato de la app. Las de robot también se guardan en la pestaña «Recetas robot» de Home Assistant, como hasta ahora.
-2. Generan la foto con IA (`openai/gpt-image-2.5-sunburst`, calidad media, ~1,1 céntimos).
+2. Generan su ilustración con IA: estilo gouache pintado a mano, vista desde arriba sobre papel crema (`openai/gpt-image-2.5-sunburst`, calidad media, ~1,2 céntimos).
 3. Comprueban la receta con `node herramientas/validar-recetas.mjs` (que todo ajuste se pueda poner en tu robot).
 4. La suben a GitHub, y en el iPad aparece sola.
 

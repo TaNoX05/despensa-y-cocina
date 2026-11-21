@@ -2,6 +2,8 @@
 //
 //   node herramientas/generar-fotos.mjs              → solo las recetas que aún no tienen foto
 //   node herramientas/generar-fotos.mjs <id> [<id>]  → esas recetas, aunque ya tengan foto
+//   --estilo=gouache | realista                      → estilo (por defecto gouache, el de la app)
+//   --prueba                                         → no toca la foto de la app: guarda en herramientas/salida/pruebas/
 //
 // Lee la clave de OPENROUTER_API_KEY (variable de entorno o fichero .env, que no se sube a GitHub).
 // Cada receta describe su plato en "foto_prompt"; aquí se le añade el estilo común para que
@@ -15,11 +17,27 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MODELO = 'openai/gpt-image-2.5-sunburst';
 const CALIDAD = 'medium';
 
-const ESTILO =
-  'Fotografía gastronómica editorial, realista, de cocina casera española. Luz natural cálida de ventana ' +
-  'lateral, mesa de madera clara de roble, servilleta de lino beige, vajilla de cerámica artesanal. Ángulo de ' +
-  '45 grados, poca profundidad de campo, el plato centrado y con aire alrededor. Colores apetecibles y naturales. ' +
-  'Sin texto, sin letras, sin logotipos, sin manos y sin personas.';
+const ESTILOS = {
+  realista:
+    'Fotografía gastronómica editorial, realista, de cocina casera española. Luz natural cálida de ventana ' +
+    'lateral, mesa de madera clara de roble, servilleta de lino beige, vajilla de cerámica artesanal. Ángulo de ' +
+    '45 grados, poca profundidad de campo, el plato centrado y con aire alrededor. Colores apetecibles y naturales. ' +
+    'Sin texto, sin letras, sin logotipos, sin manos y sin personas.',
+  gouache:
+    'Ilustración pintada a mano en gouache, al estilo de un libro de cocina ilustrado, nada fotográfica ni en 3D. ' +
+    'Vista cenital, desde arriba. El plato descansa sobre un fondo liso de papel color crema cálido, con la textura ' +
+    'del papel de acuarela visible; sin mesa, sin mantel y sin escena. Una sombra suave y corta bajo el plato. ' +
+    'Alrededor, solo dos o tres ingredientes sueltos de la receta, pintados con el mismo estilo. Pinceladas ' +
+    'visibles, bordes ligeramente irregulares, colores cálidos y apetitosos (terracota, ocre, rojo tomate, verde ' +
+    'oliva) y brillos pintados en salsas y gratinados para que dé hambre. Composición centrada, con mucho aire ' +
+    'alrededor. Sin texto, sin letras, sin logotipos, sin manos y sin personas.',
+};
+const ESTILO_POR_DEFECTO = 'gouache';   // estilo de la app desde el 2026-11-21
+const opcion = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1];
+const ESTILO_ELEGIDO = opcion('estilo') || ESTILO_POR_DEFECTO;
+const PRUEBA = process.argv.includes('--prueba');
+if (!ESTILOS[ESTILO_ELEGIDO]) throw new Error(`Estilo desconocido: ${ESTILO_ELEGIDO} (hay: ${Object.keys(ESTILOS).join(', ')})`);
+const ESTILO = ESTILOS[ESTILO_ELEGIDO];
 
 function clave() {
   if (process.env.OPENROUTER_API_KEY) return process.env.OPENROUTER_API_KEY.trim();
@@ -60,7 +78,9 @@ async function generar(receta, KEY) {
     fs.writeFileSync(crudo, texto);
     throw new Error(`No encuentro la imagen en la respuesta; guardada en ${path.relative(RAIZ, crudo)}`);
   }
-  const destino = path.join(RAIZ, receta.foto || `img/recetas/${receta.id}.webp`);
+  const destino = PRUEBA
+    ? path.join(RAIZ, `herramientas/salida/pruebas/${receta.id}-${ESTILO_ELEGIDO}.webp`)
+    : path.join(RAIZ, receta.foto || `img/recetas/${receta.id}.webp`);
   fs.mkdirSync(path.dirname(destino), { recursive: true });
   fs.writeFileSync(destino, Buffer.from(b64, 'base64'));
   return { id: receta.id, fichero: path.relative(RAIZ, destino), kb: Math.round(fs.statSync(destino).size / 1024),
@@ -68,7 +88,7 @@ async function generar(receta, KEY) {
 }
 
 const datos = JSON.parse(fs.readFileSync(path.join(RAIZ, 'datos/recetas.json'), 'utf8'));
-const pedidas = process.argv.slice(2);
+const pedidas = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const lista = pedidas.length
   ? datos.recetas.filter((r) => pedidas.includes(r.id))
   : datos.recetas.filter((r) => !fs.existsSync(path.join(RAIZ, r.foto || `img/recetas/${r.id}.webp`)));
@@ -84,7 +104,7 @@ for (const receta of lista) {
   try {
     const res = await generar(receta, KEY);
     total += res.coste || 0;
-    historial.push({ fecha: new Date().toISOString(), modelo: MODELO, calidad: CALIDAD, ...res });
+    historial.push({ fecha: new Date().toISOString(), modelo: MODELO, calidad: CALIDAD, estilo: ESTILO_ELEGIDO, prueba: PRUEBA, ...res });
     console.log(`ok (${res.kb} KB, ${res.segundos} s, ${res.coste != null ? res.coste.toFixed(4) + ' $' : 'coste desconocido'})`);
   } catch (e) {
     console.log('ERROR\n  ' + e.message);

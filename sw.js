@@ -1,8 +1,9 @@
 // Modo sin conexión. Estrategia: primero la red (así siempre ves la última versión
-// publicada) y, si no hay conexión o tarda más de 3 s, lo guardado. Las fotos, al revés.
+// publicada) y, si no hay conexión o tarda más de 3 s, lo guardado. Las fotos salen al momento
+// de lo guardado y se renuevan por detrás: si cambia una foto, se ve la nueva la siguiente vez.
 // Las llamadas a OpenRouter y a GitHub no pasan por aquí.
 
-const CACHE = 'despensa-y-cocina-v2';   // subir el número borra lo guardado de la versión anterior
+const CACHE = 'despensa-y-cocina-v3';   // subir el número borra lo guardado de la versión anterior
 const BASICOS = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/app.js', 'js/almacen.js', 'js/cocina.js', 'js/conexion.js', 'js/despensa.js', 'js/ia.js', 'js/iconos.js',
@@ -44,10 +45,11 @@ self.addEventListener('fetch', (e) => {
     const c = await caches.open(CACHE);
     if (esFoto) {
       const guardada = await c.match(e.request);
-      if (guardada) return guardada;
-      const r = await fetch(e.request);
-      if (r.ok) c.put(e.request, r.clone());
-      return r;
+      const nueva = fetch(e.request, { cache: 'no-cache' })
+        .then((r) => { if (r.ok) c.put(e.request, r.clone()); return r; })
+        .catch(() => null);
+      if (guardada) { e.waitUntil(nueva); return guardada; }
+      return (await nueva) || Response.error();
     }
     try {
       const r = await conTiempo(fetch(e.request, { cache: 'no-cache' }), 3000);

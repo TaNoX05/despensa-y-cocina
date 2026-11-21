@@ -83,6 +83,6 @@ Para **cada dirección**:
 - **Listado de recetas** con la tarjeta «Cocinando ahora»;
 - su **paleta** (claro y oscuro), **tipografías** y los componentes clave (botones, tarjetas, panel del robot, temporizador, chips).
 
-Detalles técnicos para que sea fácil de construir luego: se hace en HTML, CSS y JavaScript sin librerías; mejor tipografías del sistema del iPad (SF Pro, SF Pro Rounded, New York) o fuentes que se puedan incluir en la app; iconos de línea sencillos; emojis para los productos; las fotos de las recetas son fotografía de comida realista generada con IA, en horizontal 3:2.
+Detalles técnicos para que sea fácil de construir luego: se hace en HTML, CSS y JavaScript sin librerías; mejor tipografías del sistema del iPad (SF Pro, SF Pro Rounded, New York) o fuentes que se puedan incluir en la app; iconos de línea sencillos; emojis para los productos; las imágenes de las recetas son ilustraciones en gouache generadas con IA (pintadas a mano, vista desde arriba, sobre papel crema liso), en horizontal 3:2: el diseño tiene que lucirlas.
 
 Gracias. Lo importante: que en la cocina, a un metro y con prisa, se entienda todo a la primera, y que además sea bonita.
