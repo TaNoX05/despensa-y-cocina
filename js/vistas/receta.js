@@ -2,16 +2,18 @@
 // pasos, trucos y tu historial con opiniones.
 
 import { E } from '../almacen.js';
-import { receta, categoria, usaRobot, colorNota, resumenPaso, dondePaso, DONDE, ACCESORIOS } from '../recetas.js';
+import { receta, categoria, usaRobot, colorNota, resumenPaso, dondePaso, DONDE, ACCESORIOS, euros, precioRacion } from '../recetas.js';
 import { productoParaIngrediente } from '../despensa.js';
 import { proceso, porcentaje, marcado, alternarMarca, reiniciarProceso, fijarPaso } from '../cocina.js';
 import { esc, fechaLarga } from '../util.js';
 import { ico } from '../iconos.js';
 import { vista, accion, ir, repintar, volver } from '../rutas.js';
-import { confirmar } from '../ui.js';
-import { cocinadosDe, estrellasTexto, tarjetaCocinando } from './recetas.js';
+import { confirmar, tostada } from '../ui.js';
+import { cocinadosDe, estrellasTexto, tarjetaCocinando, mediaValoracion } from './recetas.js';
 import { abrirValoracion } from './valorar.js';
 import { desbloquear } from '../sonido.js';
+import { anadirFoto, fotosDe, elegirFotos, pintarMiniaturas } from '../fotos.js';
+import { abrirVisor, miniaturaFoto } from './galeria.js';
 
 export function filaIngrediente(rc, i, { conDespensa = true } = {}) {
   const ing = rc.ingredientes[i];
@@ -23,7 +25,23 @@ export function filaIngrediente(rc, i, { conDespensa = true } = {}) {
   }
   return `<button class="ingrediente ${m ? 'marcado' : ''}" data-a="marcarIngrediente" data-id="${rc.id}" data-i="${i}">
     <span class="casilla">${ico('check')}</span>
-    <span class="txt"><span class="cant">${esc(ing.cantidad)}</span>${esc(ing.nombre)}</span>${badge}</button>`;
+    <span class="txt"><span class="cant">${esc(ing.cantidad)}</span>${esc(ing.nombre)}</span>${badge}${costeIngrediente(ing)}</button>`;
+}
+function costeIngrediente(ing) {
+  const c = ing.compra;
+  if (!c || c.despensa || c.euros == null) return '';
+  const e = c.euros < 0.01 ? '< 0,01 €' : euros(c.euros);
+  return `<span class="coste-ing ${c.opcional ? 'opcional' : ''}" title="${esc(c.producto?.nombre || '')}">${c.opcional ? 'opcional' : e}</span>`;
+}
+function bloqueCoste(rc) {
+  const c = rc.coste;
+  if (!c) return '';
+  const cambios = rc.ingredientes.filter((i) => i.compra?.equivale).map((i) => `${esc(i.compra.equivale.split(' (')[0])} → ${esc(i.compra.producto?.nombre || '')}`);
+  return `<div class="coste-resumen">
+    <div class="cifras"><div><b>${precioRacion(rc)}</b><span>por ración</span></div><div><b>${euros(c.total)}</b><span>la receta (${c.raciones} raciones)</span></div></div>
+    ${c.completo ? '' : `<p class="aviso-coste">Falta el precio de: ${esc(c.faltan.join(', '))}.</p>`}
+    <p class="muy-tenue">Precios de ${esc(c.tienda)}. Se cuenta lo que usas, no el envase entero; sal y agua no suman.${cambios.length ? ` Equivalencias: ${cambios.join(' · ')}.` : ''}</p>
+  </div>`;
 }
 export function filaPreparacion(rc, i) {
   const m = marcado('preparacion', rc.id, i);
@@ -49,23 +67,30 @@ function bloqueNota(rc) {
 
 function bloqueHistorial(rc) {
   const lista = cocinadosDe(rc.id);
+  const fotos = fotosDe(rc.id);
   return `<section class="bloque">
-    <div class="bloque-cab"><h2>Tu historial</h2>
+    <div class="bloque-cab"><h2>Tus fotos y opiniones</h2>
       <div class="acciones-cab"><button class="boton peq" data-a="apuntarHecha" data-id="${rc.id}">${ico('mas', 'peq')} Apuntar que la he hecho</button></div></div>
+    <div class="galeria">
+      <button class="foto-anadir" data-a="fotoReceta" data-id="${rc.id}">${ico('mas')}<span>Hacer foto</span></button>
+      ${fotos.map((f) => miniaturaFoto(f, `data-a="verFoto" data-receta="${rc.id}"`)).join('')}
+    </div>
     ${lista.length ? lista.map((c) => `<div class="historial-item">
         <div class="cab"><span class="fecha">${esc(fechaLarga(c.fecha))}</span>
-          ${c.valoracion ? `<span class="estrellas-mini" style="font-size:18px">${estrellasTexto(c.valoracion)}</span>` : ''}
+          ${typeof c.valoracion === 'number' ? `<span class="estrellas-mini" style="font-size:18px">${estrellasTexto(c.valoracion)}</span><b>${c.valoracion}/5</b>` : ''}
           ${(c.etiquetas || []).map((t) => `<span class="chip">${esc(t)}</span>`).join('')}
           <button class="boton fantasma peq" style="margin-left:auto" data-a="editarCocinado" data-id="${rc.id}" data-c="${c.id}">${ico('nota', 'peq')} Editar</button></div>
         ${c.comentario ? `<p>${esc(c.comentario)}</p>` : ''}
         ${c.cambios ? `<div class="etq-txt">La próxima vez</div><p>${esc(c.cambios)}</p>` : ''}
         ${(c.notas_pasos || []).length ? `<div class="etq-txt">Notas de los pasos</div>${c.notas_pasos.map((n) => `<p><b>Paso ${n.paso} · ${esc(n.titulo)}:</b> ${esc(n.texto)}</p>`).join('')}` : ''}
+        ${fotosDe(rc.id, { cocinado: c.id }).length ? `<div class="galeria galeria-peq">${fotosDe(rc.id, { cocinado: c.id }).map((f) => miniaturaFoto(f, `data-a="verFoto" data-receta="${rc.id}"`)).join('')}</div>` : ''}
       </div>`).join('')
       : `<p class="tenue">Aún no la has hecho. Cuando la termines te preguntaré qué tal ha salido: tus notas sirven para mejorar la receta la próxima vez.</p>`}
   </section>`;
 }
 
 vista('receta', {
+  montar: (app) => pintarMiniaturas(app),
   render: ({ id }) => {
     const rc = receta(id);
     if (!rc) return `<main class="pantalla"><div class="vacio"><div class="grande">🤷</div><p>Esta receta ya no existe.</p><button class="boton" data-a="volverRecetas">Volver</button></div></main>`;
@@ -81,6 +106,8 @@ vista('receta', {
           ${rc.subtitulo ? `<p class="sub">${esc(rc.subtitulo)}</p>` : ''}
           <div class="chips">
             ${robot ? `<span class="chip robot">${ico('robot', 'peq')} Monsieur Cuisine Plus</span>` : `<span class="chip">🍳 Sin robot</span>`}
+            ${precioRacion(rc) ? `<span class="chip precio">${precioRacion(rc)} por ración</span>` : ''}
+            ${mediaValoracion(id) != null ? `<span class="chip">★ ${String(Math.round(mediaValoracion(id) * 10) / 10).replace('.', ',')} / 5</span>` : ''}
             <span class="chip">${ico('reloj', 'peq')} ${rc.tiempo_min} min</span>
             <span class="chip">🍽 ${esc(rc.raciones)}</span>
             ${cat ? `<span class="chip">${cat.emoji} ${esc(cat.nombre)}</span>` : ''}
@@ -96,6 +123,7 @@ vista('receta', {
               <div class="acciones-cab">${marcados ? `<button class="boton fantasma peq" data-a="desmarcarIngredientes" data-id="${id}">Desmarcar</button>` : ''}</div></div>
             <p class="muy-tenue" style="font-size:14.5px;margin:-6px 0 6px">Toca para marcar lo que ya tienes preparado.</p>
             <div id="ingredientes">${rc.ingredientes.map((_, i) => filaIngrediente(rc, i)).join('')}</div>
+            ${bloqueCoste(rc)}
           </section>
           ${rc.preparacion?.length ? `<section class="bloque"><div class="bloque-cab"><h2>Antes de empezar</h2></div>
             ${rc.preparacion.map((_, i) => filaPreparacion(rc, i)).join('')}</section>` : ''}
@@ -148,5 +176,15 @@ accion({
     }
   },
   apuntarHecha: ({ id }) => abrirValoracion(receta(id), { alGuardar: repintar }),
+  fotoReceta: async ({ id }) => {
+    const ficheros = await elegirFotos();
+    if (!ficheros.length) return;
+    for (const f of ficheros) {
+      try { await anadirFoto(f, { receta: id }); } catch (e) { tostada(e.message || 'No se ha podido guardar la foto'); }
+    }
+    tostada(ficheros.length === 1 ? 'Foto guardada' : `${ficheros.length} fotos guardadas`, { icono: 'check' });
+    repintar();
+  },
+  verFoto: ({ receta: rid, id }) => abrirVisor(rid, id, { alCambiar: repintar }),
   editarCocinado: ({ id, c }) => abrirValoracion(receta(id), { idCocinado: c, alGuardar: repintar }),
 });

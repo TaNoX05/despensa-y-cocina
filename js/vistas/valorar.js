@@ -9,15 +9,21 @@ import { ico, ESTRELLA } from '../iconos.js';
 import { abrirHoja, tostada } from '../ui.js';
 import { ia, iaConfigurada } from '../conexion.js';
 import { dictarEn } from './voz.js';
+import { anadirFoto, fotosDe, elegirFotos, pintarMiniaturas } from '../fotos.js';
+import { abrirVisor, miniaturaFoto } from './galeria.js';
 
 const ETIQUETAS = ['Perfecta', 'La repetiría', 'Sosa', 'Salada', 'Seca', 'Muy caldosa', 'Le faltó cocción', 'Pasada de punto', 'Picante', 'Mucho trabajo', 'Tiempos justos', 'Ajustaría tiempos'];
-const TEXTOS_ESTRELLAS = ['', 'No me ha gustado', 'Regular', 'Bien', 'Muy buena', '¡Para repetir!'];
+const TEXTOS_ESTRELLAS = ['0 · No la repetiría', '1 · No me ha gustado', '2 · Regular', '3 · Bien', '4 · Muy buena', '5 · ¡Para repetir!'];
+const textoEstrellas = (v) => (v == null ? 'Toca las estrellas (de 0 a 5)' : TEXTOS_ESTRELLAS[v]);
 
 export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, alGuardar } = {}) {
   const existente = idCocinado ? E.diario.cocinados.find((c) => c.id === idCocinado) : null;
   const pr = desdeCocina ? proceso(rc.id) : null;
   const notas = existente?.notas_pasos || Object.entries(pr?.notas || {}).map(([n, texto]) => ({ paso: Number(n) + 1, titulo: rc.pasos[n]?.titulo || '', texto }));
-  let valor = existente?.valoracion || 0;
+  let valor = typeof existente?.valoracion === 'number' ? existente.valoracion : null;   // null = sin valorar
+  const idEntrada = existente?.id || nuevoId();   // las fotos que hagas aquí quedan unidas a este día
+  const galeria = () => `${fotosDe(rc.id, { cocinado: idEntrada }).map((f) => miniaturaFoto(f)).join('')}
+    <button class="foto-anadir" data-r="foto">${ico('mas')}<span>Añadir foto</span></button>`;
   const etiquetas = new Set(existente?.etiquetas || []);
 
   const h = abrirHoja(`
@@ -26,8 +32,10 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
       <div><h2 style="margin:0">${existente ? 'Editar' : desdeCocina ? '¡Terminado! ¿Qué tal ha salido?' : 'Apuntar que la he hecho'}</h2>
       <p class="tenue">${esc(rc.titulo)}</p></div>
     </div>
-    <div class="estrellas" id="estrellas">${[1, 2, 3, 4, 5].map((i) => `<button class="estrella ${i <= valor ? 'on' : ''}" data-r="estrella" data-v="${i}" aria-label="${i} estrellas">${ESTRELLA}</button>`).join('')}</div>
-    <p class="tenue" style="text-align:center;font-weight:650" id="texto-estrellas">${TEXTOS_ESTRELLAS[valor] || 'Toca las estrellas'}</p>
+    <div class="estrellas" id="estrellas">
+      <button class="estrella-cero ${valor === 0 ? 'on' : ''}" data-r="estrella" data-v="0" aria-label="0 estrellas">0</button>
+      ${[1, 2, 3, 4, 5].map((i) => `<button class="estrella ${valor != null && i <= valor ? 'on' : ''}" data-r="estrella" data-v="${i}" aria-label="${i} estrellas">${ESTRELLA}</button>`).join('')}</div>
+    <p class="tenue" style="text-align:center;font-weight:650" id="texto-estrellas">${textoEstrellas(valor)}</p>
     <div class="etiquetas-opcion" id="etiquetas">${ETIQUETAS.map((t) => `<button class="${etiquetas.has(t) ? 'activo' : ''}" data-r="etiqueta" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div>
     <div class="campo area-voz"><span>¿Cómo ha salido?</span>
       <textarea class="area" id="v-comentario" placeholder="Textura, sabor, si ha gustado en casa…">${esc(existente?.comentario || '')}</textarea>
@@ -35,6 +43,7 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
     <div class="campo area-voz"><span>¿Qué cambiarías la próxima vez?</span>
       <textarea class="area" id="v-cambios" placeholder="Más tiempo en el paso 5, menos sal, el doble de salsa…">${esc(existente?.cambios || '')}</textarea>
       <button class="dictar" data-r="dictar" data-area="v-cambios" aria-label="Dictar">${ico('mic')}</button></div>
+    <div class="campo"><span>Fotos del plato</span><div class="galeria galeria-hoja" id="v-fotos">${galeria()}</div></div>
     ${notas.length ? `<div class="campo"><span>Tus notas de los pasos</span>${notas.map((n) => `<p class="nota-paso" style="margin-top:8px">${ico('nota')}<span><b>Paso ${n.paso} · ${esc(n.titulo)}:</b> ${esc(n.texto)}</span></p>`).join('')}</div>` : ''}
     <label class="campo"><span>Fecha</span><input class="entrada" type="date" id="v-fecha" value="${esc((existente?.fecha || hoyISO()).slice(0, 10))}"></label>
     <div class="pie">
@@ -43,16 +52,30 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
     </div>
     <p class="muy-tenue" style="font-size:14px;margin-top:12px;text-align:center">Se guarda en tu historial${E.ajustes.github.repo ? ' y en tu copia de GitHub' : ''}: así, cuando me pidas mejorar la receta, sé qué falló.</p>`,
   { bloquearFondo: true });
+  pintarMiniaturas(h.el);
 
   h.el.addEventListener('click', (e) => {
     const b = e.target.closest('[data-r]'); if (!b) return;
     const r = b.dataset.r;
     if (r === 'estrella') {
-      valor = Number(b.dataset.v) === valor ? 0 : Number(b.dataset.v);
-      h.el.querySelectorAll('.estrella').forEach((x) => x.classList.toggle('on', Number(x.dataset.v) <= valor));
-      h.el.querySelector('#texto-estrellas').textContent = TEXTOS_ESTRELLAS[valor] || 'Toca las estrellas';
+      const v = Number(b.dataset.v);
+      valor = v === valor ? null : v;                       // volver a tocar la misma la quita
+      h.el.querySelectorAll('.estrella').forEach((x) => x.classList.toggle('on', valor != null && Number(x.dataset.v) <= valor));
+      h.el.querySelector('.estrella-cero').classList.toggle('on', valor === 0);
+      h.el.querySelector('#texto-estrellas').textContent = textoEstrellas(valor);
       return;
     }
+    if (r === 'foto') {
+      elegirFotos().then(async (ficheros) => {
+        for (const f of ficheros) {
+          try { await anadirFoto(f, { receta: rc.id, cocinado: idEntrada }); }
+          catch (err) { tostada(err.message || 'No se ha podido guardar la foto'); }
+        }
+        const g = h.el.querySelector('#v-fotos'); g.innerHTML = galeria(); pintarMiniaturas(g);
+      });
+      return;
+    }
+    if (r === 'verFoto') { abrirVisor(rc.id, b.dataset.id, { alCambiar: () => { const g = h.el.querySelector('#v-fotos'); g.innerHTML = galeria(); pintarMiniaturas(g); } }); return; }
     if (r === 'etiqueta') { const t = b.dataset.t; etiquetas.has(t) ? etiquetas.delete(t) : etiquetas.add(t); b.classList.toggle('activo'); return; }
     if (r === 'dictar') { dictarEn(b, h.el.querySelector('#' + b.dataset.area)); return; }
     if (r === 'no') { h.cerrar(); return; }
@@ -66,7 +89,7 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
     const fecha = h.el.querySelector('#v-fecha').value || hoyISO();
     const datos = {
       receta: rc.id, titulo: rc.titulo, fecha,
-      valoracion: sin ? null : (valor || null),
+      valoracion: sin ? null : valor,
       etiquetas: sin ? [] : [...etiquetas],
       comentario: sin ? '' : h.el.querySelector('#v-comentario').value.trim(),
       cambios: sin ? '' : h.el.querySelector('#v-cambios').value.trim(),
@@ -76,7 +99,7 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
     if (existente) Object.assign(existente, datos);
     else {
       if (pr?.iniciada) datos.duracion_min = Math.round((Date.now() - pr.iniciada) / 60000);
-      E.diario.cocinados.unshift({ id: nuevoId(), ...datos });
+      E.diario.cocinados.unshift({ id: idEntrada, ...datos });
     }
     guardar('diario');
     h.cerrar();

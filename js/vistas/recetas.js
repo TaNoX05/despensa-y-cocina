@@ -1,7 +1,7 @@
 // Listado de recetas por categorías, con "Cocinando ahora" arriba.
 
 import { E } from '../almacen.js';
-import { recetas, categorias, categoria, receta, usaRobot, colorNota } from '../recetas.js';
+import { recetas, categorias, categoria, receta, usaRobot, precioRacion } from '../recetas.js';
 import { coberturaReceta } from '../despensa.js';
 import { proceso, porcentaje, timerMasUrgente, restante, corriendo, quitarProceso } from '../cocina.js';
 import { esc, normalizar, mmss } from '../util.js';
@@ -12,11 +12,20 @@ import { confirmar } from '../ui.js';
 let busqueda = '';
 
 export function cocinadosDe(id) { return (E.diario.cocinados || []).filter((c) => c.receta === id && !c.borrado); }
+/** Tu valoración media (0 a 5) o null si nunca la has valorado. */
 export function mediaValoracion(id) {
-  const v = cocinadosDe(id).map((c) => c.valoracion).filter((x) => x);
+  const v = cocinadosDe(id).map((c) => c.valoracion).filter((x) => typeof x === 'number');
   return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
 }
 export const estrellasTexto = (v) => '★'.repeat(Math.round(v)) + '☆'.repeat(5 - Math.round(v));
+const coma = (n) => String(Math.round(n * 10) / 10).replace('.', ',');
+/** Estrellas + número, o «Sin valorar». */
+export function valoracionHtml(id, { conVeces = true } = {}) {
+  const veces = cocinadosDe(id).length, media = mediaValoracion(id);
+  const txtVeces = veces ? `Hecha ${veces} ${veces === 1 ? 'vez' : 'veces'}` : 'Aún no la has hecho';
+  if (media == null) return `<span class="valoracion sin">Sin valorar${conVeces ? ` · ${txtVeces}` : ''}</span>`;
+  return `<span class="valoracion"><span class="estrellas-mini">${estrellasTexto(media)}</span> <b>${coma(media)}</b>${conVeces ? ` · ${txtVeces}` : ''}</span>`;
+}
 
 export function anilloPct(id, tam = 84, grosor = 8, color = 'var(--robot-luz)') {
   const r = (tam - grosor) / 2, L = 2 * Math.PI * r, pct = porcentaje(id);
@@ -56,7 +65,6 @@ export function tarjetaCocinando(id) {
 
 export function tarjetaReceta(rc) {
   const cat = categoria(rc.categoria);
-  const veces = cocinadosDe(rc.id).length, media = mediaValoracion(rc.id);
   const cob = E.despensa.productos.length ? coberturaReceta(E.despensa.productos, rc) : null;
   const robot = usaRobot(rc);
   return `<button class="tarjeta-receta" data-a="abrirReceta" data-id="${rc.id}">
@@ -65,7 +73,7 @@ export function tarjetaReceta(rc) {
       <div class="insignias">
         ${robot ? `<span class="insignia robot">${ico('robot', 'peq')} Robot</span>` : `<span class="insignia">🍳 Sin robot</span>`}
         ${proceso(rc.id) ? `<span class="insignia" style="background:var(--acento)">🔥 <span data-pct="${rc.id}">${porcentaje(rc.id)} %</span></span>` : ''}
-        ${rc.nota != null ? `<span class="nota-circulo" style="background:${colorNota(rc.nota)}">${rc.nota}<small>/10</small></span>` : ''}
+        ${precioRacion(rc) ? `<span class="precio-insignia"><b>${precioRacion(rc)}</b><small>por ración</small></span>` : ''}
       </div>
     </div>
     <div class="cuerpo">
@@ -77,7 +85,7 @@ export function tarjetaReceta(rc) {
         ${cat ? `<span>${cat.emoji} ${esc(cat.nombre)}</span>` : ''}
       </div>
       <div class="meta" style="padding-top:0">
-        ${veces ? `<span>${media ? `<span class="estrellas-mini">${estrellasTexto(media)}</span>` : ''} Hecha ${veces} ${veces === 1 ? 'vez' : 'veces'}</span>` : '<span class="muy-tenue">Aún no la has hecho</span>'}
+        ${valoracionHtml(rc.id)}
         ${cob && cob.total ? `<span style="color:${cob.tengo === cob.total ? 'var(--verde)' : 'var(--texto-2)'}">${ico('despensa', 'peq')} Tienes ${cob.tengo} de ${cob.total}</span>` : ''}
       </div>
     </div>

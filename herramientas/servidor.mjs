@@ -58,6 +58,15 @@ async function githubFalso(req, res, ruta) {
     guardarFalso();
     return json(actual ? 200 : 201, { content: { sha, path: fichero }, commit: { message: b.message } });
   }
+  if (req.method === 'DELETE') {
+    const b = JSON.parse((await leerCuerpo(req)).toString('utf8'));
+    const actual = repoFalso[clave];
+    if (!actual) return json(404, { message: 'Not Found' });
+    if (b.sha !== actual.sha) return json(409, { message: 'sha does not match' });
+    delete repoFalso[clave];
+    guardarFalso();
+    return json(200, { commit: { message: b.message } });
+  }
   json(405, { message: 'Method not allowed' });
 }
 

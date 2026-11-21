@@ -5,6 +5,9 @@ App web para el iPad con dos partes:
 - **Despensa por voz.** Pulsas el botón grande, dices «he comprado dos bricks de leche y se ha acabado el chorizo» y lo apunta. Separa nevera, congelador y despensa, avisa de lo que caduca y lo que se acaba pasa a «Para comprar».
 - **Recetas paso a paso.** Por categorías, con una ilustración en gouache de cada plato, la nota de cómo queda en el robot, ingredientes que se marcan, y un modo cocina a pantalla completa: el paso actual en grande, el panel con los ajustes de la **Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)** o, si el paso es fuera del robot, dónde se hace (olla, sartén, horno…), el fuego y cómo saber que está. Temporizadores con alarma, notas por paso y, al terminar, tu valoración y lo que cambiarías, que se guarda en tu historial.
 
+- **Precio por ración** de cada receta, con precios de Mercadona (lo que usas, no el envase entero).
+- **Tus fotos y tu nota.** Haz fotos de tus platos con la cámara del iPad: quedan en la galería de cada receta, junto a tu opinión y tu valoración de 0 a 5 estrellas, y se copian en tu GitHub privado.
+
 Funciona sin conexión (menos la voz), la pantalla no se apaga mientras está abierta y se instala en la pantalla de inicio como una app más.
 
 ---
@@ -93,7 +96,7 @@ Para mejorar una receta: «mejora los macarrones con lo que apunté». Leo tu hi
 | Dónde | Qué hay | Quién lo ve |
 | --- | --- | --- |
 | Repositorio `despensa-y-cocina` (público) | La app, las recetas y sus fotos | Cualquiera con el enlace |
-| Repositorio `despensa-datos` (privado) | Tu despensa, historial, valoraciones y notas | Solo tú (y yo cuando me lo pidas) |
+| Repositorio `despensa-datos` (privado) | Tu despensa, historial, valoraciones, notas y tus fotos de los platos (carpeta `fotos/`) | Solo tú (y yo cuando me lo pidas) |
 | El iPad | Todo lo anterior, el progreso de lo que estás cocinando y las claves | Solo el iPad |
 
 ---
@@ -118,6 +121,7 @@ css/app.css                               todo el diseño (claro y oscuro)
 js/app.js                                 arranque, pestañas y mini reproductor
 js/rutas.js                               navegación por #/… y acciones de los botones
 js/almacen.js, js/sincro.js               datos en el iPad y copia en GitHub (API de contenidos)
+js/fotos.js, js/vistas/galeria.js         fotos propias: cámara, IndexedDB, galería y visor
 js/ia.js, js/conexion.js, js/voz.js       OpenRouter: voz a texto, interpretar la despensa, descontar recetas
 js/despensa.js                            lógica de la despensa (aplicar y deshacer cambios, cruzar con recetas)
 js/recetas.js, js/cocina.js               datos de recetas, progreso, temporizadores y alarma
@@ -132,6 +136,7 @@ Herramientas (todas con Node):
 ```powershell
 node herramientas/servidor.mjs                 # app en http://localhost:5180 con puente a OpenRouter y GitHub falso
 node herramientas/validar-recetas.mjs          # comprueba datos/recetas.json
+node herramientas/precios.mjs                  # recalcula el precio de las recetas con el catálogo de Mercadona (MERCADONA_DIR en .env)
 node herramientas/generar-fotos.mjs <id>       # foto de una receta (sin id: las que no tienen)
 node herramientas/probar-ia.mjs "frase"        # prueba cómo entiende la IA una frase de la despensa
 node herramientas/generar-iconos.mjs           # iconos desde herramientas/icono.svg

@@ -42,7 +42,15 @@ for (const r of d.recetas || []) {
   if (!r.sin_robot && !robot) ojo(R, 'no tiene pasos de robot: ¿falta "sin_robot": true?');
   if (r.sin_robot && r.nota != null) ojo(R, 'receta sin robot con nota: la nota mide el robot, debería ser null');
   const nIng = (r.ingredientes || []).length;
-  for (const [i, ing] of (r.ingredientes || []).entries()) if (!ing.cantidad || !ing.nombre) mal(`${R} ingrediente ${i + 1}`, 'necesita "cantidad" y "nombre"');
+  for (const [i, ing] of (r.ingredientes || []).entries()) {
+    if (!ing.cantidad || !ing.nombre) mal(`${R} ingrediente ${i + 1}`, 'necesita "cantidad" y "nombre"');
+    const c = ing.compra;
+    if (!c) ojo(`${R} ingrediente ${i + 1}`, `«${ing.nombre}» sin "compra": no tendrá precio`);
+    else if (!c.despensa && !c.receta && !(c.mercadona && c.usa > 0 && ['g', 'ml', 'ud'].includes(c.unidad))) mal(`${R} ingrediente ${i + 1}`, 'compra: { mercadona, usa, unidad: g|ml|ud } o { despensa: true } o { receta, raciones }');
+  }
+  if (!r.coste) ojo(R, 'sin coste calculado: ejecuta node herramientas/precios.mjs');
+  else if (!r.coste.completo) ojo(R, `coste incompleto: ${r.coste.faltan.join('; ')}`);
+  if (!r.porciones) ojo(R, 'sin "porciones" (número de raciones para el precio por ración)');
   const textoReceta = JSON.stringify(r);
   if (PROHIBIDAS.test(textoReceta)) mal(R, 'usa vocabulario de otra máquina (Thermomix, Varoma, velocidad cuchara/espiga/progresiva)');
 

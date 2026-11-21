@@ -78,3 +78,12 @@ export function resumenPaso(p) {
 }
 
 export const colorNota = (n) => (n >= 9 ? '#2e8b4a' : n >= 7 ? '#d2541b' : n >= 5 ? '#d8930f' : '#d23a2c');
+
+// ---------------- precio ----------------
+export const euros = (n) => (n == null || isNaN(n) ? '' : `${Number(n).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`);
+/** "1,56 €" (o "≈ 1,56 €" si falta algún precio); null si la receta no tiene coste calculado. */
+export function precioRacion(rc) {
+  const c = rc?.coste;
+  if (!c || c.por_racion == null) return null;
+  return `${c.completo ? '' : '≈ '}${euros(c.por_racion)}`;
+}

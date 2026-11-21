@@ -5,7 +5,7 @@ const PREFIJO = 'dyc:';
 
 export const POR_DEFECTO = {
   despensa: { productos: [], registro: [] },
-  diario: { cocinados: [] },
+  diario: { cocinados: [], fotos: [] },
   cocina: { cocinando: {}, ingredientes: {}, preparacion: {} },
   ajustes: {
     tema: 'auto',

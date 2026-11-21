@@ -2,9 +2,21 @@
   "actualizado": "2026-11-21",
   "robot": "Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)",
   "categorias": [
-    { "id": "pasta", "nombre": "Pasta", "emoji": "🍝" },
-    { "id": "arroces", "nombre": "Arroces", "emoji": "🍚" },
-    { "id": "aperitivos", "nombre": "Aperitivos y picoteo", "emoji": "🧆" }
+    {
+      "id": "pasta",
+      "nombre": "Pasta",
+      "emoji": "🍝"
+    },
+    {
+      "id": "arroces",
+      "nombre": "Arroces",
+      "emoji": "🍚"
+    },
+    {
+      "id": "aperitivos",
+      "nombre": "Aperitivos y picoteo",
+      "emoji": "🧆"
+    }
   ],
   "recetas": [
     {
@@ -16,7 +28,11 @@
       "raciones": "3 raciones generosas",
       "tiempo_min": 55,
       "robot": "monsieur-cuisine-plus",
-      "accesorios": ["cuchillas", "espatula", "cestillo"],
+      "accesorios": [
+        "cuchillas",
+        "espatula",
+        "cestillo"
+      ],
       "foto": "img/recetas/macarrones-con-chorizo.webp",
       "foto_prompt": "Macarrones gratinados con chorizo en una fuente de barro rectangular recién sacada del horno: salsa de tomate roja intensa con taquitos de chorizo, costra de queso fundido dorada y burbujeante, perejil fresco picado por encima. Una ración servida en un plato al lado.",
       "nota": 8,
@@ -36,60 +52,376 @@
         "Ten a mano una olla grande para la pasta y una fuente de horno."
       ],
       "ingredientes": [
-        { "cantidad": "400 g", "nombre": "macarrones" },
-        { "cantidad": "150 g", "nombre": "chorizo para cocinar, en taquitos" },
-        { "cantidad": "1 (150 g)", "nombre": "cebolla mediana, en cuartos" },
-        { "cantidad": "1 (100 g)", "nombre": "pimiento italiano, en trozos" },
-        { "cantidad": "2", "nombre": "dientes de ajo" },
-        { "cantidad": "1", "nombre": "guindilla de cayena (opcional)" },
-        { "cantidad": "20 g", "nombre": "aceite de oliva" },
-        { "cantidad": "50 ml", "nombre": "vino tinto" },
-        { "cantidad": "500 g", "nombre": "tomate triturado" },
-        { "cantidad": "½ cdta", "nombre": "pimentón de la Vera" },
-        { "cantidad": "1", "nombre": "hoja de laurel" },
-        { "cantidad": "1 cdta", "nombre": "azúcar" },
-        { "cantidad": "1 cdta", "nombre": "orégano" },
-        { "cantidad": "al gusto", "nombre": "sal" },
-        { "cantidad": "100 g", "nombre": "queso rallado (mitad dentro, mitad para gratinar)" },
-        { "cantidad": "un puñado", "nombre": "perejil fresco picado, para servir" }
+        {
+          "cantidad": "400 g",
+          "nombre": "macarrones",
+          "compra": {
+            "mercadona": "6250",
+            "usa": 400,
+            "unidad": "g",
+            "euros": 0.48,
+            "producto": {
+              "nombre": "Macarrón Hacendado",
+              "formato": "Paquete 1 kg",
+              "precio": 1.2,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "150 g",
+          "nombre": "chorizo para cocinar, en taquitos",
+          "compra": {
+            "mercadona": "55135",
+            "usa": 150,
+            "unidad": "g",
+            "euros": 1.913,
+            "producto": {
+              "nombre": "Taquitos de chorizo extra Revilla",
+              "formato": "Pack-2 2 x 100 g",
+              "precio": 2.55,
+              "contenido": 200,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 (150 g)",
+          "nombre": "cebolla mediana, en cuartos",
+          "compra": {
+            "mercadona": "69089",
+            "usa": 150,
+            "unidad": "g",
+            "merma": 0.1,
+            "euros": 0.25,
+            "producto": {
+              "nombre": "Cebollas",
+              "formato": "Malla 1 kg",
+              "precio": 1.5,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 (100 g)",
+          "nombre": "pimiento italiano, en trozos",
+          "compra": {
+            "mercadona": "69320",
+            "usa": 100,
+            "unidad": "g",
+            "merma": 0.18,
+            "equivale": "pimiento italiano",
+            "euros": 0.31,
+            "producto": {
+              "nombre": "Pimiento verde freír",
+              "formato": "Pieza 130 g",
+              "precio": 0.33,
+              "contenido": 130,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "2",
+          "nombre": "dientes de ajo",
+          "compra": {
+            "mercadona": "69297",
+            "usa": 10,
+            "unidad": "g",
+            "merma": 0.13,
+            "euros": 0.085,
+            "producto": {
+              "nombre": "Ajos morados",
+              "formato": "Malla 250 g",
+              "precio": 1.85,
+              "contenido": 250,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1",
+          "nombre": "guindilla de cayena (opcional)",
+          "compra": {
+            "mercadona": "21552",
+            "usa": 0.3,
+            "unidad": "g",
+            "opcional": true,
+            "euros": 0.018,
+            "producto": {
+              "nombre": "Cayena guindillas Hacendado",
+              "formato": "Bote 23 g",
+              "precio": 1.35,
+              "contenido": 23,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "20 g",
+          "nombre": "aceite de oliva",
+          "compra": {
+            "mercadona": "4740",
+            "usa": 22,
+            "unidad": "ml",
+            "euros": 0.09,
+            "producto": {
+              "nombre": "Aceite de oliva virgen extra Hacendado",
+              "formato": "Botella 1 L",
+              "precio": 4.1,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "50 ml",
+          "nombre": "vino tinto",
+          "compra": {
+            "mercadona": "66211",
+            "usa": 50,
+            "unidad": "ml",
+            "euros": 0.055,
+            "producto": {
+              "nombre": "Vino tinto Casón Histórico",
+              "formato": "Brik 1 L",
+              "precio": 1.1,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "500 g",
+          "nombre": "tomate triturado",
+          "compra": {
+            "mercadona": "16043",
+            "usa": 500,
+            "unidad": "g",
+            "euros": 0.625,
+            "producto": {
+              "nombre": "Tomate triturado Hacendado",
+              "formato": "Bote 800 g",
+              "precio": 1,
+              "contenido": 800,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "½ cdta",
+          "nombre": "pimentón de la Vera",
+          "compra": {
+            "mercadona": "34102",
+            "usa": 1,
+            "unidad": "g",
+            "euros": 0.025,
+            "producto": {
+              "nombre": "Pimentón dulce de la Vera Hacendado",
+              "formato": "Bote 75 g",
+              "precio": 1.85,
+              "contenido": 75,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1",
+          "nombre": "hoja de laurel",
+          "compra": {
+            "mercadona": "47994",
+            "usa": 0.2,
+            "unidad": "g",
+            "euros": 0.014,
+            "producto": {
+              "nombre": "Hoja de laurel Hacendado",
+              "formato": "Paquete 12 g",
+              "precio": 0.85,
+              "contenido": 12,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 cdta",
+          "nombre": "azúcar",
+          "compra": {
+            "mercadona": "19897",
+            "usa": 4,
+            "unidad": "g",
+            "euros": 0.004,
+            "producto": {
+              "nombre": "Azúcar blanco Hacendado",
+              "formato": "Paquete 1 kg",
+              "precio": 0.9,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 cdta",
+          "nombre": "orégano",
+          "compra": {
+            "mercadona": "5598",
+            "usa": 1,
+            "unidad": "g",
+            "euros": 0.04,
+            "producto": {
+              "nombre": "Orégano Hacendado",
+              "formato": "Bote 25 g",
+              "precio": 1,
+              "contenido": 25,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "al gusto",
+          "nombre": "sal",
+          "compra": {
+            "despensa": true,
+            "euros": 0
+          }
+        },
+        {
+          "cantidad": "100 g",
+          "nombre": "queso rallado (mitad dentro, mitad para gratinar)",
+          "compra": {
+            "mercadona": "23621",
+            "usa": 100,
+            "unidad": "g",
+            "euros": 0.55,
+            "producto": {
+              "nombre": "Queso rallado especial fundir mezcla Hacendado",
+              "formato": "Paquete 200 g",
+              "precio": 1.1,
+              "contenido": 200,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "un puñado",
+          "nombre": "perejil fresco picado, para servir",
+          "compra": {
+            "mercadona": "69701",
+            "usa": 10,
+            "unidad": "g",
+            "euros": 0.238,
+            "producto": {
+              "nombre": "Perejil troceado lavado",
+              "formato": "Paquete 40 g",
+              "precio": 0.95,
+              "contenido": 40,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        }
       ],
       "pasos": [
         {
           "titulo": "Picar el sofrito",
           "texto": "Cebolla, pimiento y ajo al vaso. Pica y baja con la espátula lo que quede en las paredes. Si aún ves trozos grandes, dale 3-4 segundos más.",
           "tipo": "robot",
-          "usa": [2, 3, 4],
-          "robot": { "tiempo_s": 10, "velocidad": "5", "medidor": "puesto" }
+          "usa": [
+            2,
+            3,
+            4
+          ],
+          "robot": {
+            "tiempo_s": 10,
+            "velocidad": "5",
+            "medidor": "puesto"
+          }
         },
         {
           "titulo": "Sofreír",
           "texto": "Pesa el aceite directamente en el vaso y añade la cayena entera. Sofríe sin el vaso medidor.",
           "tipo": "robot",
-          "usa": [6, 5],
-          "robot": { "programa": "sofreir", "tiempo_s": 600, "temperatura": 120, "velocidad": "1", "medidor": "quitado" }
+          "usa": [
+            6,
+            5
+          ],
+          "robot": {
+            "programa": "sofreir",
+            "tiempo_s": 600,
+            "temperatura": 120,
+            "velocidad": "1",
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Rehogar el chorizo",
           "texto": "Añade el chorizo para que suelte la grasa y el color.",
           "tipo": "robot",
-          "usa": [1],
-          "robot": { "tiempo_s": 240, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+          "usa": [
+            1
+          ],
+          "robot": {
+            "tiempo_s": 240,
+            "temperatura": 120,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Vino tinto",
           "texto": "Añade el vino y deja que se evapore el alcohol, sin el vaso medidor.",
           "tipo": "robot",
-          "usa": [7],
-          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+          "usa": [
+            7
+          ],
+          "robot": {
+            "tiempo_s": 120,
+            "temperatura": 120,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Salsa de tomate",
           "texto": "Añade el tomate, el pimentón, el laurel, el azúcar, el orégano y ½ cdta de sal. Sin vaso medidor y con el cestillo encima de la tapa para que no salpique.",
           "tipo": "robot",
-          "usa": [8, 9, 10, 11, 12, 13],
-          "robot": { "tiempo_s": 1500, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "cestillo" },
+          "usa": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "robot": {
+            "tiempo_s": 1500,
+            "temperatura": 100,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "cestillo"
+          },
           "aviso": "Cuando le queden 12 minutos, pon a hervir el agua de la pasta (paso siguiente).",
-          "recordatorio": { "quedan_s": 720, "texto": "Pon a hervir el agua de la pasta: 4 litros con sal." }
+          "recordatorio": {
+            "quedan_s": 720,
+            "texto": "Pon a hervir el agua de la pasta: 4 litros con sal."
+          }
         },
         {
           "titulo": "Cocer los macarrones",
@@ -97,7 +429,10 @@
           "tipo": "fuera",
           "donde": "olla",
           "fuego": "fuerte",
-          "usa": [0, 13],
+          "usa": [
+            0,
+            13
+          ],
           "temporizador_s": 540,
           "temporizador_editable": true,
           "señal": "Al morderlos aún resisten un poco en el centro: terminan de hacerse en el horno.",
@@ -116,7 +451,9 @@
           "tipo": "fuera",
           "donde": "olla",
           "fuego": "apagado",
-          "usa": [14],
+          "usa": [
+            14
+          ],
           "señal": "Toda la pasta brillante y bien cubierta de salsa, sin que quede seca.",
           "aviso": "No lo mezcles en el vaso: no cabe todo y el giro rompería los macarrones."
         },
@@ -126,7 +463,9 @@
           "tipo": "fuera",
           "donde": "horno",
           "modo": "Grill fuerte",
-          "usa": [14],
+          "usa": [
+            14
+          ],
           "temporizador_s": 300,
           "señal": "El queso dorado y burbujeando. Vigílalo el último minuto: se quema rápido."
         },
@@ -135,14 +474,27 @@
           "texto": "Con perejil picado por encima.",
           "tipo": "fuera",
           "donde": "mesa",
-          "usa": [15]
+          "usa": [
+            15
+          ]
         }
       ],
       "trucos": [
         "Si la salsa aún queda clara, dale 5 minutos más con los ajustes del paso 5.",
         "Con la cayena entera pica poco; si la quieres más fuerte, desmenúzala en el paso 2.",
         "El chorizo bueno es el de guisar (sarta o taquitos), no el de companaje."
-      ]
+      ],
+      "porciones": 3,
+      "coste": {
+        "tienda": "Mercadona",
+        "calculado": "2026-11-21",
+        "precios_hasta": "2026-11-21",
+        "total": 4.68,
+        "raciones": 3,
+        "por_racion": 1.56,
+        "completo": true,
+        "faltan": []
+      }
     },
     {
       "id": "risotto-pollo-champinones",
@@ -153,7 +505,10 @@
       "raciones": "3 raciones",
       "tiempo_min": 40,
       "robot": "monsieur-cuisine-plus",
-      "accesorios": ["cuchillas", "espatula"],
+      "accesorios": [
+        "cuchillas",
+        "espatula"
+      ],
       "foto": "img/recetas/risotto-pollo-champinones.webp",
       "foto_prompt": "Risotto cremoso y meloso de pollo y champiñones en un plato hondo de cerámica: granos de arroz brillantes, dados de pollo jugoso, láminas de champiñón, lascas de parmesano y perejil picado por encima. Una cuchara al lado y un cuenquito con parmesano rallado.",
       "nota": 7,
@@ -173,83 +528,348 @@
         "Ralla el parmesano y pica el perejil."
       ],
       "ingredientes": [
-        { "cantidad": "270 g", "nombre": "arroz para risotto (arborio)" },
-        { "cantidad": "300 g", "nombre": "contramuslo de pollo sin hueso, en dados de 2 cm" },
-        { "cantidad": "250 g", "nombre": "champiñones laminados" },
-        { "cantidad": "1 (100 g)", "nombre": "cebolla pequeña, en cuartos" },
-        { "cantidad": "1", "nombre": "diente de ajo" },
-        { "cantidad": "20 g", "nombre": "aceite de oliva" },
-        { "cantidad": "80 ml", "nombre": "vino blanco" },
-        { "cantidad": "800 ml", "nombre": "caldo de pollo, caliente" },
-        { "cantidad": "30 g", "nombre": "mantequilla" },
-        { "cantidad": "50 g", "nombre": "parmesano rallado" },
-        { "cantidad": "al gusto", "nombre": "sal y pimienta negra" },
-        { "cantidad": "un puñado", "nombre": "perejil fresco picado, para servir" }
+        {
+          "cantidad": "270 g",
+          "nombre": "arroz para risotto (arborio)",
+          "compra": {
+            "mercadona": "5044",
+            "usa": 270,
+            "unidad": "g",
+            "equivale": "arroz para risotto (Mercadona no vende arborio)",
+            "euros": 0.311,
+            "producto": {
+              "nombre": "Arroz redondo Hacendado",
+              "formato": "Paquete 1 kg",
+              "precio": 1.15,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "300 g",
+          "nombre": "contramuslo de pollo sin hueso, en dados de 2 cm",
+          "compra": {
+            "mercadona": "2789",
+            "usa": 300,
+            "unidad": "g",
+            "euros": 2.04,
+            "producto": {
+              "nombre": "Contramuslos de pollo deshuesados y sin piel",
+              "formato": "Bandeja 550 g",
+              "precio": 3.74,
+              "contenido": 550,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "250 g",
+          "nombre": "champiñones laminados",
+          "compra": {
+            "mercadona": "26951",
+            "usa": 250,
+            "unidad": "g",
+            "euros": 1.3,
+            "producto": {
+              "nombre": "Champiñones blancos",
+              "formato": "Bandeja 300 g",
+              "precio": 1.56,
+              "contenido": 300,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 (100 g)",
+          "nombre": "cebolla pequeña, en cuartos",
+          "compra": {
+            "mercadona": "69089",
+            "usa": 100,
+            "unidad": "g",
+            "merma": 0.1,
+            "euros": 0.167,
+            "producto": {
+              "nombre": "Cebollas",
+              "formato": "Malla 1 kg",
+              "precio": 1.5,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1",
+          "nombre": "diente de ajo",
+          "compra": {
+            "mercadona": "69297",
+            "usa": 5,
+            "unidad": "g",
+            "merma": 0.13,
+            "euros": 0.043,
+            "producto": {
+              "nombre": "Ajos morados",
+              "formato": "Malla 250 g",
+              "precio": 1.85,
+              "contenido": 250,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "20 g",
+          "nombre": "aceite de oliva",
+          "compra": {
+            "mercadona": "4740",
+            "usa": 22,
+            "unidad": "ml",
+            "euros": 0.09,
+            "producto": {
+              "nombre": "Aceite de oliva virgen extra Hacendado",
+              "formato": "Botella 1 L",
+              "precio": 4.1,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "80 ml",
+          "nombre": "vino blanco",
+          "compra": {
+            "mercadona": "66127",
+            "usa": 80,
+            "unidad": "ml",
+            "euros": 0.076,
+            "producto": {
+              "nombre": "Vino blanco Casón Histórico",
+              "formato": "Brik 1 L",
+              "precio": 0.95,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "800 ml",
+          "nombre": "caldo de pollo, caliente",
+          "compra": {
+            "mercadona": "7313",
+            "usa": 800,
+            "unidad": "ml",
+            "euros": 0.6,
+            "producto": {
+              "nombre": "Caldo de pollo Hacendado",
+              "formato": "Brik 1 L",
+              "precio": 0.75,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "30 g",
+          "nombre": "mantequilla",
+          "compra": {
+            "mercadona": "20722",
+            "usa": 30,
+            "unidad": "g",
+            "euros": 0.246,
+            "producto": {
+              "nombre": "Mantequilla con sal Hacendado",
+              "formato": "Pastilla 250 g",
+              "precio": 2.05,
+              "contenido": 250,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "50 g",
+          "nombre": "parmesano rallado",
+          "compra": {
+            "mercadona": "50008",
+            "usa": 50,
+            "unidad": "g",
+            "equivale": "parmesano (Mercadona no vende parmesano)",
+            "euros": 0.796,
+            "producto": {
+              "nombre": "Queso grana padano Zanetti",
+              "formato": "Pieza 230 g",
+              "precio": 3.66,
+              "contenido": 230,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "al gusto",
+          "nombre": "sal y pimienta negra",
+          "compra": {
+            "despensa": true,
+            "euros": 0
+          }
+        },
+        {
+          "cantidad": "un puñado",
+          "nombre": "perejil fresco picado, para servir",
+          "compra": {
+            "mercadona": "69701",
+            "usa": 10,
+            "unidad": "g",
+            "euros": 0.238,
+            "producto": {
+              "nombre": "Perejil troceado lavado",
+              "formato": "Paquete 40 g",
+              "precio": 0.95,
+              "contenido": 40,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        }
       ],
       "pasos": [
         {
           "titulo": "Picar",
           "texto": "Cebolla y ajo al vaso. Pica y baja con la espátula lo que quede en las paredes. Si aún ves trozos grandes, dale 3-4 segundos más.",
           "tipo": "robot",
-          "usa": [3, 4],
-          "robot": { "tiempo_s": 10, "velocidad": "5", "medidor": "puesto" }
+          "usa": [
+            3,
+            4
+          ],
+          "robot": {
+            "tiempo_s": 10,
+            "velocidad": "5",
+            "medidor": "puesto"
+          }
         },
         {
           "titulo": "Sofreír",
           "texto": "Pesa el aceite directamente en el vaso y sofríe sin el vaso medidor.",
           "tipo": "robot",
-          "usa": [5],
-          "robot": { "programa": "sofreir", "tiempo_s": 300, "temperatura": 120, "velocidad": "1", "medidor": "quitado" }
+          "usa": [
+            5
+          ],
+          "robot": {
+            "programa": "sofreir",
+            "tiempo_s": 300,
+            "temperatura": 120,
+            "velocidad": "1",
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Pollo y champiñones",
           "texto": "Añade el pollo, los champiñones y una pizca de sal. Sin vaso medidor, para que se evapore el agua que sueltan los champiñones.",
           "tipo": "robot",
-          "usa": [1, 2, 10],
-          "robot": { "tiempo_s": 360, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+          "usa": [
+            1,
+            2,
+            10
+          ],
+          "robot": {
+            "tiempo_s": 360,
+            "temperatura": 120,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Nacarar el arroz",
           "texto": "Añade el arroz.",
           "tipo": "robot",
-          "usa": [0],
-          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+          "usa": [
+            0
+          ],
+          "robot": {
+            "tiempo_s": 120,
+            "temperatura": 120,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Vino blanco",
           "texto": "Añade el vino y deja que se evapore el alcohol, sin el vaso medidor.",
           "tipo": "robot",
-          "usa": [6],
-          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+          "usa": [
+            6
+          ],
+          "robot": {
+            "tiempo_s": 120,
+            "temperatura": 120,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "quitado"
+          }
         },
         {
           "titulo": "Cocer con el caldo",
           "texto": "Añade el caldo caliente y ½ cdta de sal. Con el vaso medidor puesto.",
           "tipo": "robot",
-          "usa": [7, 10],
-          "robot": { "tiempo_s": 900, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "puesto" }
+          "usa": [
+            7,
+            10
+          ],
+          "robot": {
+            "tiempo_s": 900,
+            "temperatura": 100,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "puesto"
+          }
         },
         {
           "titulo": "Probar el punto",
           "texto": "Prueba el arroz. Si aún está duro, dale 2 minutos más con los mismos ajustes. Debe quedar meloso y algo caldoso: espesa al reposar.",
           "tipo": "robot",
           "opcional": true,
-          "robot": { "tiempo_s": 120, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "puesto" },
+          "robot": {
+            "tiempo_s": 120,
+            "temperatura": 100,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "puesto"
+          },
           "aviso": "Para las 2 raciones de los arancini: sácalas ahora, antes de la mantequilla y el queso, si las quieres guardar para recalentar. Para arancini puedes dejarlo todo junto."
         },
         {
           "titulo": "Mantecar",
           "texto": "Añade la mantequilla, el parmesano y pimienta. Mezcla sin calor.",
           "tipo": "robot",
-          "usa": [8, 9, 10],
-          "robot": { "tiempo_s": 30, "velocidad": "1", "inverso": true, "medidor": "puesto" }
+          "usa": [
+            8,
+            9,
+            10
+          ],
+          "robot": {
+            "tiempo_s": 30,
+            "velocidad": "1",
+            "inverso": true,
+            "medidor": "puesto"
+          }
         },
         {
           "titulo": "Reposar y servir",
           "texto": "Deja reposar 2 minutos en el vaso y sirve con perejil picado.",
           "tipo": "fuera",
           "donde": "mesa",
-          "usa": [11],
+          "usa": [
+            11
+          ],
           "temporizador_s": 120,
           "señal": "Al reposar espesa: si al servirlo cae como una ola lenta, está perfecto."
         },
@@ -263,7 +883,18 @@
       "trucos": [
         "Recalentar en el robot: 3-4 min · 90 °C · vel 1 · giro inverso, con 50 ml de caldo por ración.",
         "Congelado queda harinoso: mejor nevera o convertirlo en arancini."
-      ]
+      ],
+      "porciones": 3,
+      "coste": {
+        "tienda": "Mercadona",
+        "calculado": "2026-11-21",
+        "precios_hasta": "2026-11-21",
+        "total": 5.91,
+        "raciones": 3,
+        "por_racion": 1.97,
+        "completo": true,
+        "faltan": []
+      }
     },
     {
       "id": "arancini",
@@ -271,7 +902,7 @@
       "subtitulo": "Con las 2 raciones de risotto de pollo y champiñones que sobran",
       "categoria": "aperitivos",
       "emoji": "🧆",
-      "raciones": "20-24 bolitas",
+      "raciones": "20-24 bolitas (4 raciones de aperitivo)",
       "tiempo_min": 45,
       "accesorios": [],
       "sin_robot": true,
@@ -290,13 +921,126 @@
         "Prepara tres platos hondos en fila: harina, huevo batido y pan rallado."
       ],
       "ingredientes": [
-        { "cantidad": "600 g", "nombre": "risotto frío (las 2 raciones guardadas)" },
-        { "cantidad": "120 g", "nombre": "mozzarella fresca, en 20-24 dados" },
-        { "cantidad": "2", "nombre": "huevos para ligar el risotto" },
-        { "cantidad": "1-2", "nombre": "huevos para el rebozado" },
-        { "cantidad": "80 g", "nombre": "harina" },
-        { "cantidad": "160 g", "nombre": "pan rallado" },
-        { "cantidad": "500 ml", "nombre": "aceite de girasol para freír (o spray si usas freidora de aire)" }
+        {
+          "cantidad": "600 g",
+          "nombre": "risotto frío (las 2 raciones guardadas)",
+          "compra": {
+            "receta": "risotto-pollo-champinones",
+            "raciones": 2,
+            "euros": 3.94,
+            "producto": {
+              "nombre": "2 raciones de «Risotto de pollo y champiñones»"
+            }
+          }
+        },
+        {
+          "cantidad": "120 g",
+          "nombre": "mozzarella fresca, en 20-24 dados",
+          "compra": {
+            "mercadona": "51050",
+            "usa": 120,
+            "unidad": "g",
+            "euros": 0.432,
+            "producto": {
+              "nombre": "Mozzarella fresca de vaca Hacendado",
+              "formato": "Paquete 250 g",
+              "precio": 0.9,
+              "contenido": 250,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "2",
+          "nombre": "huevos para ligar el risotto",
+          "compra": {
+            "mercadona": "31505",
+            "usa": 2,
+            "unidad": "ud",
+            "euros": 0.475,
+            "producto": {
+              "nombre": "Huevos medianos M",
+              "formato": "Paquete 12 ud",
+              "precio": 2.85,
+              "contenido": 12,
+              "unidad": "ud",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1-2",
+          "nombre": "huevos para el rebozado",
+          "compra": {
+            "mercadona": "31505",
+            "usa": 1.5,
+            "unidad": "ud",
+            "euros": 0.356,
+            "producto": {
+              "nombre": "Huevos medianos M",
+              "formato": "Paquete 12 ud",
+              "precio": 2.85,
+              "contenido": 12,
+              "unidad": "ud",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "80 g",
+          "nombre": "harina",
+          "compra": {
+            "mercadona": "29100",
+            "usa": 80,
+            "unidad": "g",
+            "euros": 0.058,
+            "producto": {
+              "nombre": "Harina de trigo Hacendado",
+              "formato": "Paquete 1 kg",
+              "precio": 0.72,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "160 g",
+          "nombre": "pan rallado",
+          "compra": {
+            "mercadona": "82219",
+            "usa": 160,
+            "unidad": "g",
+            "euros": 0.181,
+            "producto": {
+              "nombre": "Pan rallado Hacendado",
+              "formato": "Paquete 750 g",
+              "precio": 0.85,
+              "contenido": 750,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "500 ml",
+          "nombre": "aceite de girasol para freír (o spray si usas freidora de aire)",
+          "compra": {
+            "mercadona": "4040",
+            "usa": 500,
+            "unidad": "ml",
+            "euros": 0.925,
+            "producto": {
+              "nombre": "Aceite de girasol refinado 0,2º Hacendado",
+              "formato": "Botella 1 L",
+              "precio": 1.85,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        }
       ],
       "pasos": [
         {
@@ -304,7 +1048,10 @@
           "texto": "En un bol, mezcla el risotto frío con 2 huevos batidos. Así liga y no se abre al freír.",
           "tipo": "fuera",
           "donde": "encimera",
-          "usa": [0, 2],
+          "usa": [
+            0,
+            2
+          ],
           "señal": "Una masa pegajosa que se sostiene al apretarla en la mano."
         },
         {
@@ -312,7 +1059,9 @@
           "texto": "Con las manos húmedas, coge una porción del tamaño de una nuez grande, aplánala, pon un dado de mozzarella en el centro y ciérrala en bola.",
           "tipo": "fuera",
           "donde": "encimera",
-          "usa": [1],
+          "usa": [
+            1
+          ],
           "señal": "Que no asome la mozzarella por ningún lado: si se ve, se escapa al freír."
         },
         {
@@ -320,7 +1069,11 @@
           "texto": "Pasa cada bola por harina, huevo batido y pan rallado. Para extra crujientes, repite huevo y pan rallado.",
           "tipo": "fuera",
           "donde": "encimera",
-          "usa": [4, 3, 5]
+          "usa": [
+            4,
+            3,
+            5
+          ]
         },
         {
           "titulo": "Reposar en la nevera",
@@ -337,7 +1090,9 @@
           "donde": "sarten",
           "fuego": "medio-fuerte",
           "temperatura": 175,
-          "usa": [6],
+          "usa": [
+            6
+          ],
           "temporizador_s": 180,
           "temporizador_repetible": true,
           "señal": "Doradas por todos lados. Si no tienes termómetro: un trocito de pan echa burbujas alrededor y se dora en menos de un minuto.",
@@ -350,9 +1105,14 @@
           "donde": "freidora",
           "temperatura": 200,
           "opcional": true,
-          "usa": [6],
+          "usa": [
+            6
+          ],
           "temporizador_s": 660,
-          "recordatorio": { "quedan_s": 330, "texto": "Dales la vuelta a los arancini." },
+          "recordatorio": {
+            "quedan_s": 330,
+            "texto": "Dales la vuelta a los arancini."
+          },
           "señal": "Doradas y crujientes por los dos lados."
         },
         {
@@ -365,7 +1125,18 @@
       "trucos": [
         "Recién hecho el risotto no sirve: tiene que pasar al menos una noche en la nevera.",
         "Empanados y sin freír se congelan muy bien."
-      ]
+      ],
+      "porciones": 4,
+      "coste": {
+        "tienda": "Mercadona",
+        "calculado": "2026-11-21",
+        "precios_hasta": "2026-09-20",
+        "total": 6.37,
+        "raciones": 4,
+        "por_racion": 1.59,
+        "completo": true,
+        "faltan": []
+      }
     }
   ]
 }

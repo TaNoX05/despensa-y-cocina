@@ -3,13 +3,13 @@
 // de lo guardado y se renuevan por detrás: si cambia una foto, se ve la nueva la siguiente vez.
 // Las llamadas a OpenRouter y a GitHub no pasan por aquí.
 
-const CACHE = 'despensa-y-cocina-v3';   // subir el número borra lo guardado de la versión anterior
+const CACHE = 'despensa-y-cocina-v4';   // subir el número borra lo guardado de la versión anterior
 const BASICOS = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/app.js', 'js/almacen.js', 'js/cocina.js', 'js/conexion.js', 'js/despensa.js', 'js/ia.js', 'js/iconos.js',
   'js/pantalla.js', 'js/recetas.js', 'js/rutas.js', 'js/sincro.js', 'js/sonido.js', 'js/ui.js', 'js/util.js', 'js/voz.js',
   'js/vistas/ajustes.js', 'js/vistas/cocinar.js', 'js/vistas/despensa.js', 'js/vistas/receta.js', 'js/vistas/recetas.js',
-  'js/vistas/valorar.js', 'js/vistas/voz.js',
+  'js/vistas/valorar.js', 'js/vistas/voz.js', 'js/vistas/galeria.js', 'js/fotos.js',
   'datos/recetas.json', 'img/iconos/icono-192.png', 'img/iconos/apple-touch-icon.png',
 ];
 

@@ -917,3 +917,67 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
   .ajuste .segmentos { width: 100% !important; }
   .ayuda-instalar { padding: 14px; gap: 12px; }
 }
+
+/* ===================================================================
+   Precio por ración, tu valoración y fotos propias
+   =================================================================== */
+.precio-insignia {
+  margin-left: auto; display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.05;
+  padding: 7px 12px 6px; border-radius: 14px; background: rgba(255, 251, 245, .94); color: var(--texto);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+.precio-insignia b { font: 800 19px var(--redonda); font-variant-numeric: tabular-nums; }
+.precio-insignia small { font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--texto-2); }
+.valoracion { display: inline-flex; align-items: center; gap: 6px; }
+.valoracion b { color: var(--texto); }
+.valoracion.sin { color: var(--texto-3); }
+.estrellas-mini { color: #f0a500; letter-spacing: 1px; }
+.heroe .chip.precio { background: rgba(255, 251, 245, .94); color: var(--texto); font-weight: 800; }
+.historial-item .cab b { font: 800 15px var(--redonda); color: var(--texto-2); }
+
+.coste-ing { flex: none; font: 700 14px var(--redonda); color: var(--texto-3); font-variant-numeric: tabular-nums; min-width: 58px; text-align: right; }
+.coste-ing.opcional { font: 600 12.5px var(--sans); }
+.ingrediente.marcado .coste-ing { opacity: .6; }
+.coste-resumen { margin-top: 14px; padding: 14px 16px; border-radius: var(--radio-m); background: var(--fondo-2); display: grid; gap: 8px; }
+.coste-resumen .cifras { display: flex; gap: 22px; flex-wrap: wrap; }
+.coste-resumen .cifras div { display: flex; flex-direction: column; }
+.coste-resumen .cifras b { font: 800 26px var(--redonda); font-variant-numeric: tabular-nums; }
+.coste-resumen .cifras div + div b { font-size: 20px; color: var(--texto-2); }
+.coste-resumen .cifras span { font-size: 13.5px; color: var(--texto-2); font-weight: 600; }
+.coste-resumen p { font-size: 13.5px; line-height: 1.4; margin: 0; }
+.coste-resumen .aviso-coste { color: var(--ambar); font-weight: 700; }
+
+.estrella-cero {
+  width: 52px; height: 52px; align-self: center; margin-right: 4px; border-radius: 50%;
+  border: 2px solid var(--linea-2); color: var(--texto-3); font: 800 20px var(--redonda); transition: all .2s;
+}
+.estrella-cero.on { background: var(--texto); border-color: var(--texto); color: var(--fondo); }
+
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 10px; margin: 6px 0 10px; }
+.galeria-peq { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; margin-top: 10px; }
+.galeria-hoja { margin-top: 4px; }
+.foto-mini { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: var(--fondo-2); }
+.foto-mini img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .3s; }
+.foto-mini img[src] { opacity: 1; }
+.foto-mini.sin-imagen::after { content: "📷"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 26px; opacity: .4; }
+.foto-mini:active { transform: scale(.96); }
+.foto-anadir {
+  aspect-ratio: 1; border-radius: 14px; border: 2px dashed var(--linea-2); color: var(--acento);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-weight: 700; font-size: 14px;
+}
+.foto-anadir .ico { width: 30px; height: 30px; }
+.galeria-peq .foto-anadir { display: none; }
+
+.visor {
+  position: fixed; inset: 0; z-index: 60; background: rgba(10, 8, 6, .94); color: #fff;
+  display: flex; flex-direction: column; animation: aparecer .2s ease;
+  padding: calc(var(--sup) + 12px) calc(var(--der) + 16px) calc(var(--inf) + 16px) calc(var(--izq) + 16px);
+}
+.visor-barra { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; font-size: 15px; }
+.visor-barra .boton-redondo { color: #fff; }
+.visor-imagen { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 12px 0; overflow: hidden; }
+.visor-imagen img { max-width: 100%; max-height: calc(100dvh - var(--sup) - var(--inf) - 150px); object-fit: contain; border-radius: 12px; }
+.visor-pie { text-align: center; font: italic 18px/1.4 var(--serif); opacity: .9; max-width: 760px; margin: 0 auto 8px; }
+.visor-flecha { position: absolute; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, .14); display: grid; place-items: center; color: #fff; }
+.visor-flecha.izq { left: calc(var(--izq) + 14px); }
+.visor-flecha.der { right: calc(var(--der) + 14px); }

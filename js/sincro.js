@@ -4,10 +4,12 @@
 // Si dos aparatos cambian lo mismo, gana el cambio más reciente de cada producto o entrada.
 
 import { E, guardar, alGuardarDatos } from './almacen.js';
-import { textoABase64, base64ATexto } from './util.js';
+import { textoABase64, base64ATexto, bufferABase64 } from './util.js';
+import { leerImagen, ponerDescargador } from './fotos.js';
 
 const FICHEROS = { despensa: 'despensa.json', diario: 'diario.json' };
 const CLAVE = 'dyc:sincro';
+const SUBIDAS = 'dyc:fotos-subidas';   // ids de las fotos de este aparato que ya están en GitHub
 const DIAS_BORRADOS = 60;
 
 let S = cargarEstado();
@@ -29,7 +31,7 @@ export function configurado() { const g = E.ajustes.github; return !!(g?.repo &&
 export function estado() {
   return {
     configurado: configurado(), sincronizando: !!enCurso, error: S.error || null, ultimo: S.ultimo || null,
-    pendiente: !!(S.despensa.pendiente || S.diario.pendiente),
+    pendiente: !!(S.despensa.pendiente || S.diario.pendiente || fotosPorSubir().length),
   };
 }
 
@@ -99,7 +101,10 @@ export function fusionar(parte, local, remoto) {
       registro: porId(b.registro, a.registro).sort((x, y) => (y.fecha || 0) - (x.fecha || 0)).slice(0, 100),
     };
   }
-  return { cocinados: porId(b.cocinados, a.cocinados).sort((x, y) => String(y.fecha).localeCompare(String(x.fecha)) || String(x.id).localeCompare(y.id)) };
+  return {
+    cocinados: porId(b.cocinados, a.cocinados).sort((x, y) => String(y.fecha).localeCompare(String(x.fecha)) || String(x.id).localeCompare(y.id)),
+    fotos: porId(b.fotos, a.fotos).sort((x, y) => String(x.fecha).localeCompare(String(y.fecha)) || String(x.id).localeCompare(y.id)),
+  };
 }
 const documento = (parte, datos) => ({
   _info: 'Datos de la app Despensa y cocina. Los escribe la app; si los editas a mano, respeta el formato.',
@@ -131,6 +136,59 @@ async function sincronizarParte(parte) {
   throw new Error('GitHub está ocupado; lo intento más tarde.');
 }
 
+// ---------------- fotos ----------------
+// Las imágenes van aparte, una por fichero (fotos/<receta>/<id>.jpg); en diario.json solo va su ficha.
+const subidas = () => new Set(JSON.parse(localStorage.getItem(SUBIDAS) || '[]'));
+const guardarSubidas = (s) => localStorage.setItem(SUBIDAS, JSON.stringify([...s]));
+function fotosPorSubir() {
+  const hechas = subidas();
+  return (E.diario.fotos || []).filter((f) => !f.borrado && !hechas.has(f.id));
+}
+async function shaDe(ruta) {
+  const r = await pedir(urlRepo(`/contents/${ruta}?ref=${encodeURIComponent(E.ajustes.github.rama || 'main')}`));
+  return r.ok ? (await r.json()).sha : null;
+}
+async function sincronizarFotos() {
+  const hechas = subidas();
+  for (const f of fotosPorSubir()) {
+    const blob = await leerImagen(f.id);
+    if (!blob) continue;                                   // foto de otro aparato: ya estará subida desde allí
+    const cuerpo = { message: `Foto de ${f.receta}`, content: bufferABase64(await blob.arrayBuffer()), branch: E.ajustes.github.rama || 'main' };
+    const r = await pedir(urlRepo(`/contents/${f.ruta}`), { method: 'PUT', body: JSON.stringify(cuerpo), headers: { 'Content-Type': 'application/json' } });
+    if (r.ok || r.status === 422) { hechas.add(f.id); guardarSubidas(hechas); }   // 422: ya estaba
+    else throw new Error(`No se ha podido subir una foto (${r.status}).`);
+  }
+  // fotos borradas: se quitan también de GitHub
+  for (const f of (E.diario.fotos || []).filter((x) => x.borrado && hechas.has(x.id))) {
+    const sha = await shaDe(f.ruta);
+    if (sha) {
+      const r = await pedir(urlRepo(`/contents/${f.ruta}`), { method: 'DELETE', body: JSON.stringify({ message: `Borra foto de ${f.receta}`, sha, branch: E.ajustes.github.rama || 'main' }), headers: { 'Content-Type': 'application/json' } });
+      if (!r.ok && r.status !== 404) continue;               // se reintenta en la siguiente sincronización
+    }
+    hechas.delete(f.id); guardarSubidas(hechas);
+  }
+}
+/** Descarga una foto del repositorio (para verla en un aparato donde no se hizo). */
+async function descargarFoto(ruta) {
+  if (!configurado()) return null;
+  try {
+    const r = await pedir(urlRepo(`/contents/${ruta}?ref=${encodeURIComponent(E.ajustes.github.rama || 'main')}`), { headers: { Accept: 'application/vnd.github.raw+json' } });
+    if (!r.ok) return null;
+    // Normalmente llegan los bytes tal cual; si llega la ficha JSON, la imagen va en base64 dentro.
+    if ((r.headers.get('content-type') || '').includes('json')) {
+      const j = await r.json();
+      if (!j.content) return null;
+      const bin = atob(j.content.replace(/\s/g, ''));
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new Blob([bytes], { type: 'image/jpeg' });
+    }
+    const b = await r.blob();
+    return b.type.startsWith('image/') ? b : new Blob([b], { type: 'image/jpeg' });
+  } catch { return null; }
+}
+ponerDescargador(descargarFoto);
+
 export function sincronizar() {
   if (!configurado()) return Promise.resolve(false);
   if (enCurso) return enCurso;
@@ -139,6 +197,7 @@ export function sincronizar() {
     guardarEstado();
     try {
       for (const parte of Object.keys(FICHEROS)) await sincronizarParte(parte);
+      await sincronizarFotos();
       S.error = null; S.ultimo = Date.now();
       return true;
     } catch (e) {
