@@ -2,7 +2,7 @@
 // publicada) y, si no hay conexión o tarda más de 3 s, lo guardado. Las fotos, al revés.
 // Las llamadas a OpenRouter y a GitHub no pasan por aquí.
 
-const CACHE = 'despensa-y-cocina-v1';
+const CACHE = 'despensa-y-cocina-v2';   // subir el número borra lo guardado de la versión anterior
 const BASICOS = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/app.js', 'js/almacen.js', 'js/cocina.js', 'js/conexion.js', 'js/despensa.js', 'js/ia.js', 'js/iconos.js',

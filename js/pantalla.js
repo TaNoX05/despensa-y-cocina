@@ -2,7 +2,7 @@
 
 let candado = null, deseado = false;
 const oyentes = new Set();
-const avisar = () => { for (const fn of oyentes) fn(estadoPantalla()); };
+const avisar = () => { for (const fn of [...oyentes]) fn(estadoPantalla()); };
 
 async function pedir() {
   if (!deseado || candado || !('wakeLock' in navigator) || document.visibilityState !== 'visible') return;

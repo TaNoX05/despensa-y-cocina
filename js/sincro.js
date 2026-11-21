@@ -18,7 +18,11 @@ function cargarEstado() {
   try { return { despensa: {}, diario: {}, ...JSON.parse(localStorage.getItem(CLAVE) || '{}') }; }
   catch { return { despensa: {}, diario: {} }; }
 }
-function guardarEstado() { localStorage.setItem(CLAVE, JSON.stringify(S)); for (const fn of oyentes) fn(estado()); }
+function guardarEstado() {
+  localStorage.setItem(CLAVE, JSON.stringify(S));
+  const e = estado();
+  for (const fn of [...oyentes]) { try { fn(e); } catch (err) { console.warn(err); } }
+}
 export function alCambiarSincro(fn) { oyentes.add(fn); return () => oyentes.delete(fn); }
 
 export function configurado() { const g = E.ajustes.github; return !!(g?.repo && g?.token); }
@@ -71,6 +75,7 @@ async function escribir(fichero, datos, sha) {
   if (sha) cuerpo.sha = sha;
   const r = await pedir(urlRepo(`/contents/${fichero}`), { method: 'PUT', body: JSON.stringify(cuerpo), headers: { 'Content-Type': 'application/json' } });
   if (r.status === 409 || r.status === 422) { const e = new Error('conflicto'); e.conflicto = true; throw e; }
+  if (r.status === 404) throw new Error('No encuentro el repositorio, o el token no tiene permiso para él. Revisa en GitHub a qué repositorio da acceso el token.');
   if (!r.ok) throw new Error(`No se ha podido guardar ${fichero} en GitHub (${r.status}).`);
   return (await r.json()).content.sha;
 }

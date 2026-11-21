@@ -44,7 +44,7 @@ export function guardar(parte, { sincronizar = true, silencioso = false } = {}) 
   try { localStorage.setItem(PREFIJO + parte, JSON.stringify(E[parte])); }
   catch (e) { console.warn('No se ha podido guardar en el iPad', e); }
   if (sincronizar && (parte === 'despensa' || parte === 'diario')) alGuardarSincronizable?.(parte);
-  if (!silencioso) for (const fn of oyentes) fn(parte);
+  if (!silencioso) for (const fn of [...oyentes]) fn(parte);   // copia: apuntarse durante el aviso no crea bucles
 }
 
 export function alCambiar(fn) { oyentes.add(fn); return () => oyentes.delete(fn); }

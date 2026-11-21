@@ -10,7 +10,7 @@ import { tostada } from './ui.js';
 
 const oyentes = new Set();
 export function alCambiarRelojes(fn) { oyentes.add(fn); return () => oyentes.delete(fn); }
-const avisar = () => { for (const fn of oyentes) fn(); };
+const avisar = () => { for (const fn of [...oyentes]) fn(); };
 
 // ---------------- proceso ----------------
 export const proceso = (id) => E.cocina.cocinando[id];

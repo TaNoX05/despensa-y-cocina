@@ -49,7 +49,7 @@ function pintarMarco(r = rutaActual()) {
 import { accion } from './rutas.js';
 accion({
   pestana: ({ v }) => {
-    E.ajustes.ultimaPestana = v; guardar('ajustes', { silencioso: true });
+    if (v !== 'ajustes') { E.ajustes.ultimaPestana = v; guardar('ajustes', { silencioso: true }); }
     ir(`#/${v}`);
   },
 });
@@ -69,7 +69,8 @@ async function arrancar() {
   for (const id of Object.keys(E.cocina.cocinando)) if (!receta(id)) delete E.cocina.cocinando[id];
 
   alPintar(pintarMarco);
-  if (!ruta().vista) history.replaceState(null, '', `#/${E.ajustes.ultimaPestana || 'despensa'}`);
+  const inicio = ['despensa', 'recetas'].includes(E.ajustes.ultimaPestana) ? E.ajustes.ultimaPestana : 'despensa';
+  if (!ruta().vista || ruta().vista === 'ajustes') history.replaceState(null, '', `#/${inicio}`);
   pintar({ animar: false });
 
   iniciarReloj();

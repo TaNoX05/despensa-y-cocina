@@ -813,3 +813,92 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
   .anillo { width: 236px; height: 236px; }
   .anillo .tiempo { font-size: 60px; }
 }
+
+/* ===================================================================
+   iPhone (pantallas estrechas)
+   =================================================================== */
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .pantalla { padding: calc(var(--sup) + 18px) calc(var(--der) + 16px) calc(var(--inf) + 130px) calc(var(--izq) + 16px); }
+  .cabecera { margin-bottom: 12px; gap: 12px; }
+  .cabecera h1 { font-size: 34px; }
+  .cabecera .sub { font-size: 15px; }
+  .buscador { min-width: 0; width: 100%; height: 48px; }
+  .filtro { height: 42px; padding: 0 14px; font-size: 15px; }
+  .seccion-titulo { font-size: 20px; margin: 20px 0 10px; }
+
+  /* pestañas: icono encima del texto para que quepan las tres */
+  .pestanas { bottom: calc(var(--inf) + 10px); padding: 5px; }
+  .pestana { flex-direction: column; justify-content: center; gap: 2px; height: 56px; padding: 0 20px; font-size: 12px; }
+  .pestana .ico { width: 22px; height: 22px; }
+  .mini { bottom: calc(var(--inf) + 80px); width: calc(100% - 24px); gap: 10px; }
+  .mini img { width: 44px; height: 44px; }
+  .mini .ir { padding: 0 12px; height: 42px; }
+
+  /* despensa */
+  .rejilla-productos { grid-template-columns: 1fr; gap: 10px; }
+  .producto { min-height: 76px; padding: 10px 10px 10px 12px; }
+  .producto .emoji { width: 48px; height: 48px; font-size: 28px; }
+  .dock-voz { bottom: calc(var(--inf) + 96px); gap: 18px; }
+  body.con-mini .dock-voz { bottom: calc(var(--inf) + 162px); }
+  .boton-voz { width: 96px; height: 96px; }
+  .boton-voz .ico { width: 40px; height: 40px; }
+  .boton-voz-lateral { width: 56px; height: 56px; }
+  .despensa.pantalla { padding-bottom: calc(var(--inf) + 290px); }
+  .voz .orbe-zona { width: 230px; height: 230px; }
+  .voz .orbe { width: 136px; height: 136px; }
+  .voz .estado { font-size: 25px; }
+  .voz .estado.largo { font-size: 20px; }
+  .voz .transcripcion { font-size: 18px; }
+  .voz .botones .boton.grande { min-height: 56px; font-size: 17px; padding: 0 18px; }
+
+  /* recetas */
+  .rejilla-recetas { grid-template-columns: 1fr; gap: 16px; }
+  .cocinando-ahora { flex-wrap: wrap; gap: 14px; padding: 14px; }
+  .cocinando-ahora img { width: 72px; height: 72px; }
+  .cocinando-ahora .anillo-pct { display: none; }
+  .cocinando-ahora .acciones { flex-direction: row; width: 100%; }
+  .cocinando-ahora .acciones .boton { flex: 1; }
+  .heroe { height: 300px; min-height: 0; margin-left: calc(-16px - var(--izq)); margin-right: calc(-16px - var(--der)); }
+  .heroe h1 { font-size: 32px; }
+  .heroe .sub { font-size: 16px; }
+  .heroe .texto-heroe { left: calc(var(--izq) + 18px); right: calc(var(--der) + 18px); bottom: 18px; }
+  .heroe .chips { gap: 6px; }
+  .heroe .chip { font-size: 13px; padding: 5px 10px; }
+  .bloque { padding: 18px 16px; }
+  .desglose div { grid-template-columns: 1fr; gap: 2px; }
+  .barra-cta { padding-left: calc(var(--izq) + 16px); padding-right: calc(var(--der) + 16px); }
+  .barra-cta .boton.grande { font-size: 17px; padding: 0 16px; }
+
+  /* modo cocina */
+  .cocina-barra { gap: 10px; padding: calc(var(--sup) + 8px) calc(var(--der) + 12px) 10px calc(var(--izq) + 12px); }
+  .cocina-barra .boton-redondo { width: 44px; height: 44px; }
+  .cocina-barra .titulo b { font-size: 18px; }
+  .cocina-barra .otros-relojes { display: none; }
+  .cocina-paso .contenido { padding: 16px 16px 22px; }
+  .paso-grande h2 { font-size: 32px; }
+  .paso-grande .texto { font-size: 20px; }
+  .paneles { grid-template-columns: 1fr; gap: 14px; }
+  .mando { min-height: 98px; padding: 10px 4px 8px; }
+  .mando .val { font-size: 26px; }
+  .mando .val.med { font-size: 21px; }
+  .panel-robot { padding: 14px; border-radius: 22px; }
+  .panel-robot .programa { font-size: 14px; }
+  .panel-robot .cab span:last-child { display: none; }
+  .anillo { width: 190px; height: 190px; }
+  .anillo .tiempo { font-size: 48px; }
+  .cocina-nav { gap: 10px; padding: 10px calc(var(--der) + 12px) calc(var(--inf) + 10px) calc(var(--izq) + 12px); }
+  .cocina-nav .boton { min-height: 58px; font-size: 17px; border-radius: 16px; padding: 0 12px; }
+  .cocina-nav .boton-nota { width: 58px; }
+  .alarma h2 { font-size: 46px; }
+  .alarma button { min-width: 150px; min-height: 70px; font-size: 22px; }
+
+  /* hojas y ajustes */
+  .hoja { padding: 10px 18px calc(var(--inf) + 20px); }
+  .hoja h2 { font-size: 25px; }
+  .hoja .pie { flex-wrap: wrap; }
+  .estrella { width: 52px; height: 52px; }
+  .ajuste { flex-wrap: wrap; }
+  .ajuste .segmentos { width: 100% !important; }
+  .ayuda-instalar { padding: 14px; gap: 12px; }
+}

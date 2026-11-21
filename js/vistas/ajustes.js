@@ -38,16 +38,21 @@ function bloqueIA() {
   </section>`;
 }
 
-function bloqueGitHub() {
-  const g = E.ajustes.github, s = sincro.estado();
-  const texto = !s.configurado ? 'Sin configurar: los datos solo están en este iPad'
+function lineaEstadoGitHub() {
+  const s = sincro.estado();
+  const texto = !s.configurado ? 'Sin configurar: los datos solo están en este aparato'
     : s.sincronizando ? 'Sincronizando…' : s.error ? s.error : s.ultimo ? `Al día · ${hace(s.ultimo)}` : 'Pendiente de la primera copia';
   const clase = !s.configurado ? 'mal' : s.error ? 'mal' : s.sincronizando || s.pendiente ? 'pend' : 'ok';
+  return `<div class="ajuste" id="estado-github"><div class="txt"><b>Estado</b><span class="estado-con ${clase}">${esc(texto)}</span></div>
+      ${s.configurado ? `<button class="boton peq" data-a="sincronizarYa" ${s.sincronizando ? 'disabled' : ''}>${ico('reiniciar', 'peq')} Sincronizar ahora</button>` : ''}</div>`;
+}
+
+function bloqueGitHub() {
+  const g = E.ajustes.github;
   return `<section class="bloque">
     <div class="bloque-cab"><h2>${ico('nube')} Copia en GitHub</h2></div>
     <p class="tenue" style="font-size:16px">Tu despensa y tu historial de recetas se guardan en un repositorio <b>privado</b> de tu GitHub. Así no se pierden y sirven para mejorar las recetas.</p>
-    <div class="ajuste"><div class="txt"><b>Estado</b><span class="estado-con ${clase}">${esc(texto)}</span></div>
-      ${s.configurado ? `<button class="boton peq" data-a="sincronizarYa">${ico('reiniciar', 'peq')} Sincronizar ahora</button>` : ''}</div>
+    ${lineaEstadoGitHub()}
     <label class="campo"><span>Repositorio (usuario/nombre)</span><input class="entrada" id="gh-repo" placeholder="tu-usuario/despensa-datos" value="${esc(g.repo)}" autocapitalize="off" spellcheck="false"></label>
     <label class="campo"><span>Token de acceso</span><input class="entrada" id="gh-token" type="password" placeholder="github_pat_…" value="${esc(g.token ? ocultar(g.token) : '')}" autocapitalize="off" spellcheck="false" ${g.token ? 'data-guardado="1"' : ''}></label>
     ${esLocal ? `<label class="campo"><span>Servidor de la API (solo pruebas)</span><input class="entrada" id="gh-api" value="${esc(g.api || 'https://api.github.com')}" autocapitalize="off" spellcheck="false"></label>` : ''}
@@ -108,12 +113,15 @@ vista('ajustes', {
       try { importar(JSON.parse(await f.text())); tostada('Copia cargada', { icono: 'check' }); repintar(); }
       catch (err) { tostada(err.message || 'No se ha podido cargar'); }
     });
-    quitar?.(); quitar = sincro.alCambiarSincro(() => { if (location.hash.startsWith('#/ajustes')) repintarSinFoco(); });
   },
-  desmontar: () => { quitar?.(); quitar = null; },
 });
-let quitar = null;
-function repintarSinFoco() { if (!document.activeElement?.matches?.('input')) repintar(); }
+
+// Un solo oyente para toda la vida de la app: cuando cambia la copia en GitHub, se actualiza solo
+// la línea de estado y el botón (redibujar la pantalla entera aquí provocaba un bucle sin fin).
+sincro.alCambiarSincro(() => {
+  const el = document.getElementById('estado-github');
+  if (el) el.outerHTML = lineaEstadoGitHub();
+});
 
 accion({
   cambiarClave: () => { mostrarClave = true; repintar(); setTimeout(() => document.getElementById('clave-or')?.focus(), 50); },

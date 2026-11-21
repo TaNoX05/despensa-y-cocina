@@ -33,7 +33,9 @@ export function volver(defecto) {
   else ir(defecto, { reemplazar: true });
 }
 
+let pintando = false;
 export function pintar({ animar = true, conservarScroll = false } = {}) {
+  if (pintando) return;          // si algo pide redibujar mientras se dibuja, se ignora (evita bucles)
   const r = ruta();
   const def = vistas[r.vista];
   if (!def) return;
@@ -41,10 +43,13 @@ export function pintar({ animar = true, conservarScroll = false } = {}) {
   const anterior = actual;
   if (anterior?.def.desmontar) anterior.def.desmontar();
   const hacer = () => {
-    app.innerHTML = def.render(r);
-    def.montar?.(app, r);
-    actual = { def, r, hash: location.hash };
-    alPintarFn?.(r);
+    pintando = true;
+    try {
+      app.innerHTML = def.render(r);
+      def.montar?.(app, r);
+      actual = { def, r, hash: location.hash };
+      alPintarFn?.(r);
+    } finally { pintando = false; }
   };
   const y = conservarScroll ? window.scrollY : (scrolls.get(location.hash) || 0);
   if (animar && document.startViewTransition && !conservarScroll && anterior) document.startViewTransition(hacer);
