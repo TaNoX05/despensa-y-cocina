@@ -69,24 +69,27 @@ function lado(rc, n) {
 }
 
 function mando(lbl, val, { activo = false, apagado = false, extra = '', med = false } = {}) {
-  return `<div class="mando ${activo ? 'activo' : ''} ${apagado ? 'apagado' : ''}"><span class="lbl">${lbl}</span><span class="val ${med ? 'med' : ''}">${val}</span>${extra}</div>`;
+  // m-cab = etiqueta (+ medidor o «Inverso»); val = la cifra grande. El CSS los pone uno encima
+  // del otro si hay sitio para los cuatro en fila, o a izquierda y derecha si van en dos filas.
+  return `<div class="mando ${activo ? 'activo' : ''} ${apagado ? 'apagado' : ''}">
+    <span class="m-cab"><span class="lbl">${lbl}</span>${extra}</span><span class="val ${med ? 'med' : ''}">${val}</span></div>`;
 }
 
 export function panelRobot(r) {
   const prog = r.programa && PROGRAMAS[r.programa];
   const vel = r.velocidad == null || r.velocidad === '0' ? null : r.velocidad;
   const velNum = vel === 'turbo' ? 10 : Number(vel || 0);
-  const medidorVel = `<div class="medidor-vel">${Array.from({ length: 10 }, (_, i) => `<i class="${i < velNum ? 'on' : ''}" style="height:${5 + i * 1.2}px"></i>`).join('')}</div>`;
+  const medidorVel = `<span class="medidor-vel">${Array.from({ length: 10 }, (_, i) => `<i class="${i < velNum ? 'on' : ''}" style="height:${4 + i}px"></i>`).join('')}</span>`;
   const acc = ACCESORIOS[r.accesorio || 'cuchillas'];
   const med = r.medidor && MEDIDOR[r.medidor];
   return `<div class="panel-robot">
-    <div class="cab"><span>${ico('robot', 'peq')} Pon en el robot</span><span>Monsieur Cuisine Plus</span></div>
-    ${prog ? `<div class="programa">${prog.emoji} PROGRAMA ${prog.nombre.toUpperCase()} <small>· botón ${prog.boton}</small></div>` : ''}
+    <div class="cab"><span>${ico('robot', 'peq')} Pon en el robot</span><span class="marca">Monsieur Cuisine Plus</span></div>
+    ${prog ? `<div class="programa"><span>${prog.emoji} Programa <b>${prog.nombre}</b></span><small>botón ${prog.boton}</small></div>` : ''}
     <div class="mandos">
-      ${mando('Tiempo', r.tiempo_s ? tiempoRobot(r.tiempo_s) : '—', { activo: !!r.tiempo_s, med: r.tiempo_s >= 600 })}
-      ${r.temperatura ? mando('Temp.', `${r.temperatura}<small>°C</small>`, { activo: true }) : mando('Temp.', 'Sin calor', { apagado: true })}
+      ${mando('Tiempo', r.tiempo_s ? tiempoRobot(r.tiempo_s) : '—', { activo: !!r.tiempo_s, apagado: !r.tiempo_s })}
+      ${r.temperatura ? mando('Temp.', `${r.temperatura}<small>°C</small>`, { activo: true }) : mando('Temp.', 'Sin calor', { apagado: true, med: true })}
       ${vel ? mando('Velocidad', vel === 'turbo' ? 'TURBO' : vel, { activo: true, extra: medidorVel, med: vel === 'turbo' }) : mando('Velocidad', '—', { apagado: true })}
-      ${r.inverso ? mando('Giro', '↺', { activo: true, extra: '<span class="lbl" style="color:var(--robot-luz)">Inverso</span>' }) : mando('Giro', '↻', { apagado: true, extra: '<span class="lbl">Normal</span>' })}
+      ${r.inverso ? mando('Giro', '↺', { activo: true, extra: '<span class="sub">Inverso</span>' }) : mando('Giro', '↻', { apagado: true, extra: '<span class="sub">Normal</span>' })}
     </div>
     <div class="extras">
       <span class="extra">${acc.emoji} ${acc.nombre}</span>

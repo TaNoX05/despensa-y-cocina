@@ -614,7 +614,7 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 .cocina-barra .otros-relojes { display: flex; gap: 8px; }
 .cocina-barra .reloj-chip { background: var(--robot); }
 
-.cocina-cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 380px minmax(0, 1fr); }
+.cocina-cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 340px minmax(0, 1fr); }
 .cocina-lado { border-right: 1px solid var(--linea); background: var(--superficie-2); display: flex; flex-direction: column; min-height: 0; }
 .cocina-lado .segmentos { margin: 14px 16px 6px; }
 .cocina-lado .lista { flex: 1; overflow: auto; padding: 6px 12px calc(var(--inf) + 20px); overscroll-behavior: contain; }
@@ -652,37 +652,65 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 .ing-chip.marcado { opacity: .6; }
 .ing-chip.marcado span { text-decoration: line-through; }
 
-.paneles { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; margin-top: 20px; align-items: stretch; }
+.paneles { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 18px; margin-top: 20px; align-items: stretch; }
 .paneles.solo { grid-template-columns: minmax(0, 1fr); }
-@media (orientation: portrait) and (max-width: 900px) { .paneles { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+@media (orientation: portrait) and (max-width: 900px) { .paneles { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
 .paso-grande .aviso, .paso-grande .senal, .paso-grande .nota-paso { margin-top: 18px; }
 .nota-paso { display: flex; gap: 12px; align-items: flex-start; background: var(--azul-suave); border-radius: var(--radio-m); padding: 14px 16px; font-size: 17px; text-align: left; width: 100%; }
 .nota-paso .ico { color: var(--azul); margin-top: 2px; }
 
-/* panel del robot: imita la pantalla de la Monsieur Cuisine Plus */
+/* panel del robot: imita la pantalla de la Monsieur Cuisine Plus.
+   Se adapta al sitio que le toca (container queries): si caben holgados, los cuatro mandos van en
+   fila; si no, en dos filas con la etiqueta a la izquierda y la cifra a la derecha. */
 .panel-robot {
+  container: robot / inline-size;
+  min-width: 0;
   background: linear-gradient(160deg, var(--robot-2), var(--robot)); color: var(--robot-texto);
-  border-radius: 26px; padding: 18px; box-shadow: inset 0 0 0 1px rgba(87, 220, 255, .16), var(--sombra-1);
+  border-radius: 24px; padding: 16px; box-shadow: inset 0 0 0 1px rgba(87, 220, 255, .16), var(--sombra-1);
   display: flex; flex-direction: column; gap: 12px; justify-content: center;
 }
-.panel-robot .cab { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--robot-tenue); }
-.panel-robot .programa { display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 14px; padding: 10px; background: var(--robot-luz); color: #04212c; font-weight: 800; letter-spacing: .05em; font-size: 16px; }
-.panel-robot .programa small { font-weight: 700; opacity: .7; letter-spacing: .02em; }
-.mandos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.mando { background: rgba(255, 255, 255, .045); border-radius: 18px; padding: 12px 6px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 3px; min-height: 124px; justify-content: center; }
-.mando .lbl { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--robot-tenue); }
-.mando .val { font: 800 34px/1.05 var(--redonda); color: #fff; font-variant-numeric: tabular-nums; }
-.mando .val.med { font-size: 26px; }
-.mando .val small { font-size: .5em; font-weight: 700; color: var(--robot-tenue); margin-left: 1px; }
+.panel-robot .cab { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--robot-tenue); white-space: nowrap; }
+.panel-robot .cab > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+.panel-robot .cab .marca { overflow: hidden; text-overflow: ellipsis; opacity: .75; }
+.panel-robot .programa { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 10px; border-radius: 14px; padding: 9px 14px; background: var(--robot-luz); color: #04212c; font-size: 16px; font-weight: 600; }
+.panel-robot .programa b { font-weight: 850; text-transform: uppercase; letter-spacing: .04em; }
+.panel-robot .programa small { font-size: 13px; font-weight: 700; opacity: .7; }
+.mandos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.mando {
+  min-width: 0; min-height: 112px; padding: 12px 8px; border-radius: 16px; background: rgba(255, 255, 255, .045);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
+}
+.mando .m-cab { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; }
+.mando .lbl, .mando .sub { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--robot-tenue); white-space: nowrap; }
+.mando.activo .sub { color: var(--robot-luz); }
+.mando .val { font: 800 clamp(22px, 6.6cqi, 34px)/1 var(--redonda); color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mando .val.med { font-size: clamp(15px, 4.4cqi, 22px); }
+.mando .val small { font-size: .5em; font-weight: 700; color: var(--robot-tenue); margin-left: 2px; }
 .mando.activo { box-shadow: inset 0 0 0 2px var(--robot-luz); background: rgba(87, 220, 255, .08); }
-.mando.activo .val { color: var(--robot-luz); text-shadow: 0 0 18px rgba(87, 220, 255, .45); }
-.mando.apagado .val { color: var(--robot-tenue); font-size: 22px; }
-.medidor-vel { display: flex; gap: 3px; margin-top: 4px; align-items: flex-end; height: 16px; }
-.medidor-vel i { width: 5px; border-radius: 2px; background: rgba(255, 255, 255, .12); }
+.mando.activo .val { color: var(--robot-luz); text-shadow: 0 0 16px rgba(87, 220, 255, .4); }
+.mando.apagado .val { color: var(--robot-tenue); }
+.medidor-vel { display: flex; gap: 2px; align-items: flex-end; height: 14px; }
+.medidor-vel i { width: 4px; border-radius: 2px; background: rgba(255, 255, 255, .14); }
 .medidor-vel i.on { background: var(--robot-luz); box-shadow: 0 0 6px rgba(87, 220, 255, .6); }
 .extras { display: flex; flex-wrap: wrap; gap: 8px; }
-.extra { display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, .08); }
+.extra { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; padding: 6px 11px; border-radius: 999px; background: rgba(255, 255, 255, .08); }
 .extra.alerta { background: rgba(255, 196, 87, .16); color: #ffd27a; }
+
+@container robot (max-width: 520px) {
+  .mandos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mando { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; min-height: 74px; padding: 10px 14px; gap: 10px; }
+  .mando .m-cab { align-items: flex-start; }
+  .mando .val { font-size: clamp(20px, 7.4cqi, 32px); }
+  .mando .val.med { font-size: clamp(15px, 4.8cqi, 20px); }
+}
+@container robot (max-width: 380px) {
+  /* muy estrecho (iPhone): en cada casilla, la etiqueta encima de la cifra */
+  .panel-robot .cab .marca { display: none; }
+  .mando { flex-direction: column; align-items: flex-start; justify-content: center; gap: 6px; padding: 10px 12px; min-height: 78px; }
+  .mando .m-cab { flex-direction: row; align-items: center; gap: 8px; }
+  .mando .val { font-size: clamp(22px, 8.6cqi, 30px); }
+  .panel-robot .programa { font-size: 14px; }
+}
 
 /* panel de fuera del robot */
 .panel-fuera {
@@ -705,24 +733,26 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 
 /* temporizador */
 .temporizador {
-  border-radius: 26px; padding: 20px; background: var(--superficie); border: 1px solid var(--linea); box-shadow: var(--sombra-1);
-  display: flex; flex-direction: column; align-items: center; gap: 14px; justify-content: center;
+  container: reloj / inline-size;
+  min-width: 0; border-radius: 24px; padding: 18px 14px; background: var(--superficie); border: 1px solid var(--linea); box-shadow: var(--sombra-1);
+  display: flex; flex-direction: column; align-items: center; gap: 12px; justify-content: center;
 }
-.anillo { position: relative; width: 210px; height: 210px; }
-.anillo svg { transform: rotate(-90deg); overflow: visible; }
+.anillo { position: relative; width: clamp(140px, 64cqi, 210px); aspect-ratio: 1; }
+.anillo svg { display: block; transform: rotate(-90deg); overflow: visible; }
 .anillo .arco { transition: stroke-dashoffset .3s linear; }
 .anillo .centro { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
-.anillo .tiempo { font: 800 54px/1 var(--redonda); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
-.anillo .estado-t { font-size: 14px; font-weight: 650; color: var(--texto-2); margin-top: 6px; }
+.anillo .tiempo { font: 800 clamp(32px, 15cqi, 54px)/1 var(--redonda); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.anillo .centro > div { max-width: 76%; }
+.anillo .estado-t { font-size: clamp(11px, 4.2cqi, 13px); font-weight: 650; color: var(--texto-2); margin-top: 6px; line-height: 1.2; }
 .temporizador.corriendo .anillo .tiempo { color: var(--acento); }
 .temporizador.terminado .anillo .tiempo { color: var(--rojo); }
-.controles { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
-.ctl { width: 54px; height: 54px; border-radius: 50%; background: var(--fondo-2); font: 750 16px var(--redonda); display: grid; place-items: center; transition: transform .15s var(--curva); }
+.controles { display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.ctl { width: clamp(44px, 15cqi, 56px); aspect-ratio: 1; border-radius: 50%; background: var(--fondo-2); font: 750 15px var(--redonda); display: grid; place-items: center; transition: transform .15s var(--curva); }
 .ctl:active { transform: scale(.9); }
-.ctl.play { width: 80px; height: 80px; background: var(--acento); color: #fff; box-shadow: var(--sombra-acento); }
-.ctl.play .ico { width: 36px; height: 36px; }
+.ctl.play { width: clamp(60px, 22cqi, 80px); background: var(--acento); color: #fff; box-shadow: var(--sombra-acento); }
+.ctl.play .ico { width: 34px; height: 34px; }
 .ctl.play.pausa { background: var(--texto); color: var(--fondo); box-shadow: none; }
-.temporizador .pista { font-size: 13.5px; color: var(--texto-3); text-align: center; max-width: 300px; }
+.temporizador .pista { font-size: 13px; color: var(--texto-3); text-align: center; max-width: 300px; line-height: 1.35; }
 .temporizador .tanda { font-size: 14px; font-weight: 700; color: var(--texto-2); }
 
 .cocina-nav {
@@ -744,9 +774,6 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 @media (max-height: 900px) and (orientation: landscape) {
   .paso-grande h2 { font-size: 38px; margin-top: 10px; }
   .paso-grande .texto { font-size: 22px; }
-  .mando { min-height: 108px; }
-  .anillo { width: 180px; height: 180px; }
-  .anillo .tiempo { font-size: 46px; }
 }
 
 /* alarma */
@@ -808,10 +835,6 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 @media (orientation: portrait) and (min-height: 1000px) {
   .paso-grande h2 { font-size: 46px; }
   .paso-grande .texto { font-size: 26px; }
-  .mando { min-height: 146px; }
-  .mando .val { font-size: 40px; }
-  .anillo { width: 236px; height: 236px; }
-  .anillo .tiempo { font-size: 60px; }
 }
 
 /* ===================================================================
@@ -879,14 +902,6 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
   .paso-grande h2 { font-size: 32px; }
   .paso-grande .texto { font-size: 20px; }
   .paneles { grid-template-columns: 1fr; gap: 14px; }
-  .mando { min-height: 98px; padding: 10px 4px 8px; }
-  .mando .val { font-size: 26px; }
-  .mando .val.med { font-size: 21px; }
-  .panel-robot { padding: 14px; border-radius: 22px; }
-  .panel-robot .programa { font-size: 14px; }
-  .panel-robot .cab span:last-child { display: none; }
-  .anillo { width: 190px; height: 190px; }
-  .anillo .tiempo { font-size: 48px; }
   .cocina-nav { gap: 10px; padding: 10px calc(var(--der) + 12px) calc(var(--inf) + 10px) calc(var(--izq) + 12px); }
   .cocina-nav .boton { min-height: 58px; font-size: 17px; border-radius: 16px; padding: 0 12px; }
   .cocina-nav .boton-nota { width: 58px; }
