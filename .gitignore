@@ -1,0 +1,10 @@
+# Secretos: nunca se suben
+.env
+*.local.*
+
+# Ficheros de trabajo
+node_modules/
+.DS_Store
+Thumbs.db
+herramientas/salida/
+.claude/

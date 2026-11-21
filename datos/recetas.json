@@ -1,0 +1,371 @@
+{
+  "actualizado": "2026-11-21",
+  "robot": "Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)",
+  "categorias": [
+    { "id": "pasta", "nombre": "Pasta", "emoji": "🍝" },
+    { "id": "arroces", "nombre": "Arroces", "emoji": "🍚" },
+    { "id": "aperitivos", "nombre": "Aperitivos y picoteo", "emoji": "🧆" }
+  ],
+  "recetas": [
+    {
+      "id": "macarrones-con-chorizo",
+      "titulo": "Macarrones con chorizo",
+      "subtitulo": "Versión mejorada, con vino tinto, pimentón de la Vera y gratinados",
+      "categoria": "pasta",
+      "emoji": "🍝",
+      "raciones": "3 raciones generosas",
+      "tiempo_min": 55,
+      "robot": "monsieur-cuisine-plus",
+      "accesorios": ["cuchillas", "espatula", "cestillo"],
+      "foto": "img/recetas/macarrones-con-chorizo.webp",
+      "foto_prompt": "Macarrones gratinados con chorizo en una fuente de barro rectangular recién sacada del horno: salsa de tomate roja intensa con taquitos de chorizo, costra de queso fundido dorada y burbujeante, perejil fresco picado por encima. Una ración servida en un plato al lado.",
+      "nota": 8,
+      "nota_mejor": {
+        "valor": 9,
+        "si": "Gratinarlos al final con el resto del queso, 5 min con el grill fuerte (ya está en el paso 9)."
+      },
+      "desglose": {
+        "textura": "Pasta al dente porque se cuece en olla; con el queso dentro quedan melosos y con costra por fuera.",
+        "sabor": "El vino y el pimentón de la Vera compensan casi todo el tostado que no hace el robot.",
+        "punto": "La salsa reduce sola, sin pegarse.",
+        "comodidad": "El robot hace la salsa entera mientras tú solo atiendes la olla."
+      },
+      "preparacion": [
+        "Corta la cebolla en cuartos y el pimiento en trozos; pela los ajos.",
+        "Corta el chorizo en taquitos si no viene ya cortado.",
+        "Ten a mano una olla grande para la pasta y una fuente de horno."
+      ],
+      "ingredientes": [
+        { "cantidad": "400 g", "nombre": "macarrones" },
+        { "cantidad": "150 g", "nombre": "chorizo para cocinar, en taquitos" },
+        { "cantidad": "1 (150 g)", "nombre": "cebolla mediana, en cuartos" },
+        { "cantidad": "1 (100 g)", "nombre": "pimiento italiano, en trozos" },
+        { "cantidad": "2", "nombre": "dientes de ajo" },
+        { "cantidad": "1", "nombre": "guindilla de cayena (opcional)" },
+        { "cantidad": "20 g", "nombre": "aceite de oliva" },
+        { "cantidad": "50 ml", "nombre": "vino tinto" },
+        { "cantidad": "500 g", "nombre": "tomate triturado" },
+        { "cantidad": "½ cdta", "nombre": "pimentón de la Vera" },
+        { "cantidad": "1", "nombre": "hoja de laurel" },
+        { "cantidad": "1 cdta", "nombre": "azúcar" },
+        { "cantidad": "1 cdta", "nombre": "orégano" },
+        { "cantidad": "al gusto", "nombre": "sal" },
+        { "cantidad": "100 g", "nombre": "queso rallado (mitad dentro, mitad para gratinar)" },
+        { "cantidad": "un puñado", "nombre": "perejil fresco picado, para servir" }
+      ],
+      "pasos": [
+        {
+          "titulo": "Picar el sofrito",
+          "texto": "Cebolla, pimiento y ajo al vaso. Pica y baja con la espátula lo que quede en las paredes. Si aún ves trozos grandes, dale 3-4 segundos más.",
+          "tipo": "robot",
+          "usa": [2, 3, 4],
+          "robot": { "tiempo_s": 10, "velocidad": "5", "medidor": "puesto" }
+        },
+        {
+          "titulo": "Sofreír",
+          "texto": "Pesa el aceite directamente en el vaso y añade la cayena entera. Sofríe sin el vaso medidor.",
+          "tipo": "robot",
+          "usa": [6, 5],
+          "robot": { "programa": "sofreir", "tiempo_s": 600, "temperatura": 120, "velocidad": "1", "medidor": "quitado" }
+        },
+        {
+          "titulo": "Rehogar el chorizo",
+          "texto": "Añade el chorizo para que suelte la grasa y el color.",
+          "tipo": "robot",
+          "usa": [1],
+          "robot": { "tiempo_s": 240, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+        },
+        {
+          "titulo": "Vino tinto",
+          "texto": "Añade el vino y deja que se evapore el alcohol, sin el vaso medidor.",
+          "tipo": "robot",
+          "usa": [7],
+          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+        },
+        {
+          "titulo": "Salsa de tomate",
+          "texto": "Añade el tomate, el pimentón, el laurel, el azúcar, el orégano y ½ cdta de sal. Sin vaso medidor y con el cestillo encima de la tapa para que no salpique.",
+          "tipo": "robot",
+          "usa": [8, 9, 10, 11, 12, 13],
+          "robot": { "tiempo_s": 1500, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "cestillo" },
+          "aviso": "Cuando le queden 12 minutos, pon a hervir el agua de la pasta (paso siguiente).",
+          "recordatorio": { "quedan_s": 720, "texto": "Pon a hervir el agua de la pasta: 4 litros con sal." }
+        },
+        {
+          "titulo": "Cocer los macarrones",
+          "texto": "Olla con 4 litros de agua y sal. Cuando hierva a borbotones, echa los macarrones y cuécelos 1 minuto menos de lo que diga el paquete.",
+          "tipo": "fuera",
+          "donde": "olla",
+          "fuego": "fuerte",
+          "usa": [0, 13],
+          "temporizador_s": 540,
+          "temporizador_editable": true,
+          "señal": "Al morderlos aún resisten un poco en el centro: terminan de hacerse en el horno.",
+          "aviso": "Ajusta el temporizador al tiempo del paquete menos 1 minuto."
+        },
+        {
+          "titulo": "Escurrir",
+          "texto": "Guarda un vaso del agua de cocción y escurre la pasta. Devuélvela a la olla, ya con el fuego apagado.",
+          "tipo": "fuera",
+          "donde": "olla",
+          "fuego": "apagado"
+        },
+        {
+          "titulo": "Mezclar",
+          "texto": "Saca de la salsa el laurel y la cayena. Mezcla la salsa y 50 g de queso con la pasta, en la olla (no en el vaso). Si queda espesa, un chorrito del agua guardada. Prueba de sal.",
+          "tipo": "fuera",
+          "donde": "olla",
+          "fuego": "apagado",
+          "usa": [14],
+          "señal": "Toda la pasta brillante y bien cubierta de salsa, sin que quede seca.",
+          "aviso": "No lo mezcles en el vaso: no cabe todo y el giro rompería los macarrones."
+        },
+        {
+          "titulo": "Gratinar",
+          "texto": "Pásalos a una fuente, cubre con el resto del queso y gratina en la parte alta del horno.",
+          "tipo": "fuera",
+          "donde": "horno",
+          "modo": "Grill fuerte",
+          "usa": [14],
+          "temporizador_s": 300,
+          "señal": "El queso dorado y burbujeando. Vigílalo el último minuto: se quema rápido."
+        },
+        {
+          "titulo": "Servir",
+          "texto": "Con perejil picado por encima.",
+          "tipo": "fuera",
+          "donde": "mesa",
+          "usa": [15]
+        }
+      ],
+      "trucos": [
+        "Si la salsa aún queda clara, dale 5 minutos más con los ajustes del paso 5.",
+        "Con la cayena entera pica poco; si la quieres más fuerte, desmenúzala en el paso 2.",
+        "El chorizo bueno es el de guisar (sarta o taquitos), no el de companaje."
+      ]
+    },
+    {
+      "id": "risotto-pollo-champinones",
+      "titulo": "Risotto de pollo y champiñones",
+      "subtitulo": "1 ración para hoy y 2 para hacer arancini",
+      "categoria": "arroces",
+      "emoji": "🍄",
+      "raciones": "3 raciones",
+      "tiempo_min": 40,
+      "robot": "monsieur-cuisine-plus",
+      "accesorios": ["cuchillas", "espatula"],
+      "foto": "img/recetas/risotto-pollo-champinones.webp",
+      "foto_prompt": "Risotto cremoso y meloso de pollo y champiñones en un plato hondo de cerámica: granos de arroz brillantes, dados de pollo jugoso, láminas de champiñón, lascas de parmesano y perejil picado por encima. Una cuchara al lado y un cuenquito con parmesano rallado.",
+      "nota": 7,
+      "nota_mejor": {
+        "valor": 8,
+        "si": "Dorar el pollo y la mitad de los champiñones 5 min en una sartén muy caliente antes de meterlos en el vaso (una sartén más)."
+      },
+      "desglose": {
+        "textura": "Meloso y en su punto: el robot remueve sin parar, que es justo lo que pide un risotto.",
+        "sabor": "Ni el pollo ni los champiñones se doran, así que el fondo es más suave.",
+        "punto": "El arroz se cuece parejo y no se pega nada.",
+        "comodidad": "Te olvidas de estar 20 minutos removiendo."
+      },
+      "preparacion": [
+        "Calienta el caldo de pollo (en un cazo o en el microondas): tiene que entrar caliente en el paso 6.",
+        "Corta el pollo en dados de 2 cm y la cebolla en cuartos.",
+        "Ralla el parmesano y pica el perejil."
+      ],
+      "ingredientes": [
+        { "cantidad": "270 g", "nombre": "arroz para risotto (arborio)" },
+        { "cantidad": "300 g", "nombre": "contramuslo de pollo sin hueso, en dados de 2 cm" },
+        { "cantidad": "250 g", "nombre": "champiñones laminados" },
+        { "cantidad": "1 (100 g)", "nombre": "cebolla pequeña, en cuartos" },
+        { "cantidad": "1", "nombre": "diente de ajo" },
+        { "cantidad": "20 g", "nombre": "aceite de oliva" },
+        { "cantidad": "80 ml", "nombre": "vino blanco" },
+        { "cantidad": "800 ml", "nombre": "caldo de pollo, caliente" },
+        { "cantidad": "30 g", "nombre": "mantequilla" },
+        { "cantidad": "50 g", "nombre": "parmesano rallado" },
+        { "cantidad": "al gusto", "nombre": "sal y pimienta negra" },
+        { "cantidad": "un puñado", "nombre": "perejil fresco picado, para servir" }
+      ],
+      "pasos": [
+        {
+          "titulo": "Picar",
+          "texto": "Cebolla y ajo al vaso. Pica y baja con la espátula lo que quede en las paredes. Si aún ves trozos grandes, dale 3-4 segundos más.",
+          "tipo": "robot",
+          "usa": [3, 4],
+          "robot": { "tiempo_s": 10, "velocidad": "5", "medidor": "puesto" }
+        },
+        {
+          "titulo": "Sofreír",
+          "texto": "Pesa el aceite directamente en el vaso y sofríe sin el vaso medidor.",
+          "tipo": "robot",
+          "usa": [5],
+          "robot": { "programa": "sofreir", "tiempo_s": 300, "temperatura": 120, "velocidad": "1", "medidor": "quitado" }
+        },
+        {
+          "titulo": "Pollo y champiñones",
+          "texto": "Añade el pollo, los champiñones y una pizca de sal. Sin vaso medidor, para que se evapore el agua que sueltan los champiñones.",
+          "tipo": "robot",
+          "usa": [1, 2, 10],
+          "robot": { "tiempo_s": 360, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+        },
+        {
+          "titulo": "Nacarar el arroz",
+          "texto": "Añade el arroz.",
+          "tipo": "robot",
+          "usa": [0],
+          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+        },
+        {
+          "titulo": "Vino blanco",
+          "texto": "Añade el vino y deja que se evapore el alcohol, sin el vaso medidor.",
+          "tipo": "robot",
+          "usa": [6],
+          "robot": { "tiempo_s": 120, "temperatura": 120, "velocidad": "1", "inverso": true, "medidor": "quitado" }
+        },
+        {
+          "titulo": "Cocer con el caldo",
+          "texto": "Añade el caldo caliente y ½ cdta de sal. Con el vaso medidor puesto.",
+          "tipo": "robot",
+          "usa": [7, 10],
+          "robot": { "tiempo_s": 900, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "puesto" }
+        },
+        {
+          "titulo": "Probar el punto",
+          "texto": "Prueba el arroz. Si aún está duro, dale 2 minutos más con los mismos ajustes. Debe quedar meloso y algo caldoso: espesa al reposar.",
+          "tipo": "robot",
+          "opcional": true,
+          "robot": { "tiempo_s": 120, "temperatura": 100, "velocidad": "1", "inverso": true, "medidor": "puesto" },
+          "aviso": "Para las 2 raciones de los arancini: sácalas ahora, antes de la mantequilla y el queso, si las quieres guardar para recalentar. Para arancini puedes dejarlo todo junto."
+        },
+        {
+          "titulo": "Mantecar",
+          "texto": "Añade la mantequilla, el parmesano y pimienta. Mezcla sin calor.",
+          "tipo": "robot",
+          "usa": [8, 9, 10],
+          "robot": { "tiempo_s": 30, "velocidad": "1", "inverso": true, "medidor": "puesto" }
+        },
+        {
+          "titulo": "Reposar y servir",
+          "texto": "Deja reposar 2 minutos en el vaso y sirve con perejil picado.",
+          "tipo": "fuera",
+          "donde": "mesa",
+          "usa": [11],
+          "temporizador_s": 120,
+          "señal": "Al reposar espesa: si al servirlo cae como una ola lenta, está perfecto."
+        },
+        {
+          "titulo": "Guardar las sobras",
+          "texto": "Las 2 raciones para los arancini: a un táper, extendido, y a la nevera en cuanto deje de humear (como mucho 1-2 horas). Aguantan 2-3 días.",
+          "tipo": "fuera",
+          "donde": "nevera"
+        }
+      ],
+      "trucos": [
+        "Recalentar en el robot: 3-4 min · 90 °C · vel 1 · giro inverso, con 50 ml de caldo por ración.",
+        "Congelado queda harinoso: mejor nevera o convertirlo en arancini."
+      ]
+    },
+    {
+      "id": "arancini",
+      "titulo": "Arancini (bolas de risotto)",
+      "subtitulo": "Con las 2 raciones de risotto de pollo y champiñones que sobran",
+      "categoria": "aperitivos",
+      "emoji": "🧆",
+      "raciones": "20-24 bolitas",
+      "tiempo_min": 45,
+      "accesorios": [],
+      "sin_robot": true,
+      "foto": "img/recetas/arancini.webp",
+      "foto_prompt": "Arancini recién fritos: bolitas de risotto empanadas, muy doradas y crujientes, apiladas en una fuente sobre papel de cocina. Una de ellas abierta por la mitad deja ver el arroz cremoso con trocitos de pollo y champiñón y la mozzarella fundida estirándose en hilos. Al lado, un cuenco pequeño de salsa de tomate.",
+      "nota": null,
+      "desglose": {
+        "textura": "Crujientes por fuera y con la mozzarella fundida dentro.",
+        "sabor": "Todo el del risotto, concentrado.",
+        "punto": "El risotto tiene que estar bien frío, del día anterior, o no se deja formar.",
+        "comodidad": "Se hacen fuera del robot (no fríe: su tope son 130 °C). Empanados se pueden congelar."
+      },
+      "preparacion": [
+        "Saca el risotto de la nevera justo antes de empezar: tiene que estar frío.",
+        "Corta la mozzarella en 20-24 dados y escúrrela bien en papel de cocina.",
+        "Prepara tres platos hondos en fila: harina, huevo batido y pan rallado."
+      ],
+      "ingredientes": [
+        { "cantidad": "600 g", "nombre": "risotto frío (las 2 raciones guardadas)" },
+        { "cantidad": "120 g", "nombre": "mozzarella fresca, en 20-24 dados" },
+        { "cantidad": "2", "nombre": "huevos para ligar el risotto" },
+        { "cantidad": "1-2", "nombre": "huevos para el rebozado" },
+        { "cantidad": "80 g", "nombre": "harina" },
+        { "cantidad": "160 g", "nombre": "pan rallado" },
+        { "cantidad": "500 ml", "nombre": "aceite de girasol para freír (o spray si usas freidora de aire)" }
+      ],
+      "pasos": [
+        {
+          "titulo": "Ligar el risotto",
+          "texto": "En un bol, mezcla el risotto frío con 2 huevos batidos. Así liga y no se abre al freír.",
+          "tipo": "fuera",
+          "donde": "encimera",
+          "usa": [0, 2],
+          "señal": "Una masa pegajosa que se sostiene al apretarla en la mano."
+        },
+        {
+          "titulo": "Formar las bolas",
+          "texto": "Con las manos húmedas, coge una porción del tamaño de una nuez grande, aplánala, pon un dado de mozzarella en el centro y ciérrala en bola.",
+          "tipo": "fuera",
+          "donde": "encimera",
+          "usa": [1],
+          "señal": "Que no asome la mozzarella por ningún lado: si se ve, se escapa al freír."
+        },
+        {
+          "titulo": "Empanar",
+          "texto": "Pasa cada bola por harina, huevo batido y pan rallado. Para extra crujientes, repite huevo y pan rallado.",
+          "tipo": "fuera",
+          "donde": "encimera",
+          "usa": [4, 3, 5]
+        },
+        {
+          "titulo": "Reposar en la nevera",
+          "texto": "15 minutos en la nevera para que se asienten.",
+          "tipo": "fuera",
+          "donde": "nevera",
+          "temporizador_s": 900,
+          "aviso": "Las que no vayas a freír hoy, congélalas ahora, empanadas y sin freír. Se fríen directamente congeladas, con 1 minuto más."
+        },
+        {
+          "titulo": "Freír en sartén",
+          "texto": "Aceite de girasol a 175 °C. Fríe de 3 en 3 o de 4 en 4 hasta que estén doradas y escurre sobre papel de cocina.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio-fuerte",
+          "temperatura": 175,
+          "usa": [6],
+          "temporizador_s": 180,
+          "temporizador_repetible": true,
+          "señal": "Doradas por todos lados. Si no tienes termómetro: un trocito de pan echa burbujas alrededor y se dora en menos de un minuto.",
+          "aviso": "Si usas la freidora de aire, salta este paso y haz el siguiente."
+        },
+        {
+          "titulo": "O en freidora de aire",
+          "texto": "Pulverízalas con aceite y ponlas sin amontonar. Dales la vuelta a mitad.",
+          "tipo": "fuera",
+          "donde": "freidora",
+          "temperatura": 200,
+          "opcional": true,
+          "usa": [6],
+          "temporizador_s": 660,
+          "recordatorio": { "quedan_s": 330, "texto": "Dales la vuelta a los arancini." },
+          "señal": "Doradas y crujientes por los dos lados."
+        },
+        {
+          "titulo": "Servir",
+          "texto": "Calientes, para que la mozzarella esté fundida. Con salsa de tomate o alioli.",
+          "tipo": "fuera",
+          "donde": "mesa"
+        }
+      ],
+      "trucos": [
+        "Recién hecho el risotto no sirve: tiene que pasar al menos una noche en la nevera.",
+        "Empanados y sin freír se congelan muy bien."
+      ]
+    }
+  ]
+}

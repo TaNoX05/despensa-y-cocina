@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Despensa y cocina</title>
+  <meta name="description" content="Despensa por voz y recetas paso a paso para la Monsieur Cuisine Plus.">
+  <meta name="theme-color" content="#f6f1ea">
+  <meta name="color-scheme" content="light dark">
+  <!-- app de pantalla de inicio en iPad: sin barras de Safari -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cocina">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/iconos/icono-192.png">
+  <link rel="apple-touch-icon" href="img/iconos/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="modulepreload" href="js/app.js">
+</head>
+<body>
+  <div class="barra-estado" aria-hidden="true"></div>
+  <div id="app"><main class="pantalla"><div class="vacio"><div class="grande">🍳</div><p>Cargando…</p></div></main></div>
+  <div id="marco"></div>
+  <noscript>Esta app necesita JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
