@@ -13,6 +13,11 @@
       "emoji": "🍚"
     },
     {
+      "id": "carnes",
+      "nombre": "Carnes",
+      "emoji": "🥩"
+    },
+    {
       "id": "aperitivos",
       "nombre": "Aperitivos y picoteo",
       "emoji": "🧆"
@@ -9510,6 +9515,1025 @@
         "tiendas": {
           "Mercadona": 5.23,
           "Masymas": 1.73
+        },
+        "completo": true,
+        "faltan": []
+      }
+    },
+    {
+      "id": "lomo-al-queso",
+      "titulo": "Lomo al queso",
+      "subtitulo": "Como el de la conserva andaluza: lomo tierno en una salsa suave de queso, cebolla y ajo",
+      "categoria": "carnes",
+      "emoji": "🥩",
+      "foto": "img/recetas/lomo-al-queso.webp",
+      "foto_prompt": "Trozos grandes de lomo de cerdo cocido, pálidos y blanquecinos, sin nada dorado ni tostado, medio cubiertos por una salsa cremosa y lisa de queso de color marfil, en una cazuela de barro; al lado, un trozo de pan.",
+      "estilo_por_defecto": "normal",
+      "estilos": [
+        {
+          "id": "rapida",
+          "descripcion": "Filetes de lomo marcados en la sartén y una salsa de quesitos y nata en la misma sartén.",
+          "versiones": [
+            {
+              "id": "rapida",
+              "nombre": "Rápida y sencilla",
+              "subtitulo": "Filetes de lomo con salsa de quesitos, todo en una sartén",
+              "raciones": "4 raciones",
+              "porciones": 4,
+              "tiempo_min": 20,
+              "sin_robot": true,
+              "nota": null,
+              "desglose": {
+                "textura": "Filetes finos y tiernos, siempre que no se pasen.",
+                "sabor": "Salsa de quesitos y nata: más suave y cremosa que la de la conserva, y la carne con algo de dorado.",
+                "punto": "Vuelta y vuelta y solo un hervor en la salsa: más tiempo y se secan.",
+                "comodidad": "Una sola sartén y en veinte minutos."
+              },
+              "ingredientes": [
+                {
+                  "id": "lomo",
+                  "cantidad": "600 g",
+                  "nombre": "filetes de lomo de cerdo",
+                  "compra": {
+                    "mercadona": "3395",
+                    "usa": 600,
+                    "unidad": "g",
+                    "euros": 3.78,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Filetes lomo de cerdo familiar",
+                      "formato": "Bandeja 900 g",
+                      "precio": 5.67,
+                      "contenido": 900,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "1 cda",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 11,
+                    "unidad": "ml",
+                    "euros": 0.045,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "al gusto",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "nata",
+                  "cantidad": "200 ml",
+                  "nombre": "nata ligera para cocinar",
+                  "compra": {
+                    "mercadona": "10161",
+                    "usa": 200,
+                    "unidad": "ml",
+                    "euros": 0.62,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Nata ligera para cocinar Hacendado",
+                      "formato": "Brik 500 ml",
+                      "precio": 1.55,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "quesitos",
+                  "cantidad": "6",
+                  "nombre": "quesitos (queso en porciones)",
+                  "compra": {
+                    "mercadona": "52405",
+                    "usa": 94,
+                    "unidad": "g",
+                    "euros": 0.489,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso en porciones Hacendado",
+                      "formato": "Caja 375 g",
+                      "precio": 1.95,
+                      "contenido": 375,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "cebolla en polvo",
+                  "compra": {
+                    "mercadona": "34138",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.024,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebolla en polvo Hacendado",
+                      "formato": "Bote 60 g",
+                      "precio": 0.94,
+                      "contenido": 60,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "picar",
+                  "titulo": "Preparar",
+                  "texto": "Pica muy fino el ajo y sala los filetes por los dos lados.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "ajo",
+                    "lomo",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "filetes",
+                  "titulo": "Marcar los filetes",
+                  "texto": "En una sartén grande con el aceite, haz los filetes vuelta y vuelta, por tandas, y sácalos a un plato.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "fuerte",
+                  "temporizador_s": 120,
+                  "temporizador_repetible": true,
+                  "señal": "Dorados por fuera y apenas rosados por dentro: terminan de hacerse en la salsa.",
+                  "usa": [
+                    "lomo",
+                    "aceite"
+                  ]
+                },
+                {
+                  "id": "salsa",
+                  "titulo": "Salsa de queso",
+                  "texto": "En la misma sartén, a fuego medio-suave, sofríe el ajo medio minuto sin que se dore. Añade la nata, los quesitos troceados y la cebolla en polvo, y remueve hasta que se fundan.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio-suave",
+                  "temporizador_s": 240,
+                  "señal": "Lisa y cremosa, cubre la cuchara.",
+                  "usa": [
+                    "ajo",
+                    "nata",
+                    "quesitos",
+                    "cebolla-polvo"
+                  ]
+                },
+                {
+                  "id": "juntar",
+                  "titulo": "Juntar",
+                  "texto": "Vuelve a meter los filetes con el jugo que hayan soltado y deja que den un hervor en la salsa. Prueba de sal.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "suave",
+                  "temporizador_s": 60,
+                  "usa": [
+                    "lomo"
+                  ]
+                },
+                {
+                  "id": "servir",
+                  "titulo": "A la mesa",
+                  "texto": "Sírvelos bien cubiertos de salsa, con pan para mojar.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": []
+                }
+              ],
+              "trucos": [
+                "Si la salsa espesa demasiado, aligérala con un chorrito de leche o de agua."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 5,
+                "raciones": 4,
+                "por_racion": 1.25,
+                "tiendas": {
+                  "Mercadona": 5
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "descripcion": "Copia del tarro: cebolla y ajo pochados sin dorar, salsa de nata ligera y queso, y el lomo cocido despacio dentro.",
+          "versiones": [
+            {
+              "id": "conserva",
+              "nombre": "Como el de la conserva",
+              "subtitulo": "Lomo tierno cocido despacio en una salsa suave de queso, cebolla y ajo",
+              "raciones": "4 raciones",
+              "porciones": 4,
+              "tiempo_min": 55,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": 8,
+              "desglose": {
+                "textura": "Lomo tierno y jugoso, cocido despacio en la salsa como en el tarro; con el giro suave, algún trozo se puede romper.",
+                "sabor": "El de la conserva: lomo blanco, sin dorar, en una salsa suave de queso, cebolla y ajo. El original no lleva tostado, así que el robot no pierde nada.",
+                "punto": "A 85 °C el lomo se hace sin secarse y la salsa de queso no se corta.",
+                "comodidad": "Todo en el vaso y sin vigilar: solo hay que cortar el lomo."
+              },
+              "preparacion": [
+                "Corta el lomo en trozos grandes, de unos 3 cm, y sálalos ligeramente.",
+                "Corta el queso en dados."
+              ],
+              "ingredientes": [
+                {
+                  "id": "cebolla",
+                  "cantidad": "1 (150 g)",
+                  "nombre": "cebolla, en cuartos",
+                  "compra": {
+                    "mercadona": "69089",
+                    "usa": 150,
+                    "unidad": "g",
+                    "merma": 0.1,
+                    "euros": 0.25,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollas",
+                      "formato": "Malla 1 kg",
+                      "precio": 1.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "2 dientes",
+                  "nombre": "ajos",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 10,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.085,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "2 cdas",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 22,
+                    "unidad": "ml",
+                    "euros": 0.09,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua",
+                  "cantidad": "100 ml",
+                  "nombre": "agua",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "nata",
+                  "cantidad": "200 ml",
+                  "nombre": "nata ligera para cocinar",
+                  "compra": {
+                    "mercadona": "10161",
+                    "usa": 200,
+                    "unidad": "ml",
+                    "euros": 0.62,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Nata ligera para cocinar Hacendado",
+                      "formato": "Brik 500 ml",
+                      "precio": 1.55,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "queso",
+                  "cantidad": "100 g",
+                  "nombre": "queso semicurado, en dados",
+                  "compra": {
+                    "mercadona": "50943",
+                    "usa": 100,
+                    "unidad": "g",
+                    "euros": 0.969,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso semicurado mezcla Hacendado",
+                      "formato": "Pieza 420 g",
+                      "precio": 4.07,
+                      "contenido": 420,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "maicena",
+                  "cantidad": "1 cda (10 g)",
+                  "nombre": "harina fina de maíz (maicena)",
+                  "compra": {
+                    "mercadona": "9588",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.03,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Harina fina de maíz Hacendado",
+                      "formato": "Paquete 400 g",
+                      "precio": 1.2,
+                      "contenido": 400,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "lomo",
+                  "cantidad": "600 g",
+                  "nombre": "lomo de cerdo en pieza, en trozos de 3 cm",
+                  "compra": {
+                    "mercadona": "4590",
+                    "usa": 600,
+                    "unidad": "g",
+                    "euros": 2.7,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Lomo de cerdo trozo",
+                      "formato": "Pieza 1,2 kg",
+                      "precio": 5.4,
+                      "contenido": 1200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "picar",
+                  "titulo": "Picar cebolla y ajo",
+                  "texto": "Pon en el vaso la cebolla en cuartos y los ajos pelados. Si ves trozos grandes, 3-4 segundos más.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cebolla",
+                    "ajo"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "5",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "pochar",
+                  "titulo": "Pochar sin dorar",
+                  "texto": "Baja con la espátula lo de las paredes, añade el aceite y pocha sin el vaso medidor. Tiene que quedar blanda y transparente, sin tomar color, como en la conserva.",
+                  "tipo": "robot",
+                  "usa": [
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 600,
+                    "temperatura": 110,
+                    "velocidad": "1",
+                    "medidor": "quitado"
+                  },
+                  "señal": "Cebolla blanda y transparente, sin manchas doradas."
+                },
+                {
+                  "id": "salsa",
+                  "titulo": "Salsa de queso",
+                  "texto": "Añade el agua, la nata, el queso en dados, la maicena y la sal.",
+                  "tipo": "robot",
+                  "usa": [
+                    "agua",
+                    "nata",
+                    "queso",
+                    "maicena",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 360,
+                    "temperatura": 90,
+                    "velocidad": "3",
+                    "medidor": "puesto"
+                  },
+                  "señal": "El queso se ha fundido y la salsa ha espesado un poco."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar la salsa",
+                  "texto": "Con el vaso medidor puesto y un paño encima, ve subiendo la velocidad a mano poco a poco de 4 a 8.",
+                  "tipo": "robot",
+                  "usa": [],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  },
+                  "aviso": "Está muy caliente: sube la velocidad despacio, nunca de golpe.",
+                  "señal": "Lisa y de color marfil, sin trocitos de cebolla."
+                },
+                {
+                  "id": "lomo",
+                  "titulo": "Cocer el lomo en la salsa",
+                  "texto": "Añade los trozos de lomo y remueve con la espátula para que queden cubiertos. Se cuecen despacio, con giro inverso para que las cuchillas no rompan la carne.",
+                  "tipo": "robot",
+                  "usa": [
+                    "lomo"
+                  ],
+                  "robot": {
+                    "tiempo_s": 1800,
+                    "temperatura": 85,
+                    "velocidad": "1",
+                    "inverso": true,
+                    "medidor": "puesto"
+                  },
+                  "señal": "El lomo está blanco por dentro y tierno al pincharlo; la salsa cubre la cuchara."
+                },
+                {
+                  "id": "servir",
+                  "titulo": "A la mesa",
+                  "texto": "Deja reposar 5 minutos en el vaso, con la tapa puesta, para que la salsa asiente. Sírvelo con su salsa y pan para mojar. Prueba antes de sal.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": []
+                }
+              ],
+              "trucos": [
+                "De un día para otro está aún mejor, como en el tarro. Aguanta 3 días en la nevera: caliéntalo despacio.",
+                "La conserva es bastante salada; aquí empieza con poca sal y prueba al final.",
+                "Si la salsa queda espesa al recalentar, aligérala con un chorrito de leche."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 4.74,
+                "raciones": 4,
+                "por_racion": 1.19,
+                "tiendas": {
+                  "Mercadona": 4.74
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "gourmet",
+          "descripcion": "Solomillo dorado en la sartén con una salsa de queso de cabra y fino de Montilla hecha en el robot.",
+          "versiones": [
+            {
+              "id": "gourmet",
+              "nombre": "Gourmet",
+              "subtitulo": "Solomillo dorado con salsa de queso de cabra y un toque de fino",
+              "raciones": "4 raciones",
+              "porciones": 4,
+              "tiempo_min": 40,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": null,
+              "desglose": {
+                "textura": "Solomillo dorado por fuera y jugoso, apenas rosado por dentro.",
+                "sabor": "Queso de cabra y fino de Montilla: más intenso, y con el tostado que da la sartén.",
+                "punto": "La carne, al punto en la sartén; la salsa, en el robot, lisa y sin cortarse.",
+                "comodidad": "La sartén y el robot a la vez, sin complicaciones."
+              },
+              "preparacion": [
+                "Saca los solomillos de la nevera un rato antes y quítales la telilla blanca.",
+                "Corta el queso en dados."
+              ],
+              "ingredientes": [
+                {
+                  "id": "solomillo",
+                  "cantidad": "2 piezas (unos 670 g)",
+                  "nombre": "solomillos de cerdo",
+                  "compra": {
+                    "mercadona": "4570",
+                    "usa": 670,
+                    "unidad": "g",
+                    "euros": 5.23,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Solomillo de cerdo",
+                      "formato": "Paquete 670 g",
+                      "precio": 5.23,
+                      "contenido": 670,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite-sarten",
+                  "cantidad": "1 cda",
+                  "nombre": "aceite de oliva virgen extra, para la sartén",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 11,
+                    "unidad": "ml",
+                    "euros": 0.045,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla",
+                  "cantidad": "½ (75 g)",
+                  "nombre": "cebolla, en cuartos",
+                  "compra": {
+                    "mercadona": "69089",
+                    "usa": 75,
+                    "unidad": "g",
+                    "merma": 0.1,
+                    "euros": 0.125,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollas",
+                      "formato": "Malla 1 kg",
+                      "precio": 1.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "1 cda",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 11,
+                    "unidad": "ml",
+                    "euros": 0.045,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "fino",
+                  "cantidad": "60 ml",
+                  "nombre": "vino fino de Montilla-Moriles",
+                  "compra": {
+                    "mercadona": "66907",
+                    "usa": 60,
+                    "unidad": "ml",
+                    "euros": 0.252,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Vino fino Corredera DO Montilla-Moriles",
+                      "formato": "Botella 750 ml",
+                      "precio": 3.15,
+                      "contenido": 750,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "caldo",
+                  "cantidad": "100 ml",
+                  "nombre": "caldo de pollo",
+                  "compra": {
+                    "mercadona": "7313",
+                    "usa": 100,
+                    "unidad": "ml",
+                    "euros": 0.075,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Caldo de pollo Hacendado",
+                      "formato": "Brik 1 L",
+                      "precio": 0.75,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "nata",
+                  "cantidad": "150 ml",
+                  "nombre": "nata para montar",
+                  "compra": {
+                    "mercadona": "10276",
+                    "usa": 150,
+                    "unidad": "ml",
+                    "euros": 0.585,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Nata para montar Hacendado",
+                      "formato": "Brik 500 ml",
+                      "precio": 1.95,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "queso",
+                  "cantidad": "100 g",
+                  "nombre": "queso de cabra semicurado, en dados",
+                  "compra": {
+                    "mercadona": "50942",
+                    "usa": 100,
+                    "unidad": "g",
+                    "equivale": "queso payoyo (cabra de la Sierra de Cádiz), si lo encuentras",
+                    "euros": 1.63,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso semicurado de cabra Hacendado",
+                      "formato": "Pieza 300 g",
+                      "precio": 4.89,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "maicena",
+                  "cantidad": "1 cdta (5 g)",
+                  "nombre": "harina fina de maíz (maicena)",
+                  "compra": {
+                    "mercadona": "9588",
+                    "usa": 5,
+                    "unidad": "g",
+                    "euros": 0.015,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Harina fina de maíz Hacendado",
+                      "formato": "Paquete 400 g",
+                      "precio": 1.2,
+                      "contenido": 400,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "al gusto",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "pimienta",
+                  "cantidad": "al gusto",
+                  "nombre": "pimienta negra recién molida",
+                  "compra": {
+                    "mercadona": "34171",
+                    "usa": 0.5,
+                    "unidad": "g",
+                    "euros": 0.009,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimienta negra molida Hacendado",
+                      "formato": "Bote 70 g",
+                      "precio": 1.3,
+                      "contenido": 70,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "picar",
+                  "titulo": "Picar cebolla y ajo",
+                  "texto": "Pon en el vaso la cebolla y el ajo pelado. Si ves trozos grandes, 3-4 segundos más.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cebolla",
+                    "ajo"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "5",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "pochar",
+                  "titulo": "Pochar",
+                  "texto": "Baja con la espátula lo de las paredes, añade el aceite y pocha sin el vaso medidor.",
+                  "tipo": "robot",
+                  "usa": [
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 600,
+                    "temperatura": 110,
+                    "velocidad": "1",
+                    "medidor": "quitado"
+                  },
+                  "señal": "Cebolla blanda y transparente."
+                },
+                {
+                  "id": "dorar",
+                  "titulo": "Dorar el solomillo",
+                  "texto": "Mientras se pocha, sala los solomillos y dóralos enteros en una sartén con el aceite, girándolos para que se doren por todos lados. Sácalos a una tabla y deja que reposen.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "fuerte",
+                  "temporizador_s": 600,
+                  "señal": "Dorados por todas partes y firmes pero elásticos al apretarlos: por dentro, apenas rosados.",
+                  "usa": [
+                    "solomillo",
+                    "aceite-sarten",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "fino",
+                  "titulo": "Añadir el fino",
+                  "texto": "Echa el fino al vaso y deja que se evapore el alcohol, sin el vaso medidor.",
+                  "tipo": "robot",
+                  "usa": [
+                    "fino"
+                  ],
+                  "robot": {
+                    "tiempo_s": 180,
+                    "temperatura": 120,
+                    "velocidad": "1",
+                    "medidor": "quitado"
+                  }
+                },
+                {
+                  "id": "salsa",
+                  "titulo": "Salsa de queso de cabra",
+                  "texto": "Añade el caldo, la nata, el queso en dados y la maicena.",
+                  "tipo": "robot",
+                  "usa": [
+                    "caldo",
+                    "nata",
+                    "queso",
+                    "maicena"
+                  ],
+                  "robot": {
+                    "tiempo_s": 360,
+                    "temperatura": 90,
+                    "velocidad": "3",
+                    "medidor": "puesto"
+                  },
+                  "señal": "El queso se ha fundido y la salsa ha espesado un poco."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar la salsa",
+                  "texto": "Con el vaso medidor puesto y un paño encima, ve subiendo la velocidad a mano poco a poco de 4 a 8. Prueba de sal y pimienta.",
+                  "tipo": "robot",
+                  "usa": [
+                    "pimienta"
+                  ],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  },
+                  "aviso": "Está muy caliente: sube la velocidad despacio, nunca de golpe.",
+                  "señal": "Lisa, brillante y que cubre la cuchara."
+                },
+                {
+                  "id": "servir",
+                  "titulo": "A la mesa",
+                  "texto": "Corta los solomillos en medallones gruesos, ponlos en los platos con el jugo que hayan soltado y cúbrelos con la salsa caliente. Un poco de pimienta recién molida por encima.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "solomillo",
+                    "pimienta"
+                  ]
+                }
+              ],
+              "trucos": [
+                "El solomillo de cerdo se puede comer apenas rosado: queda mucho más jugoso.",
+                "Con un queso payoyo de verdad la salsa gana muchísimo; búscalo en tiendas de quesos."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 8.05,
+                "raciones": 4,
+                "por_racion": 2.01,
+                "tiendas": {
+                  "Mercadona": 8.05
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "id": "patatas",
+          "nombre": "Con patatas fritas",
+          "descripcion": "Como en las ventas andaluzas: patatas para mojar en la salsa.",
+          "minutos": 18,
+          "ingredientes": [
+            {
+              "id": "patatas",
+              "cantidad": "600 g",
+              "nombre": "patatas prefritas congeladas de corte grueso",
+              "compra": {
+                "mercadona": "61405",
+                "usa": 600,
+                "unidad": "g",
+                "euros": 0.9,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Patatas prefritas corte grueso Hacendado ultracongeladas",
+                  "formato": "Paquete 2 kg",
+                  "precio": 3,
+                  "contenido": 2000,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "sal-patatas",
+              "cantidad": "una pizca",
+              "nombre": "sal",
+              "compra": {
+                "despensa": true,
+                "euros": 0
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "servir",
+              "id": "patatas",
+              "titulo": "Patatas fritas",
+              "texto": "Pon las patatas en la freidora sin amontonarlas (en dos tandas si no caben) y sálalas al sacarlas. Mientras, el lomo espera caliente en su salsa, tapado.",
+              "tipo": "fuera",
+              "donde": "freidora",
+              "temperatura": 200,
+              "modo": "Aire",
+              "temporizador_s": 1080,
+              "temporizador_editable": true,
+              "temporizador_repetible": true,
+              "recordatorio": {
+                "quedan_s": 540,
+                "texto": "Sacude la cesta de las patatas."
+              },
+              "señal": "Doradas y crujientes por fuera.",
+              "usa": [
+                "patatas",
+                "sal-patatas"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 0.9,
+            "tiendas": {
+              "Mercadona": 0.9
+            },
+            "completo": true,
+            "faltan": []
+          }
+        }
+      ],
+      "coste": {
+        "calculado": "2026-11-22",
+        "precios_hasta": "2026-11-21",
+        "total": 4.74,
+        "raciones": 4,
+        "por_racion": 1.19,
+        "tiendas": {
+          "Mercadona": 4.74
         },
         "completo": true,
         "faltan": []
