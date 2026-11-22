@@ -7,7 +7,7 @@ import { productoParaIngrediente } from '../despensa.js';
 import { proceso, porcentaje, marcado, alternarMarca, reiniciarProceso, fijarPaso } from '../cocina.js';
 import { esc, fechaLarga } from '../util.js';
 import { ico } from '../iconos.js';
-import { vista, accion, ir, repintar, volver } from '../rutas.js';
+import { vista, accion, ir, repintar } from '../rutas.js';
 import { confirmar, tostada } from '../ui.js';
 import { cocinadosDe, estrellasTexto, tarjetaCocinando, mediaValoracion } from './recetas.js';
 import { abrirValoracion } from './valorar.js';
@@ -100,7 +100,7 @@ vista('receta', {
     return `<main class="pantalla ficha">
       <div class="heroe">
         ${rc.foto ? `<img src="${esc(rc.foto)}" alt="">` : `<div class="sin-foto">${rc.emoji || '🍽️'}</div>`}
-        <button class="boton-redondo vidrio volver" data-a="volverRecetas" aria-label="Volver">${ico('atras')}</button>
+        <button class="boton-vidrio volver" data-a="volverRecetas" aria-label="Volver a las recetas">${ico('atras')}<span>Recetas</span></button>
         <div class="texto-heroe">
           <h1>${esc(rc.titulo)}</h1>
           ${rc.subtitulo ? `<p class="sub">${esc(rc.subtitulo)}</p>` : ''}
@@ -158,7 +158,7 @@ vista('receta', {
 });
 
 accion({
-  volverRecetas: () => volver('#/recetas'),
+  volverRecetas: () => ir('#/recetas', { reemplazar: true }),
   marcarIngrediente: ({ id, i }) => {
     const on = alternarMarca('ingredientes', id, Number(i));
     document.querySelectorAll(`[data-a="marcarIngrediente"][data-id="${CSS.escape(id)}"][data-i="${i}"]`).forEach((x) => x.classList.toggle('marcado', on));

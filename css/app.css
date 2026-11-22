@@ -986,3 +986,14 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 @container reloj (max-width: 330px) {
   .temporizador .ajusta-txt { display: none; }
 }
+
+/* botones de volver con su nombre escrito: que siempre esté claro adónde llevan */
+.boton-vidrio, .boton-salir {
+  display: inline-flex; align-items: center; gap: 6px; height: 50px; padding: 0 18px 0 12px; border-radius: 999px;
+  font-weight: 750; font-size: 16.5px; transition: transform .15s var(--curva);
+}
+.boton-vidrio:active, .boton-salir:active { transform: scale(.95); }
+.boton-vidrio { background: var(--vidrio); color: var(--texto); -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: var(--sombra-1); }
+.heroe .boton-vidrio.volver { position: absolute; z-index: 2; top: calc(var(--sup) + 18px); left: calc(var(--izq) + 24px); }
+.boton-salir { flex: none; background: var(--fondo-2); color: var(--texto); }
+@media (max-width: 600px) { .boton-salir { height: 44px; padding: 0 14px 0 10px; font-size: 15px; } }

@@ -21,16 +21,12 @@ export function ruta() {
   }
 }
 
-let navegaciones = 0;
+// Los botones de «atrás» y «salir» de la app van siempre a una pantalla fija (el menú de recetas,
+// la ficha…), nunca «a la anterior del historial»: así no hay bucles entre la ficha y el modo cocina.
 export function ir(hash, { reemplazar = false, animar = true } = {}) {
   if (location.hash === hash) { repintar(); return; }
   if (reemplazar) { history.replaceState(null, '', hash); pintar({ animar }); }
-  else { navegaciones++; location.hash = hash; }
-}
-/** Atrás dentro de la app; si se entró directamente a esta pantalla, va a `defecto`. */
-export function volver(defecto) {
-  if (navegaciones > 0) { navegaciones--; history.back(); }
-  else ir(defecto, { reemplazar: true });
+  else location.hash = hash;
 }
 
 let pintando = false;

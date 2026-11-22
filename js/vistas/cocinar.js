@@ -28,7 +28,7 @@ let quitarOyente = null;
 // ---------------------------------------------------------------- piezas
 function barra(rc, n) {
   return `<header class="cocina-barra">
-    <button class="boton-redondo" data-a="salirCocina" data-id="${rc.id}" aria-label="Salir">${ico('cerrar')}</button>
+    <button class="boton-salir" data-a="salirCocina" data-id="${rc.id}" aria-label="Salir al menú de recetas">${ico('atras')}<span>Recetas</span></button>
     <div class="titulo">
       <b>${esc(rc.titulo)}</b>
       <span>Paso ${n + 1} de ${rc.pasos.length} · <span data-pct="${rc.id}">${porcentaje(rc.id)} %</span></span>
@@ -299,7 +299,7 @@ accion({
   sumarT: ({ c, s }) => sumar(c, Number(s)),
   otraTandaT: ({ c }) => { desbloquear(); otraTanda(c); },
   notaPaso: ({ id, n }) => abrirNota(id, Number(n)),
-  salirCocina: ({ id }) => ir(`#/receta/${id}`),
+  salirCocina: () => ir('#/recetas', { reemplazar: true }),   // el progreso sigue en «Cocinando ahora»
   hojaLado: () => {
     const a = actual(); if (!a) return;
     const h = abrirHoja(`<div class="cocina-lado" style="display:flex;border:0;background:none;max-height:70dvh">${lado(a.rc, a.n)}</div>`, { clase: 'hoja-lado' });
@@ -316,7 +316,7 @@ accion({
     h.el.addEventListener('click', async (e) => {
       const b = e.target.closest('[data-r]'); if (!b) return;
       h.cerrar();
-      if (b.dataset.r === 'receta') ir(`#/receta/${id}`);
+      if (b.dataset.r === 'receta') ir(`#/receta/${id}`, { reemplazar: true });
       if (b.dataset.r === 'completa') alternarPantallaCompleta();
       if (b.dataset.r === 'reiniciar' && await confirmar('¿Empezar de nuevo?', 'Vuelves al paso 1 y se borran los temporizadores.', { ok: 'Empezar de nuevo', peligro: true })) {
         reiniciarProceso(id); direccion = 'ant'; ir(`#/cocinar/${id}/0`, { reemplazar: true, animar: false });
