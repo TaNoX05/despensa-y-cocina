@@ -140,6 +140,7 @@ Herramientas (todas con Node):
 node herramientas/servidor.mjs                 # app en http://localhost:5180 con puente a OpenRouter y GitHub falso
 node herramientas/validar-recetas.mjs          # comprueba datos/recetas.json
 node herramientas/precios.mjs                  # precio de cada estilo, versión y extra con los catálogos de Mercadona y Masymas (MERCADONA_DIR en .env)
+node herramientas/receta-plana.mjs <id>        # la versión por defecto de una receta, sin estilos (para Home Assistant)
 node herramientas/generar-fotos.mjs <id>       # foto de una receta (sin id: las que no tienen)
 node herramientas/probar-ia.mjs "frase"        # prueba cómo entiende la IA una frase de la despensa
 node herramientas/generar-iconos.mjs           # iconos desde herramientas/icono.svg
