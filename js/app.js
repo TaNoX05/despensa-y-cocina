@@ -3,7 +3,7 @@
 import { E, cargar, guardar, alCambiar } from './almacen.js';
 import { cargarRecetas, receta } from './recetas.js';
 import { iniciarSincro } from './sincro.js';
-import { iniciarReloj, procesoPrincipal, proceso, timerMasUrgente, restante, corriendo, alCambiarRelojes } from './cocina.js';
+import { iniciarReloj, procesoPrincipal, proceso, timerMasUrgente, restante, corriendo, alCambiarRelojes, recetaCocina } from './cocina.js';
 import { mantenerEncendida } from './pantalla.js';
 import { desbloquear } from './sonido.js';
 import { pintar, alPintar, ir, ruta, rutaActual, repintar } from './rutas.js';
@@ -30,7 +30,7 @@ function pintarMarco(r = rutaActual()) {
   const id = !enCocina && procesoPrincipal();
   let mini = '';
   if (id && r.vista !== 'recetas') {
-    const rc = receta(id), p = proceso(id), x = timerMasUrgente(id);
+    const rc = recetaCocina(id), p = proceso(id), x = timerMasUrgente(id);
     const paso = rc.pasos[Math.min(p.paso, rc.pasos.length - 1)];
     mini = `<div class="mini" data-a="irPaso" data-id="${id}" data-n="${p.paso}" role="button">
       ${rc.foto ? `<img src="${esc(rc.foto)}" alt="">` : ''}

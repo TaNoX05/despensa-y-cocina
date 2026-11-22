@@ -534,7 +534,7 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 .ficha-cuerpo { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 22px; margin-top: 22px; align-items: start; }
 .ficha-cuerpo .lateral { position: sticky; top: calc(var(--sup) + 16px); }
 @media (orientation: portrait), (max-width: 980px) {
-  .ficha-cuerpo { grid-template-columns: 1fr; }
+  .ficha-cuerpo { grid-template-columns: minmax(0, 1fr); }
   .ficha-cuerpo .lateral { position: static; }
 }
 
@@ -997,3 +997,102 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 .heroe .boton-vidrio.volver { position: absolute; z-index: 2; top: calc(var(--sup) + 18px); left: calc(var(--izq) + 24px); }
 .boton-salir { flex: none; background: var(--fondo-2); color: var(--texto); }
 @media (max-width: 600px) { .boton-salir { height: 44px; padding: 0 14px 0 10px; font-size: 15px; } }
+
+/* ==========================================================================
+   Estilos de receta: cuestionario «¿Cómo la quieres?», «Tu versión» y marcas de extras
+   ========================================================================== */
+.hoja.hoja-eleccion { width: min(880px, 100%); padding-bottom: 0; }
+.cab-eleccion { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.cab-eleccion img { width: 76px; height: 76px; border-radius: 18px; object-fit: cover; flex: none; }
+.cab-eleccion h2 { margin: 0; }
+.paso-eleccion { margin-top: 18px; }
+.paso-eleccion h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-3); font-weight: 750; margin-bottom: 10px; }
+
+.rejilla-estilos { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: 12px; }
+.rejilla-estilos.n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.opcion-estilo {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left; padding: 16px 16px 14px;
+  border: 2px solid var(--linea); border-radius: 20px; background: var(--superficie-2); color: var(--texto);
+  transition: border-color .2s, background .2s, transform .15s var(--curva);
+}
+.opcion-estilo:active, .opcion-version:active, .opcion-extra:active { transform: scale(.98); }
+.opcion-estilo.activa { border-color: var(--acento); background: var(--acento-suave); }
+.opcion-estilo .emoji-estilo { font-size: 30px; line-height: 1; }
+.opcion-estilo b { font: 700 20px/1.15 var(--serif); }
+.opcion-estilo .desc { font-size: 14px; line-height: 1.35; color: var(--texto-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.datos-opcion { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: auto; padding-top: 4px; font: 700 15px var(--redonda); font-variant-numeric: tabular-nums; color: var(--texto); }
+.datos-opcion > span { display: inline-flex; align-items: center; gap: 4px; }
+.datos-opcion.col { flex-direction: column; align-items: flex-end; flex-wrap: nowrap; gap: 2px; margin: 0; padding: 0; flex: none; font-size: 14.5px; }
+.con-robot { background: var(--robot); color: var(--robot-luz); border-radius: 8px; padding: 2px 6px; }
+.opcion-estilo .n-versiones { font-size: 12.5px; font-weight: 700; color: var(--acento-fuerte); }
+.opcion-estilo .veces { font-size: 12.5px; font-weight: 700; color: var(--verde); }
+
+.lista-opciones { display: grid; gap: 10px; }
+.opcion-version, .opcion-extra {
+  display: flex; align-items: center; gap: 14px; text-align: left; padding: 14px 16px; min-height: 68px;
+  border: 2px solid var(--linea); border-radius: 18px; background: var(--superficie-2); color: var(--texto);
+  transition: border-color .2s, background .2s, transform .15s var(--curva);
+}
+.opcion-version.activa, .opcion-extra.activa { border-color: var(--acento); background: var(--acento-suave); }
+.opcion-version .txt, .opcion-extra .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.opcion-version .txt b, .opcion-extra .txt b { font-size: 17px; }
+.opcion-version .txt span, .opcion-extra .txt span { font-size: 14px; line-height: 1.35; color: var(--texto-2); }
+.radio { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--linea-2); transition: all .2s; }
+.activa > .radio { border-color: var(--acento); background: var(--acento); box-shadow: inset 0 0 0 5px var(--superficie); }
+.interruptor { flex: none; position: relative; width: 52px; height: 32px; border-radius: 999px; background: var(--linea-2); transition: background .2s; }
+.interruptor::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .2); transition: transform .25s var(--curva); }
+.interruptor.on { background: var(--acento); }
+.interruptor.on::after { transform: translateX(20px); }
+
+.resumen-eleccion {
+  position: sticky; bottom: 0; margin: 20px -28px 0; padding: 14px 28px calc(var(--inf) + 20px);
+  background: var(--superficie); border-top: 1px solid var(--linea);
+}
+.cifras-eleccion { display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline; color: var(--texto-2); font-size: 15px; font-weight: 600; }
+.cifras-eleccion b { font: 800 23px var(--redonda); color: var(--texto); font-variant-numeric: tabular-nums; }
+.resumen-eleccion .pie { margin-top: 12px; }
+.resumen-eleccion .corto { display: none; }
+.aviso-eleccion { margin-top: 8px; color: var(--ambar); font-weight: 700; font-size: 14.5px; }
+@media (min-width: 900px) and (min-height: 700px) {
+  .capa-hoja.centrada .hoja.hoja-eleccion { padding-bottom: 0; }
+  .capa-hoja.centrada .hoja-eleccion .resumen-eleccion { padding-bottom: 22px; }
+}
+
+/* «Tu versión» en la ficha */
+.barra-version {
+  display: flex; align-items: center; gap: 14px; margin-top: 20px; padding: 14px 16px 14px 20px;
+  background: var(--superficie); border: 1px solid var(--linea); border-radius: var(--radio); box-shadow: var(--sombra-1);
+}
+.barra-version .emoji-estilo { font-size: 34px; line-height: 1; flex: none; }
+.barra-version .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.barra-version .etq-txt { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-3); font-weight: 750; }
+.barra-version b { font: 700 21px/1.2 var(--serif); }
+.barra-version .extras-elegidos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+.barra-version .extras-elegidos .chip { background: var(--acento-suave); color: var(--acento-fuerte); font-size: 13.5px; }
+.barra-version .boton { flex: none; }
+
+/* lo que pone un extra (ingredientes y pasos) */
+.marca-extra {
+  display: inline-block; vertical-align: 1px; margin-left: 4px; padding: 1px 8px; border-radius: 999px;
+  background: var(--acento-suave); color: var(--acento-fuerte); font: 700 12px/1.35 var(--sans); max-width: 100%;
+}
+.version-mini { font-size: 14px; font-weight: 650; color: var(--acento-fuerte); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cocinando-ahora .version-mini { color: var(--robot-luz); margin-bottom: 2px; }
+.chip.version { background: var(--acento-suave); color: var(--acento-fuerte); }
+.tarjeta-receta .insignias { flex-wrap: wrap; }
+.insignia.estilos { letter-spacing: 1px; }
+.coste-ing small { display: block; font: 600 10.5px var(--sans); color: var(--texto-3); letter-spacing: .02em; }
+@media (max-width: 700px) {
+  .version-barra { display: none; }
+  .rejilla-estilos, .rejilla-estilos.n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .opcion-estilo { padding: 12px; }
+  .opcion-estilo .desc { -webkit-line-clamp: 2; font-size: 13.5px; }
+  .opcion-estilo b { font-size: 18px; }
+  .hoja.hoja-eleccion { padding-left: 18px; padding-right: 18px; }
+  .resumen-eleccion { margin-left: -18px; margin-right: -18px; padding-left: 18px; padding-right: 18px; }
+  .resumen-eleccion .pie .boton.grande { min-height: 58px; font-size: 17px; padding: 0 14px; }
+  .resumen-eleccion .largo { display: none; }
+  .resumen-eleccion .corto { display: inline; }
+  .barra-version { gap: 10px; padding: 12px 12px 12px 14px; }
+  .barra-version b { font-size: 18px; }
+}

@@ -2,9 +2,10 @@
 // pasos, trucos y tu historial con opiniones.
 
 import { E } from '../almacen.js';
-import { receta, categoria, usaRobot, colorNota, resumenPaso, dondePaso, DONDE, ACCESORIOS, euros, precioRacion } from '../recetas.js';
+import { categoria, usaRobot, colorNota, resumenPaso, dondePaso, DONDE, ACCESORIOS, euros, precioRacion } from '../recetas.js';
 import { productoParaIngrediente } from '../despensa.js';
-import { proceso, porcentaje, marcado, alternarMarca, reiniciarProceso, fijarPaso } from '../cocina.js';
+import { recetaCocina, proceso, porcentaje, marcado, alternarMarca, reiniciarProceso, fijarPaso } from '../cocina.js';
+import { abrirEleccion } from './elegir.js';
 import { esc, fechaLarga } from '../util.js';
 import { ico } from '../iconos.js';
 import { vista, accion, ir, repintar } from '../rutas.js';
@@ -25,22 +26,26 @@ export function filaIngrediente(rc, i, { conDespensa = true } = {}) {
   }
   return `<button class="ingrediente ${m ? 'marcado' : ''}" data-a="marcarIngrediente" data-id="${rc.id}" data-i="${i}">
     <span class="casilla">${ico('check')}</span>
-    <span class="txt"><span class="cant">${esc(ing.cantidad)}</span>${esc(ing.nombre)}</span>${badge}${costeIngrediente(ing)}</button>`;
+    <span class="txt"><span class="cant">${esc(ing.cantidad)}</span>${esc(ing.nombre)}${ing.extra ? ` <span class="marca-extra">+ ${esc(ing.extra)}</span>` : ''}</span>${badge}${costeIngrediente(ing, rc)}</button>`;
 }
-function costeIngrediente(ing) {
+function costeIngrediente(ing, rc) {
   const c = ing.compra;
   if (!c || c.despensa || c.euros == null) return '';
   const e = c.euros < 0.01 ? '< 0,01 €' : euros(c.euros);
-  return `<span class="coste-ing ${c.opcional ? 'opcional' : ''}" title="${esc(c.producto?.nombre || '')}">${c.opcional ? 'opcional' : e}</span>`;
+  // si la receta se compra en dos tiendas, cada ingrediente dice en cuál
+  const tienda = Object.keys(rc?.coste?.tiendas || {}).length > 1 && c.producto?.tienda ? `<small>${esc(c.producto.tienda)}</small>` : '';
+  return `<span class="coste-ing ${c.opcional ? 'opcional' : ''}" title="${esc([c.producto?.tienda, c.producto?.nombre].filter(Boolean).join(': '))}">${c.opcional ? 'opcional' : e}${tienda}</span>`;
 }
 function bloqueCoste(rc) {
   const c = rc.coste;
   if (!c) return '';
   const cambios = rc.ingredientes.filter((i) => i.compra?.equivale).map((i) => `${esc(i.compra.equivale.split(' (')[0])} → ${esc(i.compra.producto?.nombre || '')}`);
+  const tiendas = Object.entries(c.tiendas || {}).filter(([, e]) => e > 0).sort(([a], [b]) => (a === 'Mercadona' ? -1 : b === 'Mercadona' ? 1 : 0));
+  const deTiendas = tiendas.length > 1 ? `Mercadona y Masymas (${tiendas.map(([t, e]) => `${esc(t)} ${euros(e)}`).join(' + ')})` : esc(tiendas[0]?.[0] || c.tienda || 'Mercadona');
   return `<div class="coste-resumen">
     <div class="cifras"><div><b>${precioRacion(rc)}</b><span>por ración</span></div><div><b>${euros(c.total)}</b><span>la receta (${c.raciones} raciones)</span></div></div>
     ${c.completo ? '' : `<p class="aviso-coste">Falta el precio de: ${esc(c.faltan.join(', '))}.</p>`}
-    <p class="muy-tenue">Precios de ${esc(c.tienda)}. Se cuenta lo que usas, no el envase entero; sal y agua no suman.${cambios.length ? ` Equivalencias: ${cambios.join(' · ')}.` : ''}</p>
+    <p class="muy-tenue">Precios de ${deTiendas}. Se cuenta lo que usas, no el envase entero; sal y agua no suman.${cambios.length ? ` Equivalencias: ${cambios.join(' · ')}.` : ''}</p>
   </div>`;
 }
 export function filaPreparacion(rc, i) {
@@ -58,10 +63,23 @@ function bloqueNota(rc) {
         ? `<div class="nota-grande" style="background:${colorNota(rc.nota)}"><div>${rc.nota}<small>/10</small></div></div>`
         : `<div class="nota-grande fuera"><div>Fuera<br>del robot</div></div>`}
       <div><h2 class="serif" style="font-size:24px">${rc.nota != null ? 'Cómo queda en el robot' : 'Cómo sale'}</h2>
-      <p class="tenue" style="font-size:15.5px;margin-top:4px">${rc.nota != null ? 'Frente a hacerlo en casa de forma normal, con sartén, olla y horno.' : 'Esta receta se hace sin el robot.'}</p></div>
+      <p class="tenue" style="font-size:15.5px;margin-top:4px">${rc.nota != null ? 'Frente a hacerlo en casa de forma normal, con sartén, olla y horno.' : rc.sin_robot ? 'Esta receta se hace sin el robot.' : 'Se cocina fuera del robot; el robot solo echa una mano en alguna salsa o picado.'}</p></div>
     </div>
     <div class="desglose">${filas.map(([k, v]) => `<div><b>${k}</b><span>${esc(v)}</span></div>`).join('')}</div>
     ${rc.nota_mejor ? `<div class="mejora"><span class="sube">↑ ${rc.nota_mejor.valor}</span><span><b>Sube a ${rc.nota_mejor.valor}/10 si…</b> ${esc(rc.nota_mejor.si)}</span></div>` : ''}
+  </section>`;
+}
+
+/** «Tu versión»: el estilo, la variante y los extras que se van a cocinar, con «Cambiar». */
+function barraVersion(rc, p) {
+  return `<section class="barra-version">
+    <span class="emoji-estilo">${rc.estilo.emoji}</span>
+    <div class="txt">
+      <span class="etq-txt">${p ? 'Estás cocinando' : 'Tu versión'}</span>
+      <b>${esc(rc.estilo.nombre)}${rc.version.nombre && rc.version.nombre !== rc.estilo.nombre ? ` · ${esc(rc.version.nombre)}` : ''}</b>
+      ${rc.extrasElegidos.length ? `<span class="extras-elegidos">${rc.extrasElegidos.map((x) => `<span class="chip">+ ${esc(x.nombre)}</span>`).join('')}</span>` : ''}
+    </div>
+    <button class="boton" data-a="cambiarVersion" data-id="${rc.id}">${ico('ajustes', 'peq')} Cambiar</button>
   </section>`;
 }
 
@@ -78,6 +96,7 @@ function bloqueHistorial(rc) {
     ${lista.length ? lista.map((c) => `<div class="historial-item">
         <div class="cab"><span class="fecha">${esc(fechaLarga(c.fecha))}</span>
           ${typeof c.valoracion === 'number' ? `<span class="estrellas-mini" style="font-size:18px">${estrellasTexto(c.valoracion)}</span><b>${c.valoracion}/5</b>` : ''}
+          ${rc.conOpciones && c.version?.etiqueta ? `<span class="chip version">${esc(c.version.etiqueta)}</span>` : ''}
           ${(c.etiquetas || []).map((t) => `<span class="chip">${esc(t)}</span>`).join('')}
           <button class="boton fantasma peq" style="margin-left:auto" data-a="editarCocinado" data-id="${rc.id}" data-c="${c.id}">${ico('nota', 'peq')} Editar</button></div>
         ${c.comentario ? `<p>${esc(c.comentario)}</p>` : ''}
@@ -92,7 +111,7 @@ function bloqueHistorial(rc) {
 vista('receta', {
   montar: (app) => pintarMiniaturas(app),
   render: ({ id }) => {
-    const rc = receta(id);
+    const rc = recetaCocina(id);   // con el estilo, la variante y los extras elegidos
     if (!rc) return `<main class="pantalla"><div class="vacio"><div class="grande">🤷</div><p>Esta receta ya no existe.</p><button class="boton" data-a="volverRecetas">Volver</button></div></main>`;
     const cat = categoria(rc.categoria), p = proceso(id);
     const robot = usaRobot(rc);
@@ -115,6 +134,7 @@ vista('receta', {
           </div>
         </div>
       </div>
+      ${rc.conOpciones ? barraVersion(rc, p) : ''}
       ${p ? `<div style="margin-top:20px">${tarjetaCocinando(id)}</div>` : ''}
       <div class="ficha-cuerpo">
         <div class="lateral">
@@ -137,7 +157,7 @@ vista('receta', {
               const d = DONDE[dondePaso(ps)];
               return `<button class="paso-resumen ${actual ? 'actual' : ''}" data-a="empezarEn" data-id="${id}" data-n="${i}">
                 <span class="num ${hecho ? 'hecho' : ps.tipo === 'robot' ? '' : 'fuera'}">${hecho ? ico('check', 'peq') : i + 1}</span>
-                <span style="flex:1;min-width:0"><span class="t">${esc(ps.titulo)}${ps.opcional ? ' <span class="chip" style="font-size:12px;padding:2px 8px">Opcional</span>' : ''}</span>
+                <span style="flex:1;min-width:0"><span class="t">${esc(ps.titulo)}${ps.opcional ? ' <span class="chip" style="font-size:12px;padding:2px 8px">Opcional</span>' : ''}${ps.extra ? ` <span class="marca-extra">+ ${esc(ps.extra)}</span>` : ''}</span>
                 <div class="s">${d.emoji} ${esc(resumenPaso(ps))}</div></span>
                 ${actual ? '<span class="chip acento">Aquí vas</span>' : ''}</button>`;
             }).join('')}</div>
@@ -175,7 +195,8 @@ accion({
       reiniciarProceso(id); repintar();
     }
   },
-  apuntarHecha: ({ id }) => abrirValoracion(receta(id), { alGuardar: repintar }),
+  apuntarHecha: ({ id }) => abrirValoracion(recetaCocina(id), { alGuardar: repintar }),
+  cambiarVersion: ({ id }) => abrirEleccion(id),
   fotoReceta: async ({ id }) => {
     const ficheros = await elegirFotos();
     if (!ficheros.length) return;
@@ -186,5 +207,5 @@ accion({
     repintar();
   },
   verFoto: ({ receta: rid, id }) => abrirVisor(rid, id, { alCambiar: repintar }),
-  editarCocinado: ({ id, c }) => abrirValoracion(receta(id), { idCocinado: c, alGuardar: repintar }),
+  editarCocinado: ({ id, c }) => abrirValoracion(recetaCocina(id), { idCocinado: c, alGuardar: repintar }),
 });

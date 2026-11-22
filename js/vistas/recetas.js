@@ -3,7 +3,9 @@
 import { E } from '../almacen.js';
 import { recetas, categorias, categoria, receta, usaRobot, precioRacion } from '../recetas.js';
 import { coberturaReceta } from '../despensa.js';
-import { proceso, porcentaje, timerMasUrgente, restante, corriendo, quitarProceso } from '../cocina.js';
+import { recetaCocina, proceso, porcentaje, timerMasUrgente, restante, corriendo, quitarProceso } from '../cocina.js';
+import { resuelta, tieneOpciones, estilosDe, versionesDe } from '../variantes.js';
+import { abrirEleccion } from './elegir.js';
 import { esc, normalizar, mmss } from '../util.js';
 import { ico } from '../iconos.js';
 import { vista, accion, ir, repintar } from '../rutas.js';
@@ -36,14 +38,14 @@ export function anilloPct(id, tam = 84, grosor = 8, color = 'var(--robot-luz)') 
 }
 
 export function chipReloj(x, conNombre = false) {
-  const rc = receta(x.id); const paso = rc?.pasos[x.n];
+  const rc = recetaCocina(x.id); const paso = rc?.pasos[x.n];
   const fin = corriendo(x.t) && restante(x.t) <= 0;
   return `<button class="reloj-chip ${fin ? 'fin' : ''} ${corriendo(x.t) ? '' : 'pausa'}" data-a="irPaso" data-id="${x.id}" data-n="${x.n}">
     ${ico(corriendo(x.t) ? 'reloj' : 'pausa', 'peq')}${conNombre ? esc(paso?.titulo || '') + ' · ' : ''}<span data-t="${x.clave}">${mmss(Math.max(0, restante(x.t)))}</span></button>`;
 }
 
 export function tarjetaCocinando(id) {
-  const rc = receta(id), p = proceso(id);
+  const rc = recetaCocina(id), p = proceso(id);
   if (!rc || !p) return '';
   const paso = rc.pasos[Math.min(p.paso, rc.pasos.length - 1)];
   const relojes = Object.entries(p.timers || {}).map(([n, t]) => ({ clave: `${id}:${n}`, t, id, n: Number(n) })).filter((x) => corriendo(x.t) || (x.t.restante > 0 && x.t.restante < x.t.total));
@@ -52,6 +54,7 @@ export function tarjetaCocinando(id) {
     <div class="info">
       <div class="etq">🔥 Cocinando ahora</div>
       <h3>${esc(rc.titulo)}</h3>
+      ${rc.conOpciones && rc.etiquetaVersion ? `<div class="version-mini">${rc.estilo.emoji} ${esc(rc.etiquetaVersion)}</div>` : ''}
       <div class="paso">Paso ${p.paso + 1} de ${rc.pasos.length} · ${esc(paso.titulo)}</div>
       ${relojes.length ? `<div class="relojes">${relojes.map((x) => chipReloj(x, true)).join('')}</div>` : ''}
     </div>
@@ -63,7 +66,13 @@ export function tarjetaCocinando(id) {
   </div>`;
 }
 
-export function tarjetaReceta(rc) {
+/** Con alguna versión de robot (para los recuentos). */
+const algunaConRobot = (rc) => versionesDe(rc).some(({ version: v }) => !v.sin_robot && (v.pasos || []).some((p) => p.tipo === 'robot'));
+
+export function tarjetaReceta(cruda) {
+  // la tarjeta enseña la versión que vas a cocinar (la última que elegiste o la recomendada)
+  const rc = resuelta(cruda.id);
+  const estilos = estilosDe(cruda);
   const cat = categoria(rc.categoria);
   const cob = E.despensa.productos.length ? coberturaReceta(E.despensa.productos, rc) : null;
   const robot = usaRobot(rc);
@@ -72,6 +81,7 @@ export function tarjetaReceta(rc) {
       ${rc.foto ? `<img src="${esc(rc.foto)}" alt="" loading="lazy" decoding="async">` : `<div class="sin-foto">${rc.emoji || '🍽️'}</div>`}
       <div class="insignias">
         ${robot ? `<span class="insignia robot">${ico('robot', 'peq')} Robot</span>` : `<span class="insignia">🍳 Sin robot</span>`}
+        ${tieneOpciones(cruda) ? `<span class="insignia estilos" title="${esc(estilos.map((e) => e.nombre).join(', '))}">${estilos.map((e) => e.emoji).join('')}${estilos.length > 1 ? '' : ' Extras'}</span>` : ''}
         ${proceso(rc.id) ? `<span class="insignia" style="background:var(--acento)">🔥 <span data-pct="${rc.id}">${porcentaje(rc.id)} %</span></span>` : ''}
         ${precioRacion(rc) ? `<span class="precio-insignia"><b>${precioRacion(rc)}</b><small>por ración</small></span>` : ''}
       </div>
@@ -79,6 +89,7 @@ export function tarjetaReceta(rc) {
     <div class="cuerpo">
       <h3>${esc(rc.titulo)}</h3>
       ${rc.subtitulo ? `<p class="sub">${esc(rc.subtitulo)}</p>` : ''}
+      ${rc.conOpciones && rc.etiquetaVersion ? `<p class="version-mini">${rc.estilo.emoji} ${esc(rc.etiquetaVersion)}</p>` : ''}
       <div class="meta">
         <span>${ico('reloj', 'peq')} ${rc.tiempo_min} min</span>
         <span>🍽 ${esc(rc.raciones)}</span>
@@ -92,10 +103,14 @@ export function tarjetaReceta(rc) {
   </button>`;
 }
 
+/** Todo el texto por el que se puede buscar una receta: también los ingredientes de sus otras versiones y extras. */
+function textoBusqueda(rc) {
+  const ings = [...versionesDe(rc).flatMap(({ version: v }) => v.ingredientes || []), ...(rc.extras || []).flatMap((x) => x.ingredientes || [])];
+  return normalizar(`${rc.titulo} ${rc.subtitulo || ''} ${estilosDe(rc).map((e) => `${e.nombre} ${e.versiones.map((v) => v.nombre).join(' ')}`).join(' ')} ${(rc.extras || []).map((x) => x.nombre).join(' ')} ${ings.map((i) => i.nombre).join(' ')}`);
+}
 function filtradas(catId) {
   const q = normalizar(busqueda);
-  return recetas().filter((r) => (!catId || r.categoria === catId) &&
-    (!q || normalizar(`${r.titulo} ${r.subtitulo} ${r.ingredientes.map((i) => i.nombre).join(' ')}`).includes(q)));
+  return recetas().filter((r) => (!catId || r.categoria === catId) && (!q || textoBusqueda(r).includes(q)));
 }
 
 function cuerpo(catId) {
@@ -117,10 +132,10 @@ function cuerpo(catId) {
 vista('recetas', {
   render: ({ categoria: catId }) => {
     const enCurso = Object.keys(E.cocina.cocinando).filter((id) => receta(id));
-    const total = recetas().length, robot = recetas().filter(usaRobot).length;
+    const total = recetas().length, robot = recetas().filter(algunaConRobot).length;
     return `<main class="pantalla recetas">
       <header class="cabecera">
-        <div class="titulos"><h1>Recetas</h1><p class="sub">${total} recetas · ${robot} de robot · ${total - robot} sin robot</p></div>
+        <div class="titulos"><h1>Recetas</h1><p class="sub">${total} recetas · ${robot} con robot · ${total - robot} sin robot</p></div>
         <label class="buscador">${ico('buscar', 'peq')}<input type="search" placeholder="Buscar receta o ingrediente" value="${esc(busqueda)}" data-entrada="buscarRecetas" enterkeyhint="search"></label>
       </header>
       ${enCurso.map(tarjetaCocinando).join('')}
@@ -140,7 +155,12 @@ accion({
     const r = location.hash.split('/')[2] || null;
     const el = document.getElementById('lista-recetas'); if (el) el.innerHTML = cuerpo(r);
   },
-  abrirReceta: ({ id }) => ir(`#/receta/${id}`),
+  // Si tiene estilos, versiones o extras, primero «¿Cómo la quieres?». Si ya la estás cocinando, a la ficha.
+  abrirReceta: ({ id }) => {
+    const rc = receta(id);
+    if (rc && !proceso(id) && tieneOpciones(rc)) abrirEleccion(id);
+    else ir(`#/receta/${id}`);
+  },
   irPaso: ({ id, n }) => {
     const enCocina = location.hash.startsWith('#/cocinar/');
     ir(`#/cocinar/${id}/${n}`, { reemplazar: enCocina, animar: !enCocina });

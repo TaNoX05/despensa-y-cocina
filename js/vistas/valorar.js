@@ -30,7 +30,7 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
     <div style="display:flex;gap:16px;align-items:center">
       ${rc.foto ? `<img src="${esc(rc.foto)}" alt="" style="width:76px;height:76px;border-radius:18px;object-fit:cover">` : ''}
       <div><h2 style="margin:0">${existente ? 'Editar' : desdeCocina ? '¡Terminado! ¿Qué tal ha salido?' : 'Apuntar que la he hecho'}</h2>
-      <p class="tenue">${esc(rc.titulo)}</p></div>
+      <p class="tenue">${esc(rc.titulo)}${!existente && rc.conOpciones && rc.etiquetaVersion ? ` · ${esc(rc.etiquetaVersion)}` : existente?.version?.etiqueta ? ` · ${esc(existente.version.etiqueta)}` : ''}</p></div>
     </div>
     <div class="estrellas" id="estrellas">
       <button class="estrella-cero ${valor === 0 ? 'on' : ''}" data-r="estrella" data-v="0" aria-label="0 estrellas">0</button>
@@ -96,6 +96,8 @@ export function abrirValoracion(rc, { desdeCocina = false, idCocinado = null, al
       notas_pasos: notas,
       actualizado: Date.now(),
     };
+    // qué versión se hizo (estilo, variante y extras): sirve para comparar y mejorar cada una
+    if (!existente && rc.eleccion) datos.version = { ...rc.eleccion, etiqueta: rc.etiquetaVersion || rc.estilo?.nombre || '' };
     if (existente) Object.assign(existente, datos);
     else {
       if (pr?.iniciada) datos.duracion_min = Math.round((Date.now() - pr.iniciada) / 60000);

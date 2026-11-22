@@ -4,10 +4,10 @@
 
 import { E, guardar } from '../almacen.js';
 import {
-  receta, segundosPaso, PROGRAMAS, ACCESORIOS, MEDIDOR, DONDE, FUEGOS, NOMBRE_FUEGO, dondePaso, resumenPaso, tiempoRobot,
+  segundosPaso, PROGRAMAS, ACCESORIOS, MEDIDOR, DONDE, FUEGOS, NOMBRE_FUEGO, dondePaso, resumenPaso, tiempoRobot,
 } from '../recetas.js';
 import {
-  proceso, asegurarProceso, fijarPaso, porcentaje, marcado, asegurarTimer, claveT, T, restante, corriendo, vivo,
+  recetaCocina, proceso, asegurarProceso, fijarPaso, porcentaje, marcado, asegurarTimer, claveT, T, restante, corriendo, vivo,
   arrancar, pausar, reiniciarTimer, sumar, otraTanda, todosLosTimers, alCambiarRelojes, reiniciarProceso, quitarProceso,
 } from '../cocina.js';
 import { esc, mmss, tiempoLegible } from '../util.js';
@@ -31,7 +31,7 @@ function barra(rc, n) {
     <button class="boton-salir" data-a="salirCocina" data-id="${rc.id}" aria-label="Salir al menú de recetas">${ico('atras')}<span>Recetas</span></button>
     <div class="titulo">
       <b>${esc(rc.titulo)}</b>
-      <span>Paso ${n + 1} de ${rc.pasos.length} · <span data-pct="${rc.id}">${porcentaje(rc.id)} %</span></span>
+      <span>Paso ${n + 1} de ${rc.pasos.length} · <span data-pct="${rc.id}">${porcentaje(rc.id)} %</span>${rc.conOpciones && rc.etiquetaVersion ? `<span class="version-barra"> · ${rc.estilo.emoji} ${esc(rc.etiquetaVersion)}</span>` : ''}</span>
       <div class="progreso"><div data-barra="${rc.id}" style="width:${porcentaje(rc.id)}%"></div></div>
     </div>
     <div class="otros-relojes" id="otros-relojes">${otrosRelojes(rc, n)}</div>
@@ -187,7 +187,7 @@ function navegacion(rc, n) {
 // ---------------------------------------------------------------- vista
 vista('cocinar', {
   render: ({ id, n }) => {
-    const rc = receta(id);
+    const rc = recetaCocina(id);
     if (!rc) return `<main class="pantalla"><div class="vacio"><p>Esta receta ya no existe.</p><button class="boton" data-a="volverRecetas">Volver</button></div></main>`;
     n = Math.max(0, Math.min(Number(n) || 0, rc.pasos.length - 1));
     asegurarProceso(id);
@@ -220,7 +220,7 @@ vista('cocinar', {
   },
 });
 
-function actual() { const r = rutaActual(); return r.vista === 'cocinar' ? { rc: receta(r.id), n: Math.max(0, Math.min(r.n, (receta(r.id)?.pasos.length || 1) - 1)) } : null; }
+function actual() { const r = rutaActual(); return r.vista === 'cocinar' ? { rc: recetaCocina(r.id), n: Math.max(0, Math.min(r.n, (recetaCocina(r.id)?.pasos.length || 1) - 1)) } : null; }
 
 /** Redibuja solo lo que cambia con los temporizadores, sin mover el scroll. */
 function refrescar() {
@@ -265,7 +265,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function abrirNota(id, n) {
-  const rc = receta(id), p = asegurarProceso(id);
+  const rc = recetaCocina(id), p = asegurarProceso(id);
   const h = abrirHoja(`<h2>Nota del paso ${n + 1}</h2><p class="tenue">${esc(rc.pasos[n].titulo)} · Apunta lo que cambiarías («necesitó 3 minutos más», «picar menos»). Se guarda en tu historial para mejorar la receta.</p>
     <div class="campo area-voz"><textarea class="area" id="nota-texto" placeholder="Escribe o dicta…">${esc(p.notas[n] || '')}</textarea>
       <button class="dictar" data-r="dictar" aria-label="Dictar">${ico('mic')}</button></div>
@@ -327,7 +327,7 @@ accion({
     });
   },
   terminarReceta: ({ id }) => {
-    const rc = receta(id);
+    const rc = recetaCocina(id);
     abrirValoracion(rc, {
       desdeCocina: true,
       alGuardar: () => { quitarProceso(id); ir(`#/receta/${id}`, { reemplazar: true }); },

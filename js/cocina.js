@@ -3,10 +3,19 @@
 // cuentas atrás siguen contando (se guardan con su hora de fin).
 
 import { E, guardar } from './almacen.js';
-import { receta, segundosPaso } from './recetas.js';
+import { receta as recetaCruda, segundosPaso } from './recetas.js';
+import { resolver, eleccionActual } from './variantes.js';
 import { empezarAlarma, pararAlarma, campanita } from './sonido.js';
 import { esc, mmss } from './util.js';
 import { tostada } from './ui.js';
+
+/** La receta tal y como se está cocinando: con la versión (estilo, variante y extras) que se eligió
+ *  al empezar, aunque luego se elija otra para la próxima vez. */
+export function recetaCocina(id) {
+  const rc = recetaCruda(id);
+  return rc ? resolver(rc, E.cocina.cocinando?.[id]?.eleccion || eleccionActual(id)) : null;
+}
+const receta = recetaCocina;
 
 const oyentes = new Set();
 export function alCambiarRelojes(fn) { oyentes.add(fn); return () => oyentes.delete(fn); }
@@ -15,9 +24,10 @@ const avisar = () => { for (const fn of [...oyentes]) fn(); };
 // ---------------- proceso ----------------
 export const proceso = (id) => E.cocina.cocinando[id];
 export function asegurarProceso(id) {
-  if (!E.cocina.cocinando[id]) E.cocina.cocinando[id] = { paso: 0, iniciada: Date.now(), tocado: Date.now(), timers: {}, hechos: [], notas: {} };
+  if (!E.cocina.cocinando[id]) E.cocina.cocinando[id] = { paso: 0, iniciada: Date.now(), tocado: Date.now(), timers: {}, hechos: [], notas: {}, eleccion: eleccionActual(id) };
   const p = E.cocina.cocinando[id];
   p.timers ||= {}; p.hechos ||= []; p.notas ||= {};
+  p.eleccion ||= eleccionActual(id);
   return p;
 }
 export function fijarPaso(id, n) {
@@ -32,7 +42,8 @@ export function quitarProceso(id) {
   guardar('cocina'); avisar();
 }
 export function reiniciarProceso(id) {
-  E.cocina.cocinando[id] = { paso: 0, iniciada: Date.now(), tocado: Date.now(), timers: {}, hechos: [], notas: {} };
+  delete E.cocina.cocinando[id];          // así se toma la versión elegida ahora
+  E.cocina.cocinando[id] = { paso: 0, iniciada: Date.now(), tocado: Date.now(), timers: {}, hechos: [], notas: {}, eleccion: eleccionActual(id) };
   delete E.cocina.ingredientes[id]; delete E.cocina.preparacion[id];
   guardar('cocina'); avisar();
 }

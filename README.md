@@ -5,7 +5,8 @@ App web para el iPad con dos partes:
 - **Despensa por voz.** Pulsas el botón grande, dices «he comprado dos bricks de leche y se ha acabado el chorizo» y lo apunta. Separa nevera, congelador y despensa, avisa de lo que caduca y lo que se acaba pasa a «Para comprar».
 - **Recetas paso a paso.** Por categorías, con una ilustración en gouache de cada plato, la nota de cómo queda en el robot, ingredientes que se marcan, y un modo cocina a pantalla completa: el paso actual en grande, el panel con los ajustes de la **Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)** o, si el paso es fuera del robot, dónde se hace (olla, sartén, horno…), el fuego y cómo saber que está. Temporizadores con alarma, notas por paso y, al terminar, tu valoración y lo que cambiarías, que se guarda en tu historial.
 
-- **Precio por ración** de cada receta, con precios de Mercadona (lo que usas, no el envase entero).
+- **Estilos de cada receta.** Al tocar una receta te pregunta cómo la quieres: *Rápida y sencilla*, *Normal*, *Gourmet* o *De la abuela* (solo los que tienen sentido en ese plato), con el tiempo y el precio de cada uno. Si un estilo tiene varias formas de hacerse (unas migas ruleras o almerienses, unos arancini en sartén o en freidora), eliges cuál; y los **extras** (gratinar, un alioli, un huevo frito…) se activan con un interruptor. La ficha y el modo cocina se adaptan a lo que elijas, y la app lo recuerda para la próxima vez.
+- **Precio por ración** de cada receta y de cada estilo, con precios de Mercadona y del Masymas de Elche (lo que usas, no el envase entero).
 - **Tus fotos y tu nota.** Haz fotos de tus platos con la cámara del iPad: quedan en la galería de cada receta, junto a tu opinión y tu valoración de 0 a 5 estrellas, y se copian en tu GitHub privado.
 
 Funciona sin conexión (menos la voz), la pantalla no se apaga mientras está abierta y se instala en la pantalla de inicio como una app más.
@@ -82,9 +83,9 @@ A partir de ahí se sincroniza sola: a los pocos segundos de cada cambio, al abr
 
 Pídemelas como siempre («guárdala», «añádela a la app»). La skill `monsieur-cuisine-plus` (recetas de robot) y la skill `recetario-app` (cualquier receta) hacen esto:
 
-1. Escriben la receta en `datos/recetas.json` con el formato de la app. Las de robot también se guardan en la pestaña «Recetas robot» de Home Assistant, como hasta ahora.
+1. Escriben la receta en `datos/recetas.json` con el formato de la app, con los estilos que de verdad aporten algo (no se rellenan los cuatro por rellenar) y sus extras. Las de robot también se guardan en la pestaña «Recetas robot» de Home Assistant, como hasta ahora (allí, la versión recomendada).
 2. Generan su ilustración con IA: estilo gouache pintado a mano, vista desde arriba sobre papel crema (`openai/gpt-image-2.5-sunburst`, calidad media, ~1,2 céntimos).
-3. Comprueban la receta con `node herramientas/validar-recetas.mjs` (que todo ajuste se pueda poner en tu robot).
+3. Calculan el precio de cada estilo, versión y extra con `node herramientas/precios.mjs` y comprueban la receta con `node herramientas/validar-recetas.mjs` (que todo ajuste se pueda poner en tu robot y que cada extra encaje en su sitio).
 4. La suben a GitHub, y en el iPad aparece sola.
 
 Para mejorar una receta: «mejora los macarrones con lo que apunté». Leo tu historial del repositorio privado y corrijo lo que falló.
@@ -125,6 +126,8 @@ js/fotos.js, js/vistas/galeria.js         fotos propias: cámara, IndexedDB, gal
 js/ia.js, js/conexion.js, js/voz.js       OpenRouter: voz a texto, interpretar la despensa, descontar recetas
 js/despensa.js                            lógica de la despensa (aplicar y deshacer cambios, cruzar con recetas)
 js/recetas.js, js/cocina.js               datos de recetas, progreso, temporizadores y alarma
+js/variantes.js                           estilos, versiones y extras: resolver() da la receta "plana" elegida
+js/vistas/elegir.js                       cuestionario «¿Cómo la quieres?»
 js/vistas/*.js                            cada pantalla
 datos/recetas.json                        las recetas (formato en la skill recetario-app)
 img/recetas/                              fotos generadas
@@ -136,7 +139,7 @@ Herramientas (todas con Node):
 ```powershell
 node herramientas/servidor.mjs                 # app en http://localhost:5180 con puente a OpenRouter y GitHub falso
 node herramientas/validar-recetas.mjs          # comprueba datos/recetas.json
-node herramientas/precios.mjs                  # recalcula el precio de las recetas con el catálogo de Mercadona (MERCADONA_DIR en .env)
+node herramientas/precios.mjs                  # precio de cada estilo, versión y extra con los catálogos de Mercadona y Masymas (MERCADONA_DIR en .env)
 node herramientas/generar-fotos.mjs <id>       # foto de una receta (sin id: las que no tienen)
 node herramientas/probar-ia.mjs "frase"        # prueba cómo entiende la IA una frase de la despensa
 node herramientas/generar-iconos.mjs           # iconos desde herramientas/icono.svg
