@@ -7786,6 +7786,212 @@
               }
             }
           ]
+        },
+        {
+          "id": "abuela",
+          "descripcion": "La de las abuelas mexicanas: guacamole de molcajete, machacado a mano en el mortero. Sin robot.",
+          "versiones": [
+            {
+              "id": "abuela",
+              "nombre": "De la abuela",
+              "subtitulo": "De molcajete: machacado a mano en el mortero",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 20,
+              "sin_robot": true,
+              "nota": null,
+              "desglose": {
+                "textura": "Irregular y cremosa, la de verdad: tropezones de aguacate en una pasta fina.",
+                "sabor": "El más intenso: machacar la cebolla, el chile y el cilantro con la sal suelta sus jugos y lo integra todo.",
+                "punto": "La sal y la lima se ajustan al final; con poca lima sabe más a aguacate.",
+                "comodidad": "Todo a mano, pero solo con un mortero y un cuchillo."
+              },
+              "preparacion": [
+                "Saca el mortero más grande que tengas."
+              ],
+              "ingredientes": [
+                {
+                  "id": "aguacates",
+                  "cantidad": "3 maduros (unos 540 g)",
+                  "nombre": "aguacates",
+                  "compra": {
+                    "mercadona": "3858",
+                    "usa": 540,
+                    "unidad": "g",
+                    "euros": 2.866,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aguacates",
+                      "formato": "650 g",
+                      "precio": 3.45,
+                      "contenido": 650,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla",
+                  "cantidad": "½ (unos 75 g)",
+                  "nombre": "cebolla",
+                  "compra": {
+                    "mercadona": "69089",
+                    "usa": 75,
+                    "unidad": "g",
+                    "merma": 0.1,
+                    "euros": 0.125,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollas",
+                      "formato": "Malla 1 kg",
+                      "precio": 1.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "jalapenos",
+                  "cantidad": "20 g (unas 6 rodajas)",
+                  "nombre": "jalapeños en vinagre, escurridos",
+                  "compra": {
+                    "mercadona": "33189",
+                    "usa": 20,
+                    "unidad": "g",
+                    "equivale": "chile serrano o jalapeño fresco (si lo encuentras, mejor)",
+                    "euros": 0.244,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Jalapeños picantes en vinagre Hacendado",
+                      "formato": "Tarro 135 g",
+                      "precio": 1.65,
+                      "contenido": 135,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cilantro",
+                  "cantidad": "un puñado (10 g)",
+                  "nombre": "cilantro fresco, con sus tallos tiernos",
+                  "compra": {
+                    "mercadona": "69690",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.625,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cilantro",
+                      "formato": "Bandeja 20 g",
+                      "precio": 1.25,
+                      "contenido": 20,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta",
+                  "nombre": "sal gruesa (o normal)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "limas",
+                  "cantidad": "½",
+                  "nombre": "lima (unas gotas, al gusto)",
+                  "compra": {
+                    "masymas": "42099",
+                    "usa": 60,
+                    "unidad": "g",
+                    "euros": 0.382,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Limas, Bandeja 250 G",
+                      "formato": "250 g",
+                      "precio": 1.59,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "picar",
+                  "titulo": "Picar a cuchillo",
+                  "texto": "Pica muy fina la cebolla, y también los jalapeños y el cilantro (con sus tallos tiernos). Aparta un poco de cilantro para el final.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "cebolla",
+                    "jalapenos",
+                    "cilantro"
+                  ]
+                },
+                {
+                  "id": "pasta",
+                  "titulo": "Hacer la pasta en el mortero",
+                  "texto": "Pon en el mortero la cebolla, los jalapeños, el cilantro y la sal, y machácalo con la mano del mortero, girando, hasta hacer una pasta.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "cebolla",
+                    "jalapenos",
+                    "cilantro",
+                    "sal"
+                  ],
+                  "aviso": "Hace falta un mortero grande. Si el tuyo es pequeño, haz aquí la pasta y chafa luego el aguacate en un bol con un tenedor.",
+                  "señal": "Una pasta húmeda, sin trozos duros de cebolla, que huele fuerte a cilantro."
+                },
+                {
+                  "id": "aguacate",
+                  "titulo": "Machacar el aguacate",
+                  "texto": "Añade la pulpa de los aguacates a trozos grandes y cháfala con la mano del mortero, mezclándola con la pasta, sin llegar a hacer puré.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "aguacates"
+                  ],
+                  "señal": "Cremoso pero con tropezones de aguacate."
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Probar y servir",
+                  "texto": "Prueba de sal y, si te gusta, añade unas gotas de lima. Pon por encima el cilantro que apartaste y sírvelo en el mismo mortero.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "limas",
+                    "cilantro"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Si tienes que guardarlo, pon film tocando la superficie: así no se oscurece. Mejor del día.",
+                "El aguacate está en su punto cuando cede un poco al apretarlo junto al rabito."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 4.24,
+                "raciones": 4,
+                "por_racion": 1.06,
+                "tiendas": {
+                  "Mercadona": 3.86,
+                  "Masymas": 0.38
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
         }
       ],
       "extras": [
@@ -7822,7 +8028,7 @@
               "despues_de": "aguacate",
               "id": "tomate",
               "titulo": "Añadir el tomate",
-              "texto": "Quítale las semillas al tomate, córtalo en daditos y mézclalo con la espátula. No lo tritures: tiene que verse.",
+              "texto": "Quítale las semillas al tomate, córtalo en daditos y mézclalo con una cuchara, sin aplastarlo: tiene que verse.",
               "tipo": "fuera",
               "donde": "encimera",
               "usa": [
