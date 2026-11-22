@@ -5294,6 +5294,1901 @@
         "completo": true,
         "faltan": []
       }
+    },
+    {
+      "id": "hummus",
+      "titulo": "Hummus",
+      "subtitulo": "Cremoso y esponjoso, sin pelar los garbanzos",
+      "categoria": "aperitivos",
+      "emoji": "🫘",
+      "foto": "img/recetas/hummus.webp",
+      "foto_prompt": "Hummus cremoso en un plato hondo de cerámica, extendido en remolino con un hilo de aceite de oliva, pimentón espolvoreado y unos garbanzos enteros en el centro; al lado, triángulos de pan de pita.",
+      "estilo_por_defecto": "normal",
+      "estilos": [
+        {
+          "id": "normal",
+          "descripcion": "Con garbanzos de bote ablandados en el vaso: muy cremoso y sin pelarlos. Clásico, de remolacha o de pimiento asado.",
+          "versiones": [
+            {
+              "id": "clasico",
+              "nombre": "Clásico",
+              "descripcion": "Tahini, limón, ajo y comino: el de siempre.",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 25,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "cestillo",
+                "espatula"
+              ],
+              "nota": 9,
+              "desglose": {
+                "textura": "Muy fino y esponjoso: el robot tritura mejor que una batidora de mano, y el bicarbonato deshace la piel sin pelar los garbanzos uno a uno.",
+                "sabor": "El de siempre: aquí no hay nada que tostar, así que el robot no pierde nada.",
+                "punto": "Se ajusta al final a tu gusto: más limón, más sal o más agua fría.",
+                "comodidad": "Un solo cacharro y sin pelar garbanzos, que es lo más pesado de hacerlo a mano."
+              },
+              "preparacion": [
+                "Exprime el limón.",
+                "Pon el agua a enfriar con un par de cubitos de hielo."
+              ],
+              "ingredientes": [
+                {
+                  "id": "garbanzos",
+                  "cantidad": "1 tarro (570 g, unos 400 g escurridos)",
+                  "nombre": "garbanzos cocidos pedrosillanos",
+                  "compra": {
+                    "mercadona": "26033",
+                    "usa": 570,
+                    "unidad": "g",
+                    "euros": 0.9,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Garbanzo cocido Pedrosillano Hacendado",
+                      "formato": "Tarro 570 g",
+                      "precio": 0.9,
+                      "contenido": 570,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-calentar",
+                  "cantidad": "500 ml",
+                  "nombre": "agua (para ablandarlos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "bicarbonato",
+                  "cantidad": "½ cdta (3 g)",
+                  "nombre": "bicarbonato",
+                  "compra": {
+                    "mercadona": "29006",
+                    "usa": 3,
+                    "unidad": "g",
+                    "euros": 0.011,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Bicarbonato de sódio Hacendado",
+                      "formato": "Bote 300 g",
+                      "precio": 1.1,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "1 (unos 40 ml de zumo)",
+                  "nombre": "limón, exprimido",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 130,
+                    "unidad": "g",
+                    "euros": 0.286,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "cantidad": "100 g",
+                  "nombre": "tahini (pasta de sésamo)",
+                  "compra": {
+                    "mercadona": "17441",
+                    "usa": 100,
+                    "unidad": "g",
+                    "euros": 1.475,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pasta de sésamo Tahini Hacendado",
+                      "formato": "Tarro 200 g",
+                      "precio": 2.95,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "comino",
+                  "cantidad": "½ cdta",
+                  "nombre": "comino molido",
+                  "compra": {
+                    "mercadona": "34120",
+                    "usa": 1,
+                    "unidad": "g",
+                    "euros": 0.02,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Comino molido Hacendado",
+                      "formato": "Bote 58 g",
+                      "precio": 1.15,
+                      "contenido": 58,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-fria",
+                  "cantidad": "80 ml",
+                  "nombre": "agua muy fría (con un par de cubitos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "4 cdas (2 dentro y 2 para servir)",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 44,
+                    "unidad": "ml",
+                    "euros": 0.18,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimenton",
+                  "cantidad": "una pizca",
+                  "nombre": "pimentón dulce de la Vera, para servir",
+                  "compra": {
+                    "mercadona": "34102",
+                    "usa": 0.5,
+                    "unidad": "g",
+                    "euros": 0.012,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimentón dulce de la Vera Hacendado",
+                      "formato": "Bote 75 g",
+                      "precio": 1.85,
+                      "contenido": 75,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "calentar",
+                  "titulo": "Ablandar los garbanzos",
+                  "texto": "Escurre los garbanzos del tarro y ponlos en el vaso con el agua y el bicarbonato. Pon el cestillo sobre la tapa en lugar del vaso medidor: hace algo de espuma.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "agua-calentar",
+                    "bicarbonato"
+                  ],
+                  "robot": {
+                    "tiempo_s": 900,
+                    "temperatura": 100,
+                    "velocidad": "1",
+                    "inverso": true,
+                    "medidor": "cestillo"
+                  },
+                  "señal": "Se aplastan solos entre los dedos y muchas pieles flotan sueltas."
+                },
+                {
+                  "id": "escurrir",
+                  "titulo": "Escurrir y enjuagar",
+                  "texto": "Escurre los garbanzos en el cestillo y enjuágalos bien con agua fría del grifo: así se van el sabor del bicarbonato y muchas pieles. Aparta una cucharada de garbanzos enteros para decorar y enjuaga el vaso.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "garbanzos"
+                  ]
+                },
+                {
+                  "id": "ajo-limon",
+                  "titulo": "Ajo con limón",
+                  "texto": "Pon en el vaso el ajo pelado, el zumo de limón y la sal.",
+                  "tipo": "robot",
+                  "usa": [
+                    "ajo",
+                    "limon",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 5,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "titulo": "Batir el tahini",
+                  "texto": "Añade el tahini, el comino y la mitad del agua muy fría (sin los cubitos).",
+                  "tipo": "robot",
+                  "usa": [
+                    "tahini",
+                    "comino",
+                    "agua-fria"
+                  ],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "4",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Primero se espesa y luego queda cremoso y más claro."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar",
+                  "texto": "Añade los garbanzos, el resto del agua fría y 2 cucharadas de aceite. Con el vaso medidor puesto, ve subiendo la velocidad a mano poco a poco de 5 a 9.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "agua-fria",
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 120,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "afinar",
+                  "titulo": "Afinar",
+                  "texto": "Con el robot parado, baja con la espátula lo que se ha quedado en las paredes. Prueba: si le falta, un poco más de sal o de limón; si está muy espeso, una cucharada de agua fría. Tritura otra vez.",
+                  "tipo": "robot",
+                  "usa": [],
+                  "robot": {
+                    "tiempo_s": 60,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Liso, brillante y esponjoso: al levantarlo con la cuchara cae despacio."
+                },
+                {
+                  "id": "emplatar",
+                  "titulo": "Emplatar",
+                  "texto": "Extiéndelo en un plato hondo y haz un surco alrededor con el dorso de una cuchara. Pon en el centro los garbanzos enteros y riega con 2 cucharadas de aceite (o con el de pimentón, si lo has hecho). Espolvorea una pizca de pimentón.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "aceite",
+                    "pimenton"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Aguanta 4 días en la nevera en un táper cerrado, con un hilo de aceite por encima para que no se seque.",
+                "Recién hecho está más esponjoso; en frío espesa un poco: suéltalo con una cucharada de agua al servir.",
+                "Si te gusta el comino, dobla la cantidad."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 2.93,
+                "raciones": 4,
+                "por_racion": 0.73,
+                "tiendas": {
+                  "Mercadona": 2.93
+                },
+                "completo": true,
+                "faltan": []
+              }
+            },
+            {
+              "id": "remolacha",
+              "nombre": "De remolacha",
+              "descripcion": "Morado intenso y un punto dulce: muy vistoso para picar.",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 25,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "cestillo",
+                "espatula"
+              ],
+              "nota": 9,
+              "desglose": {
+                "textura": "Igual de fino que el clásico; la remolacha lo deja algo más suelto.",
+                "sabor": "Dulce y terroso, con el limón y el tahini equilibrándolo.",
+                "punto": "Se ajusta al final con limón y sal: la remolacha pide un poco más de los dos.",
+                "comodidad": "Con remolacha ya cocida, el mismo trabajo que el clásico."
+              },
+              "preparacion": [
+                "Exprime el limón.",
+                "Corta la remolacha en trozos.",
+                "Pon el agua a enfriar con un par de cubitos de hielo."
+              ],
+              "ingredientes": [
+                {
+                  "id": "garbanzos",
+                  "cantidad": "1 tarro (570 g, unos 400 g escurridos)",
+                  "nombre": "garbanzos cocidos pedrosillanos",
+                  "compra": {
+                    "mercadona": "26033",
+                    "usa": 570,
+                    "unidad": "g",
+                    "euros": 0.9,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Garbanzo cocido Pedrosillano Hacendado",
+                      "formato": "Tarro 570 g",
+                      "precio": 0.9,
+                      "contenido": 570,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-calentar",
+                  "cantidad": "500 ml",
+                  "nombre": "agua (para ablandarlos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "bicarbonato",
+                  "cantidad": "½ cdta (3 g)",
+                  "nombre": "bicarbonato",
+                  "compra": {
+                    "mercadona": "29006",
+                    "usa": 3,
+                    "unidad": "g",
+                    "euros": 0.011,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Bicarbonato de sódio Hacendado",
+                      "formato": "Bote 300 g",
+                      "precio": 1.1,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "1 (unos 40 ml de zumo)",
+                  "nombre": "limón, exprimido",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 130,
+                    "unidad": "g",
+                    "euros": 0.286,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "cantidad": "100 g",
+                  "nombre": "tahini (pasta de sésamo)",
+                  "compra": {
+                    "mercadona": "17441",
+                    "usa": 100,
+                    "unidad": "g",
+                    "euros": 1.475,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pasta de sésamo Tahini Hacendado",
+                      "formato": "Tarro 200 g",
+                      "precio": 2.95,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "comino",
+                  "cantidad": "½ cdta",
+                  "nombre": "comino molido",
+                  "compra": {
+                    "mercadona": "34120",
+                    "usa": 1,
+                    "unidad": "g",
+                    "euros": 0.02,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Comino molido Hacendado",
+                      "formato": "Bote 58 g",
+                      "precio": 1.15,
+                      "contenido": 58,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "remolacha",
+                  "cantidad": "150 g",
+                  "nombre": "remolacha cocida, en trozos",
+                  "compra": {
+                    "mercadona": "69523",
+                    "usa": 150,
+                    "unidad": "g",
+                    "euros": 0.35,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Remolacha cocida y pelada",
+                      "formato": "Paquete 450 g",
+                      "precio": 1.05,
+                      "contenido": 450,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-fria",
+                  "cantidad": "40 ml",
+                  "nombre": "agua muy fría (con un par de cubitos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "4 cdas (2 dentro y 2 para servir)",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 44,
+                    "unidad": "ml",
+                    "euros": 0.18,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sesamo",
+                  "cantidad": "1 cdta",
+                  "nombre": "sésamo tostado, para servir",
+                  "compra": {
+                    "mercadona": "34964",
+                    "usa": 3,
+                    "unidad": "g",
+                    "euros": 0.03,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Semillas sésamo tostado Hacendado",
+                      "formato": "Paquete 150 g",
+                      "precio": 1.5,
+                      "contenido": 150,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "calentar",
+                  "titulo": "Ablandar los garbanzos",
+                  "texto": "Escurre los garbanzos del tarro y ponlos en el vaso con el agua y el bicarbonato. Pon el cestillo sobre la tapa en lugar del vaso medidor: hace algo de espuma.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "agua-calentar",
+                    "bicarbonato"
+                  ],
+                  "robot": {
+                    "tiempo_s": 900,
+                    "temperatura": 100,
+                    "velocidad": "1",
+                    "inverso": true,
+                    "medidor": "cestillo"
+                  },
+                  "señal": "Se aplastan solos entre los dedos y muchas pieles flotan sueltas."
+                },
+                {
+                  "id": "escurrir",
+                  "titulo": "Escurrir y enjuagar",
+                  "texto": "Escurre los garbanzos en el cestillo y enjuágalos bien con agua fría del grifo: así se van el sabor del bicarbonato y muchas pieles. Aparta una cucharada de garbanzos enteros para decorar y enjuaga el vaso.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "garbanzos"
+                  ]
+                },
+                {
+                  "id": "ajo-limon",
+                  "titulo": "Ajo con limón",
+                  "texto": "Pon en el vaso el ajo pelado, el zumo de limón y la sal.",
+                  "tipo": "robot",
+                  "usa": [
+                    "ajo",
+                    "limon",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 5,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "titulo": "Batir el tahini",
+                  "texto": "Añade el tahini, el comino y el agua muy fría (sin los cubitos).",
+                  "tipo": "robot",
+                  "usa": [
+                    "tahini",
+                    "comino",
+                    "agua-fria"
+                  ],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "4",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Primero se espesa y luego queda cremoso y más claro."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar",
+                  "texto": "Añade los garbanzos, la remolacha y 2 cucharadas de aceite. Con el vaso medidor puesto, ve subiendo la velocidad a mano poco a poco de 5 a 9.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "remolacha",
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 120,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "afinar",
+                  "titulo": "Afinar",
+                  "texto": "Con el robot parado, baja con la espátula lo que se ha quedado en las paredes. Prueba: si le falta, un poco más de sal o de limón; si está muy espeso, una cucharada de agua fría. Tritura otra vez.",
+                  "tipo": "robot",
+                  "usa": [],
+                  "robot": {
+                    "tiempo_s": 60,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Liso, brillante y esponjoso: al levantarlo con la cuchara cae despacio."
+                },
+                {
+                  "id": "emplatar",
+                  "titulo": "Emplatar",
+                  "texto": "Extiéndelo en un plato hondo y haz un surco alrededor con el dorso de una cuchara. Pon en el centro los garbanzos enteros y riega con 2 cucharadas de aceite (o con el de pimentón, si lo has hecho). Espolvorea el sésamo.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "aceite",
+                    "sesamo"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Aguanta 4 días en la nevera en un táper cerrado, con un hilo de aceite por encima para que no se seque.",
+                "Recién hecho está más esponjoso; en frío espesa un poco: suéltalo con una cucharada de agua al servir.",
+                "Mancha mucho: enjuaga el vaso y la espátula enseguida."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 3.29,
+                "raciones": 4,
+                "por_racion": 0.82,
+                "tiendas": {
+                  "Mercadona": 3.29
+                },
+                "completo": true,
+                "faltan": []
+              }
+            },
+            {
+              "id": "pimiento",
+              "nombre": "De pimiento asado",
+              "descripcion": "Con piquillos y pimentón de la Vera: más dulce y ahumado.",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 25,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "cestillo",
+                "espatula"
+              ],
+              "nota": 9,
+              "desglose": {
+                "textura": "Fino y cremoso; el pimiento lo hace algo más ligero.",
+                "sabor": "Dulce y ahumado: el piquillo ya viene asado, así que no echa nada en falta.",
+                "punto": "Se ajusta al final con limón y sal.",
+                "comodidad": "El mismo trabajo que el clásico: los piquillos van directos del tarro."
+              },
+              "preparacion": [
+                "Exprime el limón.",
+                "Escurre los piquillos.",
+                "Pon el agua a enfriar con un par de cubitos de hielo."
+              ],
+              "ingredientes": [
+                {
+                  "id": "garbanzos",
+                  "cantidad": "1 tarro (570 g, unos 400 g escurridos)",
+                  "nombre": "garbanzos cocidos pedrosillanos",
+                  "compra": {
+                    "mercadona": "26033",
+                    "usa": 570,
+                    "unidad": "g",
+                    "euros": 0.9,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Garbanzo cocido Pedrosillano Hacendado",
+                      "formato": "Tarro 570 g",
+                      "precio": 0.9,
+                      "contenido": 570,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-calentar",
+                  "cantidad": "500 ml",
+                  "nombre": "agua (para ablandarlos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "bicarbonato",
+                  "cantidad": "½ cdta (3 g)",
+                  "nombre": "bicarbonato",
+                  "compra": {
+                    "mercadona": "29006",
+                    "usa": 3,
+                    "unidad": "g",
+                    "euros": 0.011,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Bicarbonato de sódio Hacendado",
+                      "formato": "Bote 300 g",
+                      "precio": 1.1,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "1 (unos 40 ml de zumo)",
+                  "nombre": "limón, exprimido",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 130,
+                    "unidad": "g",
+                    "euros": 0.286,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "cantidad": "100 g",
+                  "nombre": "tahini (pasta de sésamo)",
+                  "compra": {
+                    "mercadona": "17441",
+                    "usa": 100,
+                    "unidad": "g",
+                    "euros": 1.475,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pasta de sésamo Tahini Hacendado",
+                      "formato": "Tarro 200 g",
+                      "precio": 2.95,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "comino",
+                  "cantidad": "½ cdta",
+                  "nombre": "comino molido",
+                  "compra": {
+                    "mercadona": "34120",
+                    "usa": 1,
+                    "unidad": "g",
+                    "euros": 0.02,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Comino molido Hacendado",
+                      "formato": "Bote 58 g",
+                      "precio": 1.15,
+                      "contenido": 58,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "piquillos",
+                  "cantidad": "120 g (unos 6)",
+                  "nombre": "pimientos del piquillo, escurridos",
+                  "compra": {
+                    "mercadona": "16005",
+                    "usa": 120,
+                    "unidad": "g",
+                    "euros": 0.512,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimientos del piquillo enteros Hacendado extra",
+                      "formato": "Tarro 340 g",
+                      "precio": 1.45,
+                      "contenido": 340,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimenton",
+                  "cantidad": "1 cdta y una pizca para servir",
+                  "nombre": "pimentón dulce de la Vera",
+                  "compra": {
+                    "mercadona": "34102",
+                    "usa": 3,
+                    "unidad": "g",
+                    "euros": 0.074,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimentón dulce de la Vera Hacendado",
+                      "formato": "Bote 75 g",
+                      "precio": 1.85,
+                      "contenido": 75,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-fria",
+                  "cantidad": "40 ml",
+                  "nombre": "agua muy fría (con un par de cubitos)",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "4 cdas (2 dentro y 2 para servir)",
+                  "nombre": "aceite de oliva virgen extra",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 44,
+                    "unidad": "ml",
+                    "euros": 0.18,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "calentar",
+                  "titulo": "Ablandar los garbanzos",
+                  "texto": "Escurre los garbanzos del tarro y ponlos en el vaso con el agua y el bicarbonato. Pon el cestillo sobre la tapa en lugar del vaso medidor: hace algo de espuma.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "agua-calentar",
+                    "bicarbonato"
+                  ],
+                  "robot": {
+                    "tiempo_s": 900,
+                    "temperatura": 100,
+                    "velocidad": "1",
+                    "inverso": true,
+                    "medidor": "cestillo"
+                  },
+                  "señal": "Se aplastan solos entre los dedos y muchas pieles flotan sueltas."
+                },
+                {
+                  "id": "escurrir",
+                  "titulo": "Escurrir y enjuagar",
+                  "texto": "Escurre los garbanzos en el cestillo y enjuágalos bien con agua fría del grifo: así se van el sabor del bicarbonato y muchas pieles. Aparta una cucharada de garbanzos enteros para decorar y enjuaga el vaso.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "garbanzos"
+                  ]
+                },
+                {
+                  "id": "ajo-limon",
+                  "titulo": "Ajo con limón",
+                  "texto": "Pon en el vaso el ajo pelado, el zumo de limón y la sal.",
+                  "tipo": "robot",
+                  "usa": [
+                    "ajo",
+                    "limon",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 5,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "titulo": "Batir el tahini",
+                  "texto": "Añade el tahini, el comino y el agua muy fría (sin los cubitos).",
+                  "tipo": "robot",
+                  "usa": [
+                    "tahini",
+                    "comino",
+                    "agua-fria"
+                  ],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "4",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Primero se espesa y luego queda cremoso y más claro."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar",
+                  "texto": "Añade los garbanzos, los piquillos, la cucharadita de pimentón y 2 cucharadas de aceite. Con el vaso medidor puesto, ve subiendo la velocidad a mano poco a poco de 5 a 9.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "piquillos",
+                    "pimenton",
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 120,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "afinar",
+                  "titulo": "Afinar",
+                  "texto": "Con el robot parado, baja con la espátula lo que se ha quedado en las paredes. Prueba: si le falta, un poco más de sal o de limón; si está muy espeso, una cucharada de agua fría. Tritura otra vez.",
+                  "tipo": "robot",
+                  "usa": [],
+                  "robot": {
+                    "tiempo_s": 60,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Liso, brillante y esponjoso: al levantarlo con la cuchara cae despacio."
+                },
+                {
+                  "id": "emplatar",
+                  "titulo": "Emplatar",
+                  "texto": "Extiéndelo en un plato hondo y haz un surco alrededor con el dorso de una cuchara. Pon en el centro los garbanzos enteros y riega con 2 cucharadas de aceite (o con el de pimentón, si lo has hecho). Espolvorea una pizca de pimentón.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "aceite",
+                    "pimenton"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Aguanta 4 días en la nevera en un táper cerrado, con un hilo de aceite por encima para que no se seque.",
+                "Recién hecho está más esponjoso; en frío espesa un poco: suéltalo con una cucharada de agua al servir.",
+                "Con pimentón picante en lugar de dulce queda muy bueno para untar."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 3.5,
+                "raciones": 4,
+                "por_racion": 0.88,
+                "tiendas": {
+                  "Mercadona": 3.5
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "gourmet",
+          "descripcion": "Con garbanzo lechoso seco cocido muy tierno, comino tostado en el momento y servido templado.",
+          "versiones": [
+            {
+              "id": "gourmet",
+              "nombre": "Gourmet",
+              "subtitulo": "Con garbanzo lechoso, comino tostado y servido templado",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 60,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": 9,
+              "desglose": {
+                "textura": "El más sedoso: el garbanzo seco, cocido con bicarbonato hasta deshacerse, queda sin rastro de piel.",
+                "sabor": "Más profundo: garbanzo lechoso, comino recién tostado y un ajo que el limón ha suavizado.",
+                "punto": "Templado y recién hecho, como en Oriente Medio; se ajusta al final con el agua de cocción.",
+                "comodidad": "Hay que acordarse del remojo y cocerlos en la olla; el robot hace el resto."
+              },
+              "preparacion": [
+                "La víspera: pon los garbanzos en remojo en agua abundante (el triple de su volumen) con una cucharadita de bicarbonato, unas 12 horas.",
+                "Exprime los limones.",
+                "Prepara un vaso de agua con hielo."
+              ],
+              "ingredientes": [
+                {
+                  "id": "garbanzos",
+                  "cantidad": "200 g",
+                  "nombre": "garbanzos lechosos secos",
+                  "compra": {
+                    "mercadona": "5220",
+                    "usa": 200,
+                    "unidad": "g",
+                    "euros": 0.5,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Garbanzo lechoso Andaluz Hacendado",
+                      "formato": "Paquete 1 kg",
+                      "precio": 2.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "bicarbonato",
+                  "cantidad": "2 cdtas (10 g)",
+                  "nombre": "bicarbonato (una para el remojo y otra para cocerlos)",
+                  "compra": {
+                    "mercadona": "29006",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.037,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Bicarbonato de sódio Hacendado",
+                      "formato": "Bote 300 g",
+                      "precio": 1.1,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-coccion",
+                  "cantidad": "la necesaria",
+                  "nombre": "agua para el remojo y la cocción",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "1 diente",
+                  "nombre": "ajo",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 5,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "2 (unos 70 ml de zumo)",
+                  "nombre": "limones, exprimidos",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 260,
+                    "unidad": "g",
+                    "euros": 0.572,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "tahini",
+                  "cantidad": "120 g",
+                  "nombre": "tahini (pasta de sésamo)",
+                  "compra": {
+                    "mercadona": "17441",
+                    "usa": 120,
+                    "unidad": "g",
+                    "euros": 1.77,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pasta de sésamo Tahini Hacendado",
+                      "formato": "Tarro 200 g",
+                      "precio": 2.95,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "comino",
+                  "cantidad": "1 cdta",
+                  "nombre": "comino en grano",
+                  "compra": {
+                    "mercadona": "34121",
+                    "usa": 2,
+                    "unidad": "g",
+                    "euros": 0.07,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Comino en grano Hacendado",
+                      "formato": "Bote 56 g",
+                      "precio": 1.95,
+                      "contenido": 56,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "agua-fria",
+                  "cantidad": "100 ml",
+                  "nombre": "agua con hielo",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "5 cdas (3 dentro y 2 para servir)",
+                  "nombre": "aceite de oliva virgen extra (el mejor que tengas)",
+                  "compra": {
+                    "mercadona": "4740",
+                    "usa": 55,
+                    "unidad": "ml",
+                    "euros": 0.225,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de oliva virgen extra Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 4.1,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "perejil",
+                  "cantidad": "un puñado",
+                  "nombre": "perejil fresco picado, para servir",
+                  "compra": {
+                    "mercadona": "69701",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.238,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Perejil troceado lavado",
+                      "formato": "Paquete 40 g",
+                      "precio": 0.95,
+                      "contenido": 40,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "ajo-limon",
+                  "titulo": "Ajo con limón",
+                  "texto": "Pon en el vaso el ajo pelado, el zumo de limón y la sal. Déjalo reposar ahí mientras se cuecen los garbanzos: el limón le quita el picor al ajo.",
+                  "tipo": "robot",
+                  "usa": [
+                    "ajo",
+                    "limon",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 5,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "cocer",
+                  "titulo": "Cocer los garbanzos",
+                  "texto": "Escúrrelos del remojo y ponlos en la olla exprés con agua limpia que los cubra dos dedos y la otra cucharadita de bicarbonato. Quita la espuma, cierra y cuenta el tiempo desde que sube la válvula.",
+                  "tipo": "fuera",
+                  "donde": "olla",
+                  "fuego": "medio",
+                  "temporizador_s": 1200,
+                  "temporizador_editable": true,
+                  "aviso": "Sin olla exprés: en una olla normal a fuego medio-suave, de 1 h a 1 h 30, quitando la espuma.",
+                  "señal": "Se deshacen al apretarlos entre los dedos: más blandos que para un potaje.",
+                  "usa": [
+                    "garbanzos",
+                    "bicarbonato",
+                    "agua-coccion"
+                  ]
+                },
+                {
+                  "id": "comino",
+                  "titulo": "Tostar el comino",
+                  "texto": "Mientras, tuesta el comino en grano en una sartén pequeña sin aceite, moviéndola, y machácalo en el mortero.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temporizador_s": 90,
+                  "señal": "Huele intenso y se oscurece un tono. Si humea, se ha pasado.",
+                  "usa": [
+                    "comino"
+                  ]
+                },
+                {
+                  "id": "escurrir",
+                  "titulo": "Escurrir",
+                  "texto": "Cuando baje la válvula, abre la olla y escurre los garbanzos guardando un vaso del agua de cocción. Aparta una cucharada de los más enteros para decorar. Úsalos calientes.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "garbanzos"
+                  ]
+                },
+                {
+                  "id": "tahini",
+                  "titulo": "Batir el tahini",
+                  "texto": "Añade al vaso el tahini, la mitad del comino y la mitad del agua con hielo (sin los cubitos).",
+                  "tipo": "robot",
+                  "usa": [
+                    "tahini",
+                    "comino",
+                    "agua-fria"
+                  ],
+                  "robot": {
+                    "tiempo_s": 30,
+                    "velocidad": "4",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Primero se espesa y luego queda cremoso y más claro."
+                },
+                {
+                  "id": "triturar",
+                  "titulo": "Triturar",
+                  "texto": "Añade los garbanzos calientes, el resto del agua con hielo y 3 cucharadas de aceite. Con el vaso medidor puesto y un paño encima, ve subiendo la velocidad a mano poco a poco de 5 a 9.",
+                  "tipo": "robot",
+                  "usa": [
+                    "garbanzos",
+                    "agua-fria",
+                    "aceite"
+                  ],
+                  "robot": {
+                    "tiempo_s": 150,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  },
+                  "aviso": "Están calientes: sube la velocidad despacio, nunca de golpe."
+                },
+                {
+                  "id": "afinar",
+                  "titulo": "Afinar",
+                  "texto": "Con el robot parado, baja con la espátula lo de las paredes y prueba de sal y de limón. Si está espeso, añade agua de cocción a cucharadas y tritura otra vez.",
+                  "tipo": "robot",
+                  "usa": [],
+                  "robot": {
+                    "tiempo_s": 60,
+                    "velocidad": "9",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Liso, brillante y esponjoso: al levantarlo con la cuchara cae despacio."
+                },
+                {
+                  "id": "emplatar",
+                  "titulo": "Servir templado",
+                  "texto": "Extiéndelo en un plato hondo haciendo un surco con el dorso de la cuchara. Pon los garbanzos enteros en el centro, un buen chorro de aceite (o el de pimentón, si lo has hecho), el resto del comino y el perejil.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "aceite",
+                    "comino",
+                    "perejil"
+                  ]
+                }
+              ],
+              "trucos": [
+                "El agua de cocción es el mejor truco para dejarlo más suelto sin perder sabor.",
+                "Aguanta 4 días en la nevera; antes de servirlo, sácalo un rato para que pierda el frío."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 3.45,
+                "raciones": 4,
+                "por_racion": 0.86,
+                "tiendas": {
+                  "Mercadona": 3.45
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "id": "carne",
+          "nombre": "Con carne especiada y piñones",
+          "descripcion": "Carne picada dorada con comino y canela y piñones tostados: lo convierte en plato único.",
+          "minutos": 12,
+          "ingredientes": [
+            {
+              "id": "carne",
+              "cantidad": "250 g",
+              "nombre": "carne picada de vacuno (o de cordero, si la encuentras)",
+              "compra": {
+                "mercadona": "2868",
+                "usa": 250,
+                "unidad": "g",
+                "euros": 2.75,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Preparado de carne picada vacuno",
+                  "formato": "Bandeja 500 g",
+                  "precio": 5.5,
+                  "contenido": 500,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "pinones",
+              "cantidad": "30 g",
+              "nombre": "piñones",
+              "compra": {
+                "mercadona": "60869",
+                "usa": 30,
+                "unidad": "g",
+                "euros": 1.521,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Piñones Hacendado",
+                  "formato": "Bote 70 g",
+                  "precio": 3.55,
+                  "contenido": 70,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "aceite-carne",
+              "cantidad": "1 cda",
+              "nombre": "aceite de oliva virgen extra",
+              "compra": {
+                "mercadona": "4740",
+                "usa": 11,
+                "unidad": "ml",
+                "euros": 0.045,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Aceite de oliva virgen extra Hacendado",
+                  "formato": "Botella 1 L",
+                  "precio": 4.1,
+                  "contenido": 1000,
+                  "unidad": "ml",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "comino-carne",
+              "cantidad": "½ cdta",
+              "nombre": "comino molido",
+              "compra": {
+                "mercadona": "34120",
+                "usa": 1,
+                "unidad": "g",
+                "euros": 0.02,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Comino molido Hacendado",
+                  "formato": "Bote 58 g",
+                  "precio": 1.15,
+                  "contenido": 58,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "canela",
+              "cantidad": "½ cdta",
+              "nombre": "canela molida",
+              "compra": {
+                "mercadona": "34177",
+                "usa": 1,
+                "unidad": "g",
+                "euros": 0.019,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Canela molida Hacendado",
+                  "formato": "Bote 52 g",
+                  "precio": 1,
+                  "contenido": 52,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "sal-carne",
+              "cantidad": "una pizca",
+              "nombre": "sal",
+              "compra": {
+                "despensa": true,
+                "euros": 0
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "despues_de": "emplatar",
+              "id": "pinones",
+              "titulo": "Tostar los piñones",
+              "texto": "En una sartén sin aceite, a fuego medio-suave, moviéndolos sin parar. Sácalos a un plato.",
+              "tipo": "fuera",
+              "donde": "sarten",
+              "fuego": "medio-suave",
+              "temporizador_s": 150,
+              "señal": "Dorados claros. Se queman en segundos: no te separes.",
+              "usa": [
+                "pinones"
+              ]
+            },
+            {
+              "despues_de": "pinones",
+              "id": "carne",
+              "titulo": "Dorar la carne",
+              "texto": "En la misma sartén, con el aceite y a fuego fuerte, extiende la carne y no la toques en 2 minutos para que se dore; luego desmenúzala. El último minuto añade el comino, la canela y la sal.",
+              "tipo": "fuera",
+              "donde": "sarten",
+              "fuego": "fuerte",
+              "temporizador_s": 480,
+              "señal": "Dorada, suelta y sin jugo en la sartén.",
+              "usa": [
+                "carne",
+                "aceite-carne",
+                "comino-carne",
+                "canela",
+                "sal-carne"
+              ]
+            },
+            {
+              "despues_de": "carne",
+              "id": "coronar",
+              "titulo": "Coronar con la carne",
+              "texto": "Pon la carne caliente en el centro del hummus y los piñones por encima. A la mesa enseguida.",
+              "tipo": "fuera",
+              "donde": "mesa",
+              "usa": [
+                "pinones"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 4.36,
+            "tiendas": {
+              "Mercadona": 4.36
+            },
+            "completo": true,
+            "faltan": []
+          }
+        },
+        {
+          "id": "crujientes",
+          "nombre": "Garbanzos crujientes",
+          "descripcion": "Garbanzos tostados en la freidora de aire para echar por encima.",
+          "minutos": 8,
+          "ingredientes": [
+            {
+              "id": "garbanzos-crujientes",
+              "cantidad": "1 tarro pequeño (295 g)",
+              "nombre": "garbanzos cocidos",
+              "compra": {
+                "mercadona": "26039",
+                "usa": 295,
+                "unidad": "g",
+                "euros": 0.75,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Garbanzo cocido Hacendado",
+                  "formato": "Tarro 295 g",
+                  "precio": 0.75,
+                  "contenido": 295,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "aceite-crujientes",
+              "cantidad": "1 cda",
+              "nombre": "aceite de oliva virgen extra",
+              "compra": {
+                "mercadona": "4740",
+                "usa": 11,
+                "unidad": "ml",
+                "euros": 0.045,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Aceite de oliva virgen extra Hacendado",
+                  "formato": "Botella 1 L",
+                  "precio": 4.1,
+                  "contenido": 1000,
+                  "unidad": "ml",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "pimenton-crujientes",
+              "cantidad": "½ cdta",
+              "nombre": "pimentón dulce de la Vera",
+              "compra": {
+                "mercadona": "34102",
+                "usa": 1,
+                "unidad": "g",
+                "euros": 0.025,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Pimentón dulce de la Vera Hacendado",
+                  "formato": "Bote 75 g",
+                  "precio": 1.85,
+                  "contenido": 75,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "sal-crujientes",
+              "cantidad": "una pizca",
+              "nombre": "sal",
+              "compra": {
+                "despensa": true,
+                "euros": 0
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "tahini",
+              "id": "crujientes",
+              "titulo": "Garbanzos crujientes",
+              "texto": "Escúrrelos, enjuágalos y sécalos muy bien con papel de cocina, quitando las pieles que se suelten. Mézclalos con el aceite, el pimentón y la sal y ponlos en la freidora en una sola capa. Mientras se hacen, sigue con el hummus.",
+              "tipo": "fuera",
+              "donde": "freidora",
+              "temperatura": 200,
+              "modo": "Aire",
+              "temporizador_s": 900,
+              "recordatorio": {
+                "quedan_s": 450,
+                "texto": "Sacude la cesta de los garbanzos crujientes."
+              },
+              "señal": "Dorados y suenan huecos al moverlos; al enfriar terminan de endurecerse. Échalos por encima al servir, no antes, que se ablandan.",
+              "usa": [
+                "garbanzos-crujientes",
+                "aceite-crujientes",
+                "pimenton-crujientes",
+                "sal-crujientes"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 0.82,
+            "tiendas": {
+              "Mercadona": 0.82
+            },
+            "completo": true,
+            "faltan": []
+          }
+        },
+        {
+          "id": "crudites",
+          "nombre": "Crudités y pan de pita",
+          "descripcion": "Bastones de zanahoria y pepino y pita tostada para mojar.",
+          "minutos": 10,
+          "ingredientes": [
+            {
+              "id": "zanahorias",
+              "cantidad": "2",
+              "nombre": "zanahorias",
+              "compra": {
+                "mercadona": "69669",
+                "usa": 200,
+                "unidad": "g",
+                "merma": 0.1,
+                "euros": 0.356,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Zanahorias",
+                  "formato": "Paquete 500 g",
+                  "precio": 0.8,
+                  "contenido": 500,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "pepino",
+              "cantidad": "1",
+              "nombre": "pepino",
+              "compra": {
+                "mercadona": "69584",
+                "usa": 190,
+                "unidad": "g",
+                "euros": 0.35,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Pepino",
+                  "formato": "Pieza 190 g",
+                  "precio": 0.35,
+                  "contenido": 190,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "pita",
+              "cantidad": "200 g",
+              "nombre": "pan de pita",
+              "compra": {
+                "mercadona": "14378",
+                "usa": 200,
+                "unidad": "g",
+                "euros": 1.333,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Pan de pita Mission",
+                  "formato": "Paquete 300 g",
+                  "precio": 2,
+                  "contenido": 300,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "emplatar",
+              "id": "crudites",
+              "titulo": "Cortar las crudités",
+              "texto": "Pela las zanahorias y córtalas en bastones del grosor de un dedo; el pepino, igual, con su piel.",
+              "tipo": "fuera",
+              "donde": "encimera",
+              "usa": [
+                "zanahorias",
+                "pepino"
+              ]
+            },
+            {
+              "antes_de": "emplatar",
+              "id": "pita",
+              "titulo": "Tostar la pita",
+              "texto": "Calienta los panes en una sartén sin aceite, un minuto por cada lado, y córtalos en triángulos.",
+              "tipo": "fuera",
+              "donde": "sarten",
+              "fuego": "medio",
+              "temporizador_s": 120,
+              "temporizador_repetible": true,
+              "señal": "Hinchados y con alguna mancha dorada, pero blandos por dentro.",
+              "usa": [
+                "pita"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 2.04,
+            "tiendas": {
+              "Mercadona": 2.04
+            },
+            "completo": true,
+            "faltan": []
+          }
+        },
+        {
+          "id": "pimenton",
+          "nombre": "Aceite de pimentón",
+          "descripcion": "Aceite templado con pimentón de la Vera para regarlo: rojo y ahumado.",
+          "minutos": 3,
+          "ingredientes": [
+            {
+              "id": "aceite-pimenton",
+              "cantidad": "3 cdas",
+              "nombre": "aceite de oliva virgen extra",
+              "compra": {
+                "mercadona": "4740",
+                "usa": 33,
+                "unidad": "ml",
+                "euros": 0.135,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Aceite de oliva virgen extra Hacendado",
+                  "formato": "Botella 1 L",
+                  "precio": 4.1,
+                  "contenido": 1000,
+                  "unidad": "ml",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "pimenton-aceite",
+              "cantidad": "1 cdta",
+              "nombre": "pimentón de la Vera (dulce o picante)",
+              "compra": {
+                "mercadona": "34102",
+                "usa": 2.5,
+                "unidad": "g",
+                "euros": 0.062,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Pimentón dulce de la Vera Hacendado",
+                  "formato": "Bote 75 g",
+                  "precio": 1.85,
+                  "contenido": 75,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "emplatar",
+              "id": "aceite-pimenton",
+              "titulo": "Aceite de pimentón",
+              "texto": "Calienta el aceite en un cazo o una sartén pequeña a fuego suave, sin que llegue a humear. Apártalo del fuego, añade el pimentón y remueve. Riega con él el hummus en lugar del aceite normal.",
+              "tipo": "fuera",
+              "donde": "sarten",
+              "fuego": "suave",
+              "temporizador_s": 60,
+              "señal": "El aceite se pone rojo intenso. Si el pimentón se oscurece, se ha quemado y amarga: repítelo.",
+              "usa": [
+                "aceite-pimenton",
+                "pimenton-aceite"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 0.2,
+            "tiendas": {
+              "Mercadona": 0.2
+            },
+            "completo": true,
+            "faltan": []
+          }
+        }
+      ],
+      "coste": {
+        "calculado": "2026-11-22",
+        "precios_hasta": "2026-11-21",
+        "total": 2.93,
+        "raciones": 4,
+        "por_racion": 0.73,
+        "tiendas": {
+          "Mercadona": 2.93
+        },
+        "completo": true,
+        "faltan": []
+      }
     }
   ]
 }
