@@ -76,7 +76,9 @@ export function costeDe(rc, el) {
     if (!x.coste.completo) { completo = false; faltan.push(...(x.coste.faltan || [])); }
   }
   const raciones = c.raciones || v.porciones || 4;
-  return { ...c, total: Math.round(total * 100) / 100, por_racion: Math.round((total / raciones) * 100) / 100, raciones, tiendas, completo, faltan };
+  // sin extras con coste, el precio por ración es el calculado (sin volver a redondear)
+  const porRacion = total === c.total && c.por_racion != null ? c.por_racion : Math.round((total / raciones) * 100) / 100;
+  return { ...c, total: Math.round(total * 100) / 100, por_racion: porRacion, raciones, tiendas, completo, faltan };
 }
 export const minutosDe = (rc, el) => {
   el = eleccionValida(rc, el);
