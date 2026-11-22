@@ -8152,16 +8152,16 @@
     {
       "id": "bacon-cheese-fries",
       "titulo": "Bacon cheese fries",
-      "subtitulo": "Como las del Foster's Hollywood: queso fundido, bacon crujiente y salsa ranchera",
+      "subtitulo": "Como las del Foster's Hollywood: salsa ranchera bajo el queso fundido y bacon crujiente",
       "categoria": "aperitivos",
       "emoji": "🍟",
       "foto": "img/recetas/bacon-cheese-fries.webp",
-      "foto_prompt": "Patatas fritas cubiertas de queso fundido dorado y anaranjado y trocitos de bacon crujiente en una fuente de hierro, con un cuenco pequeño de salsa blanca cremosa al lado.",
+      "foto_prompt": "Un plato blanco ovalado lleno de patatas fritas cubiertas de queso fundido anaranjado y trocitos de bacon crujiente por encima, con hilos de salsa blanca cremosa asomando entre las patatas bajo el queso. Sin cuencos de salsa al lado.",
       "estilo_por_defecto": "normal",
       "estilos": [
         {
           "id": "rapida",
-          "descripcion": "Todo en la freidora de aire: patatas, queso fundido y una salsa ranchera exprés.",
+          "descripcion": "Todo en la freidora de aire: patatas, una salsa ranchera exprés y el queso fundido encima.",
           "versiones": [
             {
               "id": "rapida",
@@ -8174,7 +8174,7 @@
               "nota": null,
               "desglose": {
                 "textura": "Patatas crujientes por fuera, aunque algo más secas que fritas en aceite.",
-                "sabor": "El mismo juego de queso fundido, bacon y salsa blanca para mojar.",
+                "sabor": "El mismo juego: salsa blanca bajo el queso fundido y bacon crujiente por encima.",
                 "punto": "El queso se funde en la misma freidora en tres minutos.",
                 "comodidad": "Sin aceite de freír, sin horno: una freidora, una sartén y un cuenco."
               },
@@ -8443,13 +8443,13 @@
                 {
                   "id": "gratinar",
                   "titulo": "Fundir el queso",
-                  "texto": "Sala las patatas, ponlas en un molde que quepa en la freidora (o sobre papel de horno en la cesta), cúbrelas con el queso y vuelve a meterlas.",
+                  "texto": "Sala las patatas y ponlas en un molde que quepa en la freidora (o sobre papel de horno en la cesta). Reparte la salsa por encima a cucharadas, sin cubrirlas del todo, cúbrelas con el queso y vuelve a meterlas.",
                   "tipo": "fuera",
                   "donde": "freidora",
                   "temperatura": 180,
                   "modo": "Aire",
                   "temporizador_s": 180,
-                  "señal": "El queso fundido y burbujeando.",
+                  "señal": "El queso fundido y burbujeando, con la salsa asomando por debajo.",
                   "usa": [
                     "patatas",
                     "queso",
@@ -8459,7 +8459,7 @@
                 {
                   "id": "servir",
                   "titulo": "Bacon y a la mesa",
-                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y sírvelas con la salsa ranchera en un cuenco aparte para mojar.",
+                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y a la mesa enseguida.",
                   "tipo": "fuera",
                   "donde": "mesa",
                   "usa": [
@@ -8488,12 +8488,12 @@
         },
         {
           "id": "normal",
-          "descripcion": "La del restaurante: patatas fritas en aceite, mezcla de quesos gratinada, bacon crujiente y salsa ranchera blanca para mojar.",
+          "descripcion": "La del restaurante: patatas fritas en aceite, salsa ranchera blanca, mezcla de quesos gratinada por encima y bacon crujiente.",
           "versiones": [
             {
               "id": "fosters",
               "nombre": "Como en Foster's Hollywood",
-              "subtitulo": "Patatas fritas, mezcla de quesos gratinada, bacon crujiente y salsa ranchera blanca",
+              "subtitulo": "Patatas fritas, salsa ranchera blanca, mezcla de quesos gratinada y bacon crujiente",
               "raciones": "4 raciones para compartir",
               "porciones": 4,
               "tiempo_min": 35,
@@ -8501,7 +8501,7 @@
               "nota": null,
               "desglose": {
                 "textura": "Patatas finas fritas en aceite, crujientes, bajo una capa de queso fundido que hace hilos.",
-                "sabor": "Salado y ahumado del bacon, cremoso del queso, y la salsa ranchera fresca y ácida para mojar.",
+                "sabor": "Salado y ahumado del bacon, cremoso del queso, y por debajo la salsa ranchera, fresca y ácida, que se funde con él.",
                 "punto": "El queso, fundido y con alguna mancha dorada; el bacon, crujiente del todo.",
                 "comodidad": "Sartén honda, otra sartén y el horno: un rato de fritura, pero sin complicaciones."
               },
@@ -8797,9 +8797,9 @@
                 {
                   "id": "salsa",
                   "titulo": "Terminar la salsa ranchera",
-                  "texto": "Añade la mayonesa, el ajo, la cebolla en polvo, el perejil, la pimienta y una pizca de sal. Mezcla con unas varillas y aligérala con la leche. Tápala y a la nevera mientras haces lo demás.",
+                  "texto": "Añade la mayonesa, el ajo, la cebolla en polvo, el perejil, la pimienta y una pizca de sal. Mezcla con unas varillas y aligérala con la leche. Tápala y déjala aparte mientras haces lo demás.",
                   "tipo": "fuera",
-                  "donde": "nevera",
+                  "donde": "encimera",
                   "usa": [
                     "mayonesa",
                     "ajo-polvo",
@@ -8844,14 +8844,14 @@
                 },
                 {
                   "id": "gratinar",
-                  "titulo": "Gratinar el queso",
-                  "texto": "Pon las patatas en una fuente de horno, reparte por encima los dos quesos mezclados y gratina en la parte alta del horno.",
+                  "titulo": "Montar y gratinar",
+                  "texto": "Pon las patatas en una fuente de horno y reparte la salsa ranchera por encima a cucharadas, sin cubrirlas del todo. Cúbrelas con los dos quesos mezclados y gratina en la parte alta del horno.",
                   "tipo": "fuera",
                   "donde": "horno",
                   "temperatura": 230,
                   "modo": "Grill",
                   "temporizador_s": 240,
-                  "señal": "El queso fundido y burbujeando, con alguna mancha dorada.",
+                  "señal": "El queso fundido y burbujeando, con alguna mancha dorada y la salsa blanca asomando por debajo.",
                   "usa": [
                     "patatas",
                     "queso",
@@ -8861,7 +8861,7 @@
                 {
                   "id": "servir",
                   "titulo": "Bacon y a la mesa",
-                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y sírvelas con la salsa ranchera en un cuenco aparte para mojar.",
+                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y a la mesa enseguida.",
                   "tipo": "fuera",
                   "donde": "mesa",
                   "usa": [
