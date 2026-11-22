@@ -7189,6 +7189,759 @@
         "completo": true,
         "faltan": []
       }
+    },
+    {
+      "id": "guacamole",
+      "titulo": "Guacamole",
+      "subtitulo": "Con tropezones, cebolla curada en lima y cilantro",
+      "categoria": "aperitivos",
+      "emoji": "🥑",
+      "foto": "img/recetas/guacamole.webp",
+      "foto_prompt": "Guacamole con tropezones en un molcajete de piedra, con cilantro picado por encima; al lado, unas rodajas de lima y unos totopos de maíz.",
+      "estilo_por_defecto": "normal",
+      "estilos": [
+        {
+          "id": "normal",
+          "descripcion": "El de casa en México: aguacate, cebolla, chile, cilantro y lima. El robot pica y tú solo abres los aguacates.",
+          "versiones": [
+            {
+              "id": "normal",
+              "nombre": "Normal",
+              "subtitulo": "Con tropezones, cebolla curada en lima y cilantro",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 15,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": 8,
+              "nota_mejor": {
+                "valor": 9,
+                "si": "chafas el aguacate con un tenedor en un bol y mezclas allí el picado, en lugar de hacerlo en el vaso: queda más irregular, como debe (un cacharro más)."
+              },
+              "desglose": {
+                "textura": "Buena y con tropezones, aunque algo más igualada que chafado a mano: el robot uniforma un poco el aguacate.",
+                "sabor": "El de siempre: aquí no se cocina nada, así que el robot no le quita nada.",
+                "punto": "La cebolla, curada en lima, no repite; la sal y la lima se ajustan al final.",
+                "comodidad": "El robot pica la cebolla, el chile y el cilantro en segundos, que es lo pesado."
+              },
+              "preparacion": [
+                "Exprime las limas."
+              ],
+              "ingredientes": [
+                {
+                  "id": "aguacates",
+                  "cantidad": "3 maduros (unos 540 g)",
+                  "nombre": "aguacates",
+                  "compra": {
+                    "mercadona": "3858",
+                    "usa": 540,
+                    "unidad": "g",
+                    "euros": 2.866,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aguacates",
+                      "formato": "650 g",
+                      "precio": 3.45,
+                      "contenido": 650,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla",
+                  "cantidad": "½ (unos 75 g)",
+                  "nombre": "cebolla, en cuartos",
+                  "compra": {
+                    "mercadona": "69089",
+                    "usa": 75,
+                    "unidad": "g",
+                    "merma": 0.1,
+                    "euros": 0.125,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollas",
+                      "formato": "Malla 1 kg",
+                      "precio": 1.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "jalapenos",
+                  "cantidad": "20 g (unas 6 rodajas)",
+                  "nombre": "jalapeños en vinagre, escurridos",
+                  "compra": {
+                    "mercadona": "33189",
+                    "usa": 20,
+                    "unidad": "g",
+                    "equivale": "chile serrano o jalapeño fresco (si lo encuentras, mejor)",
+                    "euros": 0.244,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Jalapeños picantes en vinagre Hacendado",
+                      "formato": "Tarro 135 g",
+                      "precio": 1.65,
+                      "contenido": 135,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cilantro",
+                  "cantidad": "un puñado (10 g)",
+                  "nombre": "cilantro fresco, con sus tallos tiernos",
+                  "compra": {
+                    "mercadona": "69690",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.625,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cilantro",
+                      "formato": "Bandeja 20 g",
+                      "precio": 1.25,
+                      "contenido": 20,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limas",
+                  "cantidad": "2 (unos 40 ml de zumo)",
+                  "nombre": "limas, exprimidas (o 1 limón)",
+                  "compra": {
+                    "masymas": "42099",
+                    "usa": 125,
+                    "unidad": "g",
+                    "euros": 0.795,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Limas, Bandeja 250 G",
+                      "formato": "250 g",
+                      "precio": 1.59,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "picar",
+                  "titulo": "Picar",
+                  "texto": "Pon en el vaso la cebolla, los jalapeños y el cilantro. Si ves trozos grandes, 3-4 segundos más.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cebolla",
+                    "jalapenos",
+                    "cilantro"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "5",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "curar",
+                  "titulo": "Curar la cebolla",
+                  "texto": "Añade al vaso el zumo de lima y la sal, remueve con la espátula y deja reposar: la lima le quita el picor a la cebolla.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "temporizador_s": 300,
+                  "usa": [
+                    "limas",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "aguacate",
+                  "titulo": "Machacar el aguacate",
+                  "texto": "Abre los aguacates, saca la pulpa con una cuchara y échala al vaso en trozos grandes.",
+                  "tipo": "robot",
+                  "usa": [
+                    "aguacates"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "3",
+                    "inverso": true,
+                    "medidor": "puesto"
+                  },
+                  "señal": "Machacado pero con tropezones. Si quedan trozos muy grandes, 5 segundos más: mejor quedarse corto que hacerlo puré."
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Probar y servir",
+                  "texto": "Prueba y ajusta de sal y de lima. Sírvelo enseguida en un bol con un poco de cilantro picado por encima.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "cilantro"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Si tienes que guardarlo, pon film tocando la superficie: así no se oscurece. Mejor del día.",
+                "El aguacate está en su punto cuando cede un poco al apretarlo junto al rabito."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 4.66,
+                "raciones": 4,
+                "por_racion": 1.16,
+                "tiendas": {
+                  "Mercadona": 3.86,
+                  "Masymas": 0.8
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "gourmet",
+          "descripcion": "Tatemado: cebolla, ajo y pimiento tostados en la sartén hasta mancharse de negro, con granada, queso y pipas por encima.",
+          "versiones": [
+            {
+              "id": "gourmet",
+              "nombre": "Gourmet",
+              "subtitulo": "Tatemado: con cebolla, ajo y pimiento tostados en la sartén",
+              "raciones": "4 raciones de aperitivo",
+              "porciones": 4,
+              "tiempo_min": 30,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": 8,
+              "nota_mejor": {
+                "valor": 9,
+                "si": "chafas el aguacate con un tenedor en un bol y mezclas allí el picado, en lugar de hacerlo en el vaso: queda más irregular, como debe (un cacharro más)."
+              },
+              "desglose": {
+                "textura": "Con tropezones, y por encima el crujiente de las pipas y la granada.",
+                "sabor": "Ahumado y más profundo: el tostado en la sartén hace lo que el robot no puede.",
+                "punto": "La lima y la sal se ajustan al final; el queso ya aporta sal, así que prueba antes.",
+                "comodidad": "Una sartén más, pero el picado sigue siendo cosa del robot."
+              },
+              "preparacion": [
+                "Exprime las limas.",
+                "Desgrana media granada.",
+                "Desmenuza el queso."
+              ],
+              "ingredientes": [
+                {
+                  "id": "aguacates",
+                  "cantidad": "3 maduros (unos 540 g)",
+                  "nombre": "aguacates",
+                  "compra": {
+                    "mercadona": "3858",
+                    "usa": 540,
+                    "unidad": "g",
+                    "euros": 2.866,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aguacates",
+                      "formato": "650 g",
+                      "precio": 3.45,
+                      "contenido": 650,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla",
+                  "cantidad": "½ (unos 75 g)",
+                  "nombre": "cebolla, en rodajas gruesas",
+                  "compra": {
+                    "mercadona": "69089",
+                    "usa": 75,
+                    "unidad": "g",
+                    "merma": 0.1,
+                    "euros": 0.125,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollas",
+                      "formato": "Malla 1 kg",
+                      "precio": 1.5,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo",
+                  "cantidad": "2 dientes",
+                  "nombre": "ajos, con su piel",
+                  "compra": {
+                    "mercadona": "69297",
+                    "usa": 10,
+                    "unidad": "g",
+                    "merma": 0.13,
+                    "euros": 0.085,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajos morados",
+                      "formato": "Malla 250 g",
+                      "precio": 1.85,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimiento",
+                  "cantidad": "1 (130 g)",
+                  "nombre": "pimiento verde de freír",
+                  "compra": {
+                    "mercadona": "69320",
+                    "usa": 130,
+                    "unidad": "g",
+                    "merma": 0.18,
+                    "euros": 0.402,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimiento verde freír",
+                      "formato": "Pieza 130 g",
+                      "precio": 0.33,
+                      "contenido": 130,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "jalapenos",
+                  "cantidad": "15 g (unas 4 rodajas)",
+                  "nombre": "jalapeños en vinagre, escurridos",
+                  "compra": {
+                    "mercadona": "33189",
+                    "usa": 15,
+                    "unidad": "g",
+                    "equivale": "chile serrano o jalapeño fresco (si lo encuentras, mejor)",
+                    "euros": 0.183,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Jalapeños picantes en vinagre Hacendado",
+                      "formato": "Tarro 135 g",
+                      "precio": 1.65,
+                      "contenido": 135,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cilantro",
+                  "cantidad": "un puñado (10 g)",
+                  "nombre": "cilantro fresco, con sus tallos tiernos",
+                  "compra": {
+                    "mercadona": "69690",
+                    "usa": 10,
+                    "unidad": "g",
+                    "euros": 0.625,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cilantro",
+                      "formato": "Bandeja 20 g",
+                      "precio": 1.25,
+                      "contenido": 20,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limas",
+                  "cantidad": "2 (unos 40 ml de zumo)",
+                  "nombre": "limas, exprimidas (o 1 limón)",
+                  "compra": {
+                    "masymas": "42099",
+                    "usa": 125,
+                    "unidad": "g",
+                    "euros": 0.795,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Limas, Bandeja 250 G",
+                      "formato": "250 g",
+                      "precio": 1.59,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "1 cdta rasa",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "granada",
+                  "cantidad": "½",
+                  "nombre": "granada, desgranada",
+                  "compra": {
+                    "mercadona": "3915",
+                    "usa": 225,
+                    "unidad": "g",
+                    "euros": 0.675,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Granada",
+                      "formato": "Pieza 450 g",
+                      "precio": 1.35,
+                      "contenido": 450,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "queso",
+                  "cantidad": "40 g",
+                  "nombre": "queso feta, desmenuzado",
+                  "compra": {
+                    "masymas": "58653",
+                    "usa": 40,
+                    "unidad": "g",
+                    "equivale": "queso cotija mexicano",
+                    "euros": 0.667,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Queso Feta Griego Dop 150 G",
+                      "formato": "150 g",
+                      "precio": 2.5,
+                      "contenido": 150,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pipas",
+                  "cantidad": "20 g",
+                  "nombre": "pipas de calabaza peladas",
+                  "compra": {
+                    "mercadona": "18259",
+                    "usa": 20,
+                    "unidad": "g",
+                    "euros": 0.22,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pipas de calabaza natural Hacendado peladas",
+                      "formato": "Paquete 200 g",
+                      "precio": 2.2,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "tatemar",
+                  "titulo": "Tatemar (tostar) las verduras",
+                  "texto": "Pon la cebolla, los ajos con piel y el pimiento entero en una sartén sin aceite. Dales la vuelta de vez en cuando.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "fuerte",
+                  "temporizador_s": 600,
+                  "señal": "Manchas negras por todas partes y blandos al apretarlos; el pimiento, con la piel ampollada.",
+                  "usa": [
+                    "cebolla",
+                    "ajo",
+                    "pimiento"
+                  ]
+                },
+                {
+                  "id": "pipas",
+                  "titulo": "Tostar las pipas",
+                  "texto": "Saca las verduras y, en la misma sartén, tuesta las pipas de calabaza moviéndolas sin parar.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temporizador_s": 120,
+                  "señal": "Se hinchan y empiezan a saltar.",
+                  "usa": [
+                    "pipas"
+                  ]
+                },
+                {
+                  "id": "pelar",
+                  "titulo": "Pelar y templar",
+                  "texto": "Pela los ajos y quítale al pimiento el rabo, las semillas y la piel más quemada (un poco de negro da sabor). Deja que se temple todo un par de minutos.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "ajo",
+                    "pimiento"
+                  ]
+                },
+                {
+                  "id": "picar",
+                  "titulo": "Picar",
+                  "texto": "Pon en el vaso la cebolla, los ajos, el pimiento, los jalapeños y el cilantro. Si ves trozos grandes, 3-4 segundos más.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cebolla",
+                    "ajo",
+                    "pimiento",
+                    "jalapenos",
+                    "cilantro"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "5",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "curar",
+                  "titulo": "Curar la cebolla",
+                  "texto": "Añade al vaso el zumo de lima y la sal, remueve con la espátula y deja reposar: la lima le quita el picor a la cebolla.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "temporizador_s": 300,
+                  "usa": [
+                    "limas",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "aguacate",
+                  "titulo": "Machacar el aguacate",
+                  "texto": "Abre los aguacates, saca la pulpa con una cuchara y échala al vaso en trozos grandes.",
+                  "tipo": "robot",
+                  "usa": [
+                    "aguacates"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "3",
+                    "inverso": true,
+                    "medidor": "puesto"
+                  },
+                  "señal": "Machacado pero con tropezones. Si quedan trozos muy grandes, 5 segundos más: mejor quedarse corto que hacerlo puré."
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Coronar y servir",
+                  "texto": "Prueba y ajusta de sal y de lima. Sírvelo en un bol y cúbrelo con la granada, el queso, las pipas y un poco de cilantro.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "granada",
+                    "queso",
+                    "pipas",
+                    "cilantro"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Si tienes que guardarlo, pon film tocando la superficie: así no se oscurece. Mejor del día.",
+                "El aguacate está en su punto cuando cede un poco al apretarlo junto al rabito."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 6.64,
+                "raciones": 4,
+                "por_racion": 1.66,
+                "tiendas": {
+                  "Mercadona": 5.18,
+                  "Masymas": 1.46
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "id": "tomate",
+          "nombre": "Con tomate",
+          "descripcion": "Daditos de tomate mezclados al final, como en las taquerías.",
+          "minutos": 3,
+          "ingredientes": [
+            {
+              "id": "tomate",
+              "cantidad": "1 (130 g)",
+              "nombre": "tomate pera",
+              "compra": {
+                "mercadona": "69912",
+                "usa": 130,
+                "unidad": "g",
+                "merma": 0.15,
+                "euros": 0.341,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Tomate pera",
+                  "formato": "Pieza 130 g",
+                  "precio": 0.29,
+                  "contenido": 130,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "despues_de": "aguacate",
+              "id": "tomate",
+              "titulo": "Añadir el tomate",
+              "texto": "Quítale las semillas al tomate, córtalo en daditos y mézclalo con la espátula. No lo tritures: tiene que verse.",
+              "tipo": "fuera",
+              "donde": "encimera",
+              "usa": [
+                "tomate"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 0.34,
+            "tiendas": {
+              "Mercadona": 0.34
+            },
+            "completo": true,
+            "faltan": []
+          }
+        },
+        {
+          "id": "totopos",
+          "nombre": "Totopos caseros",
+          "descripcion": "Triángulos de tortilla de maíz tostados en la freidora de aire, para mojar.",
+          "minutos": 10,
+          "ingredientes": [
+            {
+              "id": "tortillas",
+              "cantidad": "1 paquete (208 g)",
+              "nombre": "tortillas de maíz",
+              "compra": {
+                "mercadona": "86328",
+                "usa": 208,
+                "unidad": "g",
+                "euros": 1.85,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Tortillas de maíz Hacendado",
+                  "formato": "Paquete 208 g",
+                  "precio": 1.85,
+                  "contenido": 208,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "aceite-totopos",
+              "cantidad": "1 cda",
+              "nombre": "aceite de oliva virgen extra",
+              "compra": {
+                "mercadona": "4740",
+                "usa": 11,
+                "unidad": "ml",
+                "euros": 0.045,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Aceite de oliva virgen extra Hacendado",
+                  "formato": "Botella 1 L",
+                  "precio": 4.1,
+                  "contenido": 1000,
+                  "unidad": "ml",
+                  "activo": true
+                }
+              }
+            },
+            {
+              "id": "sal-totopos",
+              "cantidad": "una pizca",
+              "nombre": "sal",
+              "compra": {
+                "despensa": true,
+                "euros": 0
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "picar",
+              "id": "totopos",
+              "titulo": "Tostar los totopos",
+              "texto": "Corta cada tortilla en 6 triángulos, píntalos con un poco de aceite, sálalos y ponlos en la freidora en una sola capa (en dos tandas si no caben). Mientras, sigue con el guacamole.",
+              "tipo": "fuera",
+              "donde": "freidora",
+              "temperatura": 180,
+              "modo": "Aire",
+              "temporizador_s": 480,
+              "temporizador_repetible": true,
+              "recordatorio": {
+                "quedan_s": 240,
+                "texto": "Dales la vuelta a los totopos."
+              },
+              "señal": "Dorados y rígidos; al enfriar crujen del todo.",
+              "usa": [
+                "tortillas",
+                "aceite-totopos",
+                "sal-totopos"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 1.9,
+            "tiendas": {
+              "Mercadona": 1.9
+            },
+            "completo": true,
+            "faltan": []
+          }
+        }
+      ],
+      "coste": {
+        "calculado": "2026-11-22",
+        "precios_hasta": "2026-11-21",
+        "total": 4.66,
+        "raciones": 4,
+        "por_racion": 1.16,
+        "tiendas": {
+          "Mercadona": 3.86,
+          "Masymas": 0.8
+        },
+        "completo": true,
+        "faltan": []
+      }
     }
   ]
 }
