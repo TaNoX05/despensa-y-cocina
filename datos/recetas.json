@@ -8148,6 +8148,1372 @@
         "completo": true,
         "faltan": []
       }
+    },
+    {
+      "id": "bacon-cheese-fries",
+      "titulo": "Bacon cheese fries",
+      "subtitulo": "Como las del Foster's Hollywood: queso fundido, bacon crujiente y salsa ranchera",
+      "categoria": "aperitivos",
+      "emoji": "🍟",
+      "foto": "img/recetas/bacon-cheese-fries.webp",
+      "foto_prompt": "Patatas fritas cubiertas de queso fundido dorado y anaranjado y trocitos de bacon crujiente en una fuente de hierro, con un cuenco pequeño de salsa blanca cremosa al lado.",
+      "estilo_por_defecto": "normal",
+      "estilos": [
+        {
+          "id": "rapida",
+          "descripcion": "Todo en la freidora de aire: patatas, queso fundido y una salsa ranchera exprés.",
+          "versiones": [
+            {
+              "id": "rapida",
+              "nombre": "Rápida y sencilla",
+              "subtitulo": "En la freidora de aire, sin aceite ni horno",
+              "raciones": "4 raciones para compartir",
+              "porciones": 4,
+              "tiempo_min": 25,
+              "sin_robot": true,
+              "nota": null,
+              "desglose": {
+                "textura": "Patatas crujientes por fuera, aunque algo más secas que fritas en aceite.",
+                "sabor": "El mismo juego de queso fundido, bacon y salsa blanca para mojar.",
+                "punto": "El queso se funde en la misma freidora en tres minutos.",
+                "comodidad": "Sin aceite de freír, sin horno: una freidora, una sartén y un cuenco."
+              },
+              "ingredientes": [
+                {
+                  "id": "patatas",
+                  "cantidad": "750 g",
+                  "nombre": "patatas fritas congeladas para horno y freidora de aire",
+                  "compra": {
+                    "mercadona": "7879",
+                    "usa": 750,
+                    "unidad": "g",
+                    "euros": 1.9,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Patatas fritas horno y air fryer Hacendado ultracongeladas",
+                      "formato": "Paquete 750 g",
+                      "precio": 1.9,
+                      "contenido": 750,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "bacon",
+                  "cantidad": "200 g",
+                  "nombre": "bacon ahumado en taco, en taquitos pequeños",
+                  "compra": {
+                    "masymas": "54171",
+                    "usa": 200,
+                    "unidad": "g",
+                    "euros": 1.727,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Bacon Ahumado Taco 300 G",
+                      "formato": "300 g",
+                      "precio": 2.59,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "queso",
+                  "cantidad": "200 g",
+                  "nombre": "queso rallado especial para fundir (mezcla)",
+                  "compra": {
+                    "mercadona": "23621",
+                    "usa": 200,
+                    "unidad": "g",
+                    "euros": 1.1,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso rallado especial fundir mezcla Hacendado",
+                      "formato": "Paquete 200 g",
+                      "precio": 1.1,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "una pizca",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "mayonesa",
+                  "cantidad": "150 ml",
+                  "nombre": "mayonesa",
+                  "compra": {
+                    "mercadona": "13406",
+                    "usa": 150,
+                    "unidad": "ml",
+                    "euros": 0.36,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Mayonesa Hacendado",
+                      "formato": "Tarro 500 ml",
+                      "precio": 1.2,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "leche",
+                  "cantidad": "3 cdas",
+                  "nombre": "leche",
+                  "compra": {
+                    "mercadona": "10380",
+                    "usa": 45,
+                    "unidad": "ml",
+                    "euros": 0.043,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Leche entera Hacendado",
+                      "formato": "Brik 1 L",
+                      "precio": 0.96,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "1 cdta de zumo",
+                  "nombre": "limón",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 30,
+                    "unidad": "g",
+                    "euros": 0.066,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "ajo granulado",
+                  "compra": {
+                    "mercadona": "86656",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.016,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajo granulado Hacendado",
+                      "formato": "Bote 115 g",
+                      "precio": 1.25,
+                      "contenido": 115,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "cebolla en polvo",
+                  "compra": {
+                    "mercadona": "34138",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.024,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebolla en polvo Hacendado",
+                      "formato": "Bote 60 g",
+                      "precio": 0.94,
+                      "contenido": 60,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimienta",
+                  "cantidad": "una pizca",
+                  "nombre": "pimienta negra molida",
+                  "compra": {
+                    "mercadona": "34171",
+                    "usa": 0.3,
+                    "unidad": "g",
+                    "euros": 0.006,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimienta negra molida Hacendado",
+                      "formato": "Bote 70 g",
+                      "precio": 1.3,
+                      "contenido": 70,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "perejil",
+                  "cantidad": "1 cdta",
+                  "nombre": "perejil seco",
+                  "compra": {
+                    "mercadona": "5599",
+                    "usa": 1,
+                    "unidad": "g",
+                    "euros": 0.056,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Perejil Hacendado",
+                      "formato": "Bote 18 g",
+                      "precio": 1,
+                      "contenido": 18,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "patatas",
+                  "titulo": "Patatas en la freidora",
+                  "texto": "Pon las patatas congeladas en la cesta, sin amontonarlas (en dos tandas si no caben).",
+                  "tipo": "fuera",
+                  "donde": "freidora",
+                  "temperatura": 200,
+                  "modo": "Aire",
+                  "temporizador_s": 1080,
+                  "temporizador_editable": true,
+                  "temporizador_repetible": true,
+                  "recordatorio": {
+                    "quedan_s": 540,
+                    "texto": "Sacude la cesta de las patatas."
+                  },
+                  "señal": "Doradas y crujientes por fuera.",
+                  "usa": [
+                    "patatas"
+                  ]
+                },
+                {
+                  "id": "bacon",
+                  "titulo": "Bacon crujiente",
+                  "texto": "Mientras, corta el bacon en taquitos pequeños y hazlo en una sartén sin aceite, removiendo de vez en cuando. Escúrrelo sobre papel de cocina.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temporizador_s": 480,
+                  "señal": "Dorado y crujiente; la grasa ya no chisporrotea fuerte.",
+                  "usa": [
+                    "bacon"
+                  ]
+                },
+                {
+                  "id": "salsa",
+                  "titulo": "Salsa ranchera exprés",
+                  "texto": "En un cuenco, mezcla la mayonesa con la leche, el zumo de limón, el ajo, la cebolla en polvo, el perejil y la pimienta.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "usa": [
+                    "mayonesa",
+                    "leche",
+                    "limon",
+                    "ajo-polvo",
+                    "cebolla-polvo",
+                    "perejil",
+                    "pimienta"
+                  ],
+                  "señal": "Blanca, lisa y algo más suelta que una mayonesa."
+                },
+                {
+                  "id": "gratinar",
+                  "titulo": "Fundir el queso",
+                  "texto": "Sala las patatas, ponlas en un molde que quepa en la freidora (o sobre papel de horno en la cesta), cúbrelas con el queso y vuelve a meterlas.",
+                  "tipo": "fuera",
+                  "donde": "freidora",
+                  "temperatura": 180,
+                  "modo": "Aire",
+                  "temporizador_s": 180,
+                  "señal": "El queso fundido y burbujeando.",
+                  "usa": [
+                    "patatas",
+                    "queso",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Bacon y a la mesa",
+                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y sírvelas con la salsa ranchera en un cuenco aparte para mojar.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "bacon"
+                  ]
+                }
+              ],
+              "trucos": [
+                "Si tu freidora es pequeña, haz las patatas en dos tandas y júntalas todas para fundir el queso."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 5.3,
+                "raciones": 4,
+                "por_racion": 1.32,
+                "tiendas": {
+                  "Mercadona": 3.57,
+                  "Masymas": 1.73
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "descripcion": "La del restaurante: patatas fritas en aceite, mezcla de quesos gratinada, bacon crujiente y salsa ranchera blanca para mojar.",
+          "versiones": [
+            {
+              "id": "fosters",
+              "nombre": "Como en Foster's Hollywood",
+              "subtitulo": "Patatas fritas, mezcla de quesos gratinada, bacon crujiente y salsa ranchera blanca",
+              "raciones": "4 raciones para compartir",
+              "porciones": 4,
+              "tiempo_min": 35,
+              "sin_robot": true,
+              "nota": null,
+              "desglose": {
+                "textura": "Patatas finas fritas en aceite, crujientes, bajo una capa de queso fundido que hace hilos.",
+                "sabor": "Salado y ahumado del bacon, cremoso del queso, y la salsa ranchera fresca y ácida para mojar.",
+                "punto": "El queso, fundido y con alguna mancha dorada; el bacon, crujiente del todo.",
+                "comodidad": "Sartén honda, otra sartén y el horno: un rato de fritura, pero sin complicaciones."
+              },
+              "preparacion": [
+                "Enciende el horno con el grill al máximo (230 °C).",
+                "Ralla el cheddar."
+              ],
+              "ingredientes": [
+                {
+                  "id": "patatas",
+                  "cantidad": "750 g",
+                  "nombre": "patatas prefritas congeladas de corte fino",
+                  "compra": {
+                    "mercadona": "61421",
+                    "usa": 750,
+                    "unidad": "g",
+                    "euros": 1.388,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Patatas prefritas corte fino Hacendado ultracongeladas",
+                      "formato": "Paquete 1 kg",
+                      "precio": 1.85,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "750 ml",
+                  "nombre": "aceite de girasol para freír",
+                  "compra": {
+                    "mercadona": "4040",
+                    "usa": 750,
+                    "unidad": "ml",
+                    "euros": 1.388,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de girasol refinado 0,2º Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 1.85,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "bacon",
+                  "cantidad": "200 g",
+                  "nombre": "bacon ahumado en taco, en taquitos pequeños",
+                  "compra": {
+                    "masymas": "54171",
+                    "usa": 200,
+                    "unidad": "g",
+                    "euros": 1.727,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Bacon Ahumado Taco 300 G",
+                      "formato": "300 g",
+                      "precio": 2.59,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "queso",
+                  "cantidad": "120 g",
+                  "nombre": "queso rallado especial para fundir (mezcla)",
+                  "compra": {
+                    "mercadona": "23621",
+                    "usa": 120,
+                    "unidad": "g",
+                    "euros": 0.66,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso rallado especial fundir mezcla Hacendado",
+                      "formato": "Paquete 200 g",
+                      "precio": 1.1,
+                      "contenido": 200,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cheddar",
+                  "cantidad": "80 g",
+                  "nombre": "queso cheddar curado, rallado",
+                  "compra": {
+                    "mercadona": "51630",
+                    "usa": 80,
+                    "unidad": "g",
+                    "euros": 0.787,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso curado cheddar Hacendado",
+                      "formato": "Pieza 300 g",
+                      "precio": 2.95,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "una pizca",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "nata",
+                  "cantidad": "100 ml",
+                  "nombre": "nata para montar",
+                  "compra": {
+                    "mercadona": "10276",
+                    "usa": 100,
+                    "unidad": "ml",
+                    "euros": 0.39,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Nata para montar Hacendado",
+                      "formato": "Brik 500 ml",
+                      "precio": 1.95,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "1 cda de zumo (½ limón)",
+                  "nombre": "limón",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 60,
+                    "unidad": "g",
+                    "euros": 0.132,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "mayonesa",
+                  "cantidad": "150 ml",
+                  "nombre": "mayonesa",
+                  "compra": {
+                    "mercadona": "13406",
+                    "usa": 150,
+                    "unidad": "ml",
+                    "euros": 0.36,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Mayonesa Hacendado",
+                      "formato": "Tarro 500 ml",
+                      "precio": 1.2,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "leche",
+                  "cantidad": "2 cdas",
+                  "nombre": "leche",
+                  "compra": {
+                    "mercadona": "10380",
+                    "usa": 30,
+                    "unidad": "ml",
+                    "euros": 0.029,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Leche entera Hacendado",
+                      "formato": "Brik 1 L",
+                      "precio": 0.96,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "ajo granulado",
+                  "compra": {
+                    "mercadona": "86656",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.016,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajo granulado Hacendado",
+                      "formato": "Bote 115 g",
+                      "precio": 1.25,
+                      "contenido": 115,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "cebolla en polvo",
+                  "compra": {
+                    "mercadona": "34138",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.024,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebolla en polvo Hacendado",
+                      "formato": "Bote 60 g",
+                      "precio": 0.94,
+                      "contenido": 60,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimienta",
+                  "cantidad": "una pizca",
+                  "nombre": "pimienta negra molida",
+                  "compra": {
+                    "mercadona": "34171",
+                    "usa": 0.3,
+                    "unidad": "g",
+                    "euros": 0.006,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimienta negra molida Hacendado",
+                      "formato": "Bote 70 g",
+                      "precio": 1.3,
+                      "contenido": 70,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "perejil",
+                  "cantidad": "1 cdta",
+                  "nombre": "perejil seco",
+                  "compra": {
+                    "mercadona": "5599",
+                    "usa": 1,
+                    "unidad": "g",
+                    "euros": 0.056,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Perejil Hacendado",
+                      "formato": "Bote 18 g",
+                      "precio": 1,
+                      "contenido": 18,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "nata",
+                  "titulo": "Espesar la nata",
+                  "texto": "En un cuenco, mezcla la nata con el zumo de limón y déjala reposar: espesa sola, como una nata agria.",
+                  "tipo": "fuera",
+                  "donde": "encimera",
+                  "temporizador_s": 300,
+                  "usa": [
+                    "nata",
+                    "limon"
+                  ],
+                  "señal": "Se nota más espesa al mover el cuenco."
+                },
+                {
+                  "id": "salsa",
+                  "titulo": "Terminar la salsa ranchera",
+                  "texto": "Añade la mayonesa, el ajo, la cebolla en polvo, el perejil, la pimienta y una pizca de sal. Mezcla con unas varillas y aligérala con la leche. Tápala y a la nevera mientras haces lo demás.",
+                  "tipo": "fuera",
+                  "donde": "nevera",
+                  "usa": [
+                    "mayonesa",
+                    "ajo-polvo",
+                    "cebolla-polvo",
+                    "perejil",
+                    "pimienta",
+                    "leche"
+                  ],
+                  "señal": "Blanca, lisa y que cubre la cuchara."
+                },
+                {
+                  "id": "bacon",
+                  "titulo": "Bacon crujiente",
+                  "texto": "Corta el bacon en taquitos pequeños y hazlo en una sartén sin aceite, removiendo de vez en cuando. Escúrrelo sobre papel de cocina.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temporizador_s": 480,
+                  "señal": "Dorado y crujiente; la grasa ya no chisporrotea fuerte.",
+                  "usa": [
+                    "bacon"
+                  ]
+                },
+                {
+                  "id": "freir",
+                  "titulo": "Freír las patatas",
+                  "texto": "Calienta el aceite en una sartén honda y fríe las patatas congeladas por tandas, sin descongelarlas. Escúrrelas y sálalas enseguida.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "fuerte",
+                  "temperatura": 180,
+                  "temporizador_s": 300,
+                  "temporizador_editable": true,
+                  "temporizador_repetible": true,
+                  "aviso": "No las eches todas a la vez: el aceite se enfría y salen blandas y aceitosas.",
+                  "señal": "Doradas y crujientes; suenan al moverlas con la espumadera.",
+                  "usa": [
+                    "patatas",
+                    "aceite",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "gratinar",
+                  "titulo": "Gratinar el queso",
+                  "texto": "Pon las patatas en una fuente de horno, reparte por encima los dos quesos mezclados y gratina en la parte alta del horno.",
+                  "tipo": "fuera",
+                  "donde": "horno",
+                  "temperatura": 230,
+                  "modo": "Grill",
+                  "temporizador_s": 240,
+                  "señal": "El queso fundido y burbujeando, con alguna mancha dorada.",
+                  "usa": [
+                    "patatas",
+                    "queso",
+                    "cheddar"
+                  ]
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Bacon y a la mesa",
+                  "texto": "Reparte el bacon por encima nada más sacarlas, para que se pegue al queso fundido, y sírvelas con la salsa ranchera en un cuenco aparte para mojar.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "bacon"
+                  ]
+                }
+              ],
+              "trucos": [
+                "La mezcla de queso para fundir con un poco de cheddar es lo que da el color anaranjado y el queso que hace hilos.",
+                "La salsa gana si la haces un rato antes: los polvos de ajo y cebolla se hidratan y sabe más."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 6.96,
+                "raciones": 4,
+                "por_racion": 1.74,
+                "tiendas": {
+                  "Mercadona": 5.23,
+                  "Masymas": 1.73
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "gourmet",
+          "descripcion": "Patatas caseras de doble fritura, salsa de cheddar curado y ranch casera hechas en el robot, y bacon en dados gruesos.",
+          "versiones": [
+            {
+              "id": "gourmet",
+              "nombre": "Gourmet",
+              "subtitulo": "Patatas caseras de doble fritura, salsa de cheddar y ranch casera",
+              "raciones": "4 raciones para compartir",
+              "porciones": 4,
+              "tiempo_min": 75,
+              "robot": "monsieur-cuisine-plus",
+              "accesorios": [
+                "cuchillas",
+                "espatula"
+              ],
+              "nota": null,
+              "desglose": {
+                "textura": "Patatas de verdad, crujientes por fuera y tiernas por dentro gracias a la doble fritura.",
+                "sabor": "Salsa de cheddar curado en lugar de queso gratinado, bacon en dados gruesos y una ranch casera con cebollino y eneldo.",
+                "punto": "El robot clava las dos salsas: la mayonesa no se corta y la de queso queda lisa, sin grumos.",
+                "comodidad": "La más trabajosa: pelar, cortar y freír dos veces. El robot se encarga de las salsas."
+              },
+              "preparacion": [
+                "Pela las patatas, córtalas en bastones de 1 cm y déjalas en agua fría al menos 30 minutos.",
+                "Saca el huevo de la nevera un rato antes.",
+                "Pica el cebollino."
+              ],
+              "ingredientes": [
+                {
+                  "id": "patatas",
+                  "cantidad": "1 kg",
+                  "nombre": "patatas para freír, en bastones de 1 cm",
+                  "compra": {
+                    "mercadona": "69099",
+                    "usa": 1000,
+                    "unidad": "g",
+                    "merma": 0.15,
+                    "euros": 1.247,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Patatas",
+                      "formato": "Malla 5 kg",
+                      "precio": 5.3,
+                      "contenido": 5000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite",
+                  "cantidad": "750 ml",
+                  "nombre": "aceite de girasol para freír",
+                  "compra": {
+                    "mercadona": "4040",
+                    "usa": 750,
+                    "unidad": "ml",
+                    "euros": 1.388,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de girasol refinado 0,2º Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 1.85,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "bacon",
+                  "cantidad": "250 g",
+                  "nombre": "bacon ahumado en taco, en dados gruesos de 1 cm",
+                  "compra": {
+                    "masymas": "54171",
+                    "usa": 250,
+                    "unidad": "g",
+                    "euros": 2.158,
+                    "producto": {
+                      "tienda": "Masymas",
+                      "nombre": "Bacon Ahumado Taco 300 G",
+                      "formato": "300 g",
+                      "precio": 2.59,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "sal",
+                  "cantidad": "al gusto",
+                  "nombre": "sal",
+                  "compra": {
+                    "despensa": true,
+                    "euros": 0
+                  }
+                },
+                {
+                  "id": "cheddar",
+                  "cantidad": "150 g",
+                  "nombre": "queso cheddar curado, en trozos",
+                  "compra": {
+                    "mercadona": "51630",
+                    "usa": 150,
+                    "unidad": "g",
+                    "euros": 1.475,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Queso curado cheddar Hacendado",
+                      "formato": "Pieza 300 g",
+                      "precio": 2.95,
+                      "contenido": 300,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "leche",
+                  "cantidad": "300 ml",
+                  "nombre": "leche entera",
+                  "compra": {
+                    "mercadona": "10380",
+                    "usa": 300,
+                    "unidad": "ml",
+                    "euros": 0.288,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Leche entera Hacendado",
+                      "formato": "Brik 1 L",
+                      "precio": 0.96,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "mantequilla",
+                  "cantidad": "20 g",
+                  "nombre": "mantequilla",
+                  "compra": {
+                    "mercadona": "20722",
+                    "usa": 20,
+                    "unidad": "g",
+                    "euros": 0.164,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Mantequilla con sal Hacendado",
+                      "formato": "Pastilla 250 g",
+                      "precio": 2.05,
+                      "contenido": 250,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "harina",
+                  "cantidad": "15 g",
+                  "nombre": "harina de trigo",
+                  "compra": {
+                    "mercadona": "29100",
+                    "usa": 15,
+                    "unidad": "g",
+                    "euros": 0.011,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Harina de trigo Hacendado",
+                      "formato": "Paquete 1 kg",
+                      "precio": 0.72,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimenton",
+                  "cantidad": "una pizca",
+                  "nombre": "pimentón dulce de la Vera",
+                  "compra": {
+                    "mercadona": "34102",
+                    "usa": 0.5,
+                    "unidad": "g",
+                    "euros": 0.012,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimentón dulce de la Vera Hacendado",
+                      "formato": "Bote 75 g",
+                      "precio": 1.85,
+                      "contenido": 75,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "huevo",
+                  "cantidad": "1",
+                  "nombre": "huevo (a temperatura ambiente)",
+                  "compra": {
+                    "mercadona": "31540",
+                    "usa": 1,
+                    "unidad": "ud",
+                    "euros": 0.3,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Huevos grandes L",
+                      "formato": "Paquete 6 ud",
+                      "precio": 1.8,
+                      "contenido": 6,
+                      "unidad": "ud",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "limon",
+                  "cantidad": "½ (el zumo)",
+                  "nombre": "limón",
+                  "compra": {
+                    "mercadona": "3236",
+                    "usa": 60,
+                    "unidad": "g",
+                    "euros": 0.132,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Limones",
+                      "formato": "Malla 1 kg",
+                      "precio": 2.2,
+                      "contenido": 1000,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "aceite-mayo",
+                  "cantidad": "200 ml",
+                  "nombre": "aceite de girasol para la mayonesa",
+                  "compra": {
+                    "mercadona": "4040",
+                    "usa": 200,
+                    "unidad": "ml",
+                    "euros": 0.37,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Aceite de girasol refinado 0,2º Hacendado",
+                      "formato": "Botella 1 L",
+                      "precio": 1.85,
+                      "contenido": 1000,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "nata",
+                  "cantidad": "100 ml",
+                  "nombre": "nata para montar",
+                  "compra": {
+                    "mercadona": "10276",
+                    "usa": 100,
+                    "unidad": "ml",
+                    "euros": 0.39,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Nata para montar Hacendado",
+                      "formato": "Brik 500 ml",
+                      "precio": 1.95,
+                      "contenido": 500,
+                      "unidad": "ml",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebollino",
+                  "cantidad": "1 bandeja (20 g)",
+                  "nombre": "cebollino fresco, picado (la mitad para la salsa y la otra para servir)",
+                  "compra": {
+                    "mercadona": "69286",
+                    "usa": 20,
+                    "unidad": "g",
+                    "euros": 1.8,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebollino",
+                      "formato": "Bandeja 20 g",
+                      "precio": 1.8,
+                      "contenido": 20,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "eneldo",
+                  "cantidad": "½ cdta",
+                  "nombre": "eneldo seco",
+                  "compra": {
+                    "mercadona": "52739",
+                    "usa": 0.5,
+                    "unidad": "g",
+                    "euros": 0.051,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Eneldo Hacendado",
+                      "formato": "Bote 18 g",
+                      "precio": 1.85,
+                      "contenido": 18,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "ajo-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "ajo granulado",
+                  "compra": {
+                    "mercadona": "86656",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.016,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Ajo granulado Hacendado",
+                      "formato": "Bote 115 g",
+                      "precio": 1.25,
+                      "contenido": 115,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "cebolla-polvo",
+                  "cantidad": "½ cdta",
+                  "nombre": "cebolla en polvo",
+                  "compra": {
+                    "mercadona": "34138",
+                    "usa": 1.5,
+                    "unidad": "g",
+                    "euros": 0.024,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Cebolla en polvo Hacendado",
+                      "formato": "Bote 60 g",
+                      "precio": 0.94,
+                      "contenido": 60,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                },
+                {
+                  "id": "pimienta",
+                  "cantidad": "una pizca",
+                  "nombre": "pimienta negra molida",
+                  "compra": {
+                    "mercadona": "34171",
+                    "usa": 0.3,
+                    "unidad": "g",
+                    "euros": 0.006,
+                    "producto": {
+                      "tienda": "Mercadona",
+                      "nombre": "Pimienta negra molida Hacendado",
+                      "formato": "Bote 70 g",
+                      "precio": 1.3,
+                      "contenido": 70,
+                      "unidad": "g",
+                      "activo": true
+                    }
+                  }
+                }
+              ],
+              "pasos": [
+                {
+                  "id": "rallar",
+                  "titulo": "Rallar el cheddar",
+                  "texto": "Con el vaso limpio y bien seco, pon el cheddar en trozos y rállalo. Sácalo a un plato.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cheddar"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "8",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "ranch-base",
+                  "titulo": "Ranch: la base",
+                  "texto": "Pon en el vaso el huevo, el zumo de limón y una pizca de sal.",
+                  "tipo": "robot",
+                  "usa": [
+                    "huevo",
+                    "limon",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "5",
+                    "medidor": "puesto"
+                  },
+                  "aviso": "Lleva huevo crudo: se come en el día y se guarda siempre en la nevera."
+                },
+                {
+                  "id": "ranch-montar",
+                  "titulo": "Ranch: montar la mayonesa",
+                  "texto": "Pon la máquina a velocidad 4 sin el vaso medidor y, mientras gira, echa el aceite en un hilo muy fino por la boca de la tapa.",
+                  "tipo": "robot",
+                  "usa": [
+                    "aceite-mayo"
+                  ],
+                  "robot": {
+                    "tiempo_s": 120,
+                    "velocidad": "4",
+                    "medidor": "quitado"
+                  },
+                  "aviso": "El aceite, en hilo fino y sin prisa: si cae de golpe, se corta.",
+                  "señal": "Espesa y brillante, se sostiene en la cuchara."
+                },
+                {
+                  "id": "ranch-terminar",
+                  "titulo": "Ranch: terminar",
+                  "texto": "Añade la nata, la mitad del cebollino, el eneldo, el ajo, la cebolla en polvo y la pimienta. Pasa la salsa a un cuenco, tápala y a la nevera. Lava el vaso.",
+                  "tipo": "robot",
+                  "usa": [
+                    "nata",
+                    "cebollino",
+                    "eneldo",
+                    "ajo-polvo",
+                    "cebolla-polvo",
+                    "pimienta"
+                  ],
+                  "robot": {
+                    "tiempo_s": 10,
+                    "velocidad": "3",
+                    "medidor": "puesto"
+                  }
+                },
+                {
+                  "id": "freir1",
+                  "titulo": "Primera fritura",
+                  "texto": "Escurre las patatas y sécalas muy bien con un paño. Fríelas por tandas en una sartén honda con el aceite, sin que lleguen a dorarse, y sácalas a una bandeja.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temperatura": 160,
+                  "temporizador_s": 360,
+                  "temporizador_repetible": true,
+                  "señal": "Tiernas por dentro y todavía pálidas.",
+                  "usa": [
+                    "patatas",
+                    "aceite"
+                  ]
+                },
+                {
+                  "id": "bacon",
+                  "titulo": "Bacon crujiente",
+                  "texto": "Mientras reposan, haz el bacon en dados en otra sartén sin aceite, dándole la vuelta. Escúrrelo sobre papel de cocina.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "medio",
+                  "temporizador_s": 600,
+                  "señal": "Dorado y crujiente por fuera, jugoso por dentro.",
+                  "usa": [
+                    "bacon"
+                  ]
+                },
+                {
+                  "id": "queso-base",
+                  "titulo": "Salsa de queso: la base",
+                  "texto": "Pon en el vaso la leche, la mantequilla, la harina y el pimentón.",
+                  "tipo": "robot",
+                  "usa": [
+                    "leche",
+                    "mantequilla",
+                    "harina",
+                    "pimenton"
+                  ],
+                  "robot": {
+                    "tiempo_s": 420,
+                    "temperatura": 90,
+                    "velocidad": "3",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Ha espesado como unas natillas ligeras."
+                },
+                {
+                  "id": "queso-fundir",
+                  "titulo": "Fundir el cheddar",
+                  "texto": "Añade el cheddar rallado y una pizca de sal. Déjala en el vaso con la tapa puesta: se mantiene caliente mientras terminas las patatas.",
+                  "tipo": "robot",
+                  "usa": [
+                    "cheddar",
+                    "sal"
+                  ],
+                  "robot": {
+                    "tiempo_s": 120,
+                    "temperatura": 80,
+                    "velocidad": "3",
+                    "medidor": "puesto"
+                  },
+                  "señal": "Lisa y brillante, sin hebras de queso."
+                },
+                {
+                  "id": "freir2",
+                  "titulo": "Segunda fritura",
+                  "texto": "Sube el fuego y vuelve a freír las patatas por tandas hasta que estén doradas. Escúrrelas y sálalas enseguida.",
+                  "tipo": "fuera",
+                  "donde": "sarten",
+                  "fuego": "fuerte",
+                  "temperatura": 190,
+                  "temporizador_s": 180,
+                  "temporizador_repetible": true,
+                  "señal": "Doradas y muy crujientes; suenan huecas al moverlas.",
+                  "usa": [
+                    "patatas",
+                    "sal"
+                  ]
+                },
+                {
+                  "id": "servir",
+                  "titulo": "Montar y servir",
+                  "texto": "Pon las patatas en una fuente, cúbrelas con la salsa de queso caliente y reparte por encima el bacon y el resto del cebollino. La ranch, aparte para mojar.",
+                  "tipo": "fuera",
+                  "donde": "mesa",
+                  "usa": [
+                    "bacon",
+                    "cebollino"
+                  ]
+                }
+              ],
+              "trucos": [
+                "El remojo quita almidón: por eso las patatas salen crujientes y no se pegan.",
+                "Si la salsa de queso se espesa al enfriarse, dale 1 minuto en el robot a 80 °C y velocidad 3 con un chorrito de leche."
+              ],
+              "coste": {
+                "calculado": "2026-11-22",
+                "precios_hasta": "2026-11-21",
+                "total": 9.83,
+                "raciones": 4,
+                "por_racion": 2.46,
+                "tiendas": {
+                  "Mercadona": 7.67,
+                  "Masymas": 2.16
+                },
+                "completo": true,
+                "faltan": []
+              }
+            }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "id": "jalapenos",
+          "nombre": "Con jalapeños",
+          "descripcion": "Rodajas de jalapeño por encima: un punto picante y ácido que corta la grasa.",
+          "minutos": 1,
+          "ingredientes": [
+            {
+              "id": "jalapenos",
+              "cantidad": "30 g (unas 10 rodajas)",
+              "nombre": "jalapeños en vinagre",
+              "compra": {
+                "mercadona": "33189",
+                "usa": 30,
+                "unidad": "g",
+                "euros": 0.367,
+                "producto": {
+                  "tienda": "Mercadona",
+                  "nombre": "Jalapeños picantes en vinagre Hacendado",
+                  "formato": "Tarro 135 g",
+                  "precio": 1.65,
+                  "contenido": 135,
+                  "unidad": "g",
+                  "activo": true
+                }
+              }
+            }
+          ],
+          "pasos": [
+            {
+              "antes_de": "servir",
+              "id": "jalapenos",
+              "titulo": "Preparar los jalapeños",
+              "texto": "Escurre los jalapeños y tenlos a mano: se reparten por encima justo al servir.",
+              "tipo": "fuera",
+              "donde": "encimera",
+              "usa": [
+                "jalapenos"
+              ]
+            }
+          ],
+          "coste": {
+            "total": 0.37,
+            "tiendas": {
+              "Mercadona": 0.37
+            },
+            "completo": true,
+            "faltan": []
+          }
+        }
+      ],
+      "coste": {
+        "calculado": "2026-11-22",
+        "precios_hasta": "2026-11-21",
+        "total": 6.96,
+        "raciones": 4,
+        "por_racion": 1.74,
+        "tiendas": {
+          "Mercadona": 5.23,
+          "Masymas": 1.73
+        },
+        "completo": true,
+        "faltan": []
+      }
     }
   ]
 }
