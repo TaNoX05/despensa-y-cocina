@@ -981,3 +981,8 @@ body.con-mini .dock-voz { bottom: calc(var(--inf) + 196px); }
 .visor-flecha { position: absolute; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, .14); display: grid; place-items: center; color: #fff; }
 .visor-flecha.izq { left: calc(var(--izq) + 14px); }
 .visor-flecha.der { right: calc(var(--der) + 14px); }
+
+/* temporizador estrecho: los botones de ±1 min sin el texto del medio, para que quepan en una fila */
+@container reloj (max-width: 330px) {
+  .temporizador .ajusta-txt { display: none; }
+}

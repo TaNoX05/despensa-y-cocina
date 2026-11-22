@@ -142,7 +142,7 @@ function temporizador(rc, n) {
       <button class="ctl" data-a="sumarT" data-c="${clave}" data-s="30">+30</button>
       <button class="ctl" data-a="reiniciarT" data-c="${clave}" aria-label="Volver a empezar">${ico('reiniciar', 'peq')}</button>
     </div>
-    ${p.temporizador_editable ? `<div class="controles"><button class="boton peq" data-a="sumarT" data-c="${clave}" data-s="-60">−1 min</button><span class="muy-tenue" style="font-size:14px">ajusta los minutos</span><button class="boton peq" data-a="sumarT" data-c="${clave}" data-s="60">+1 min</button></div>` : ''}
+    ${p.temporizador_editable ? `<div class="controles"><button class="boton peq" data-a="sumarT" data-c="${clave}" data-s="-60">−1 min</button><span class="muy-tenue ajusta-txt" style="font-size:14px">ajusta los minutos</span><button class="boton peq" data-a="sumarT" data-c="${clave}" data-s="60">+1 min</button></div>` : ''}
     ${p.temporizador_repetible ? `<div class="controles"><span class="tanda">Tanda ${t.tanda || 1}</span><button class="boton peq" data-a="otraTandaT" data-c="${clave}">${ico('repetir', 'peq')} Otra tanda</button></div>` : ''}
     ${p.tipo === 'robot' ? '<p class="pista">El robot lleva su propio reloj: pulsa ▶ a la vez que lo pones en marcha y te aviso aquí.</p>' : ''}
   </div>`;
