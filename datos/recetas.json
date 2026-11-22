@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-21",
+  "actualizado": "2026-11-22",
   "robot": "Monsieur Cuisine Plus (SilverCrest SKMK 1200 A1)",
   "categorias": [
     {
@@ -16,6 +16,11 @@
       "id": "aperitivos",
       "nombre": "Aperitivos y picoteo",
       "emoji": "🧆"
+    },
+    {
+      "id": "de-la-abuela",
+      "nombre": "De la abuela",
+      "emoji": "👵"
     }
   ],
   "recetas": [
@@ -487,7 +492,7 @@
       "porciones": 3,
       "coste": {
         "tienda": "Mercadona",
-        "calculado": "2026-11-21",
+        "calculado": "2026-11-22",
         "precios_hasta": "2026-11-21",
         "total": 4.68,
         "raciones": 3,
@@ -887,7 +892,7 @@
       "porciones": 3,
       "coste": {
         "tienda": "Mercadona",
-        "calculado": "2026-11-21",
+        "calculado": "2026-11-22",
         "precios_hasta": "2026-11-21",
         "total": 5.91,
         "raciones": 3,
@@ -1129,11 +1134,344 @@
       "porciones": 4,
       "coste": {
         "tienda": "Mercadona",
-        "calculado": "2026-11-21",
+        "calculado": "2026-11-22",
         "precios_hasta": "2026-09-20",
         "total": 6.37,
         "raciones": 4,
         "por_racion": 1.59,
+        "completo": true,
+        "faltan": []
+      }
+    },
+    {
+      "id": "migas-de-harina",
+      "titulo": "Migas de harina",
+      "subtitulo": "Como las hacía la abuela: con chorizo, morcilla, panceta, ajos y pimientos rojo y verde",
+      "categoria": "de-la-abuela",
+      "emoji": "🥘",
+      "raciones": "4 raciones",
+      "porciones": 4,
+      "tiempo_min": 60,
+      "accesorios": [],
+      "sin_robot": true,
+      "foto": "img/recetas/migas-de-harina.webp",
+      "foto_prompt": "Migas de harina en una sartén grande de hierro negra con dos asas: grumitos sueltos y dorados, con rodajas de chorizo y de morcilla fritas, tiras de panceta crujiente, dientes de ajo fritos con su piel y tiras de pimiento rojo y verde fritos por encima. Al lado, un racimo de uvas.",
+      "nota": null,
+      "desglose": {
+        "textura": "Grumitos sueltos, tostados por fuera y tiernos por dentro.",
+        "sabor": "Toman todo el sabor del aceite donde se han frito el embutido, los ajos y los pimientos.",
+        "punto": "El secreto es no dejar de mover: 25-30 minutos de rasera a fuego medio.",
+        "comodidad": "Sin robot: piden sartén grande y fuego vivo, y el robot no fríe (no pasa de 130 °C). Lo que cuesta es el brazo."
+      },
+      "preparacion": [
+        "Corta los pimientos en tiras, el chorizo y la morcilla en rodajas gruesas y la panceta en tiras.",
+        "Chafa los ajos con la palma de la mano, sin pelarlos.",
+        "Disuelve la sal en el agua y deja la jarra junto al fuego.",
+        "Usa la sartén más grande que tengas (36-40 cm) o una paellera, y una rasera de borde recto para cortar."
+      ],
+      "ingredientes": [
+        {
+          "cantidad": "500 g",
+          "nombre": "harina de trigo",
+          "compra": {
+            "mercadona": "29100",
+            "usa": 500,
+            "unidad": "g",
+            "euros": 0.36,
+            "producto": {
+              "nombre": "Harina de trigo Hacendado",
+              "formato": "Paquete 1 kg",
+              "precio": 0.72,
+              "contenido": 1000,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "500 ml",
+          "nombre": "agua",
+          "compra": {
+            "despensa": true,
+            "euros": 0
+          }
+        },
+        {
+          "cantidad": "1 cdta colmada",
+          "nombre": "sal (para el agua)",
+          "compra": {
+            "despensa": true,
+            "euros": 0
+          }
+        },
+        {
+          "cantidad": "150 ml",
+          "nombre": "aceite de oliva",
+          "compra": {
+            "mercadona": "4740",
+            "usa": 150,
+            "unidad": "ml",
+            "euros": 0.615,
+            "producto": {
+              "nombre": "Aceite de oliva virgen extra Hacendado",
+              "formato": "Botella 1 L",
+              "precio": 4.1,
+              "contenido": 1000,
+              "unidad": "ml",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 cabeza",
+          "nombre": "ajos (los dientes enteros, con su piel)",
+          "compra": {
+            "mercadona": "69297",
+            "usa": 50,
+            "unidad": "g",
+            "euros": 0.37,
+            "producto": {
+              "nombre": "Ajos morados",
+              "formato": "Malla 250 g",
+              "precio": 1.85,
+              "contenido": 250,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "200 g",
+          "nombre": "chorizo para freír (oreado), en rodajas gruesas",
+          "compra": {
+            "mercadona": "6048",
+            "usa": 200,
+            "unidad": "g",
+            "euros": 1.378,
+            "producto": {
+              "nombre": "Chorizo oreado",
+              "formato": "Bandeja 360 g",
+              "precio": 2.48,
+              "contenido": 360,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "200 g",
+          "nombre": "morcilla de cebolla, en rodajas gruesas",
+          "compra": {
+            "mercadona": "1958",
+            "usa": 200,
+            "unidad": "g",
+            "euros": 1.2,
+            "producto": {
+              "nombre": "Morcilla de cebolla",
+              "formato": "Bandeja 390 g",
+              "precio": 2.34,
+              "contenido": 390,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "200 g",
+          "nombre": "panceta fresca, en tiras",
+          "compra": {
+            "mercadona": "2815",
+            "usa": 200,
+            "unidad": "g",
+            "euros": 1.098,
+            "producto": {
+              "nombre": "Panceta de cerdo",
+              "formato": "Bandeja 590 g",
+              "precio": 3.24,
+              "contenido": 590,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "1 (300 g)",
+          "nombre": "pimiento rojo, en tiras",
+          "compra": {
+            "mercadona": "69310",
+            "usa": 300,
+            "unidad": "g",
+            "euros": 0.87,
+            "producto": {
+              "nombre": "Pimiento rojo",
+              "formato": "Pieza 300 g",
+              "precio": 0.87,
+              "contenido": 300,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "2 (260 g)",
+          "nombre": "pimientos verdes de freír, en tiras",
+          "compra": {
+            "mercadona": "69320",
+            "usa": 260,
+            "unidad": "g",
+            "euros": 0.66,
+            "producto": {
+              "nombre": "Pimiento verde freír",
+              "formato": "Pieza 130 g",
+              "precio": 0.33,
+              "contenido": 130,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        },
+        {
+          "cantidad": "al gusto",
+          "nombre": "uvas o melón, para acompañar (opcional)",
+          "compra": {
+            "mercadona": "3515",
+            "usa": 400,
+            "unidad": "g",
+            "opcional": true,
+            "equivale": "uvas (el catálogo no tiene uva fresca)",
+            "euros": 1.041,
+            "producto": {
+              "nombre": "Medio melón piel de sapo",
+              "formato": "1/2 Pieza 1,76 kg",
+              "precio": 4.58,
+              "contenido": 1760,
+              "unidad": "g",
+              "activo": true
+            }
+          }
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Freír los pimientos",
+          "texto": "Calienta el aceite en la sartén grande y fríe las tiras de pimiento rojo y verde, moviéndolas de vez en cuando. Sácalas a un plato.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio",
+          "usa": [
+            3,
+            8,
+            9
+          ],
+          "temporizador_s": 600,
+          "señal": "Blandos al pincharlos y con los bordes un poco tostados."
+        },
+        {
+          "titulo": "Freír el embutido",
+          "texto": "En el mismo aceite, primero la panceta; cuando esté dorada, el chorizo, y al final la morcilla, solo vuelta y vuelta. Sácalo todo y resérvalo con los pimientos.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio",
+          "usa": [
+            7,
+            5,
+            6
+          ],
+          "temporizador_s": 480,
+          "señal": "La panceta crujiente y el aceite teñido de rojo por el chorizo.",
+          "aviso": "La morcilla, al final y con cuidado: si se fríe mucho se deshace."
+        },
+        {
+          "titulo": "Dorar los ajos",
+          "texto": "Echa los ajos chafados con su piel y dóralos despacio. Sácalos y júntalos con el embutido.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio-suave",
+          "usa": [
+            4
+          ],
+          "temporizador_s": 180,
+          "señal": "Dorados por fuera y blandos por dentro. Si se oscurecen, amargan."
+        },
+        {
+          "titulo": "Hervir el agua con sal",
+          "texto": "Aparta un momento la sartén del fuego y echa el agua con la sal poco a poco sobre el aceite que ha quedado. Vuelve a ponerla al fuego hasta que hierva.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "fuerte",
+          "usa": [
+            1,
+            2
+          ],
+          "señal": "El agua hierve a borbotones y el aceite flota por encima.",
+          "aviso": "Al echar el agua sobre el aceite caliente salpica: hazlo despacio y apártate."
+        },
+        {
+          "titulo": "La harina, de golpe",
+          "texto": "Baja a fuego medio y echa toda la harina de golpe en el centro, formando un montón. No la toques: deja que se empape.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio",
+          "usa": [
+            0
+          ],
+          "temporizador_s": 180,
+          "señal": "Ya no se ve agua y el montón está húmedo por fuera.",
+          "aviso": "Todavía no se remueve: si se mueve antes, quedan grumos crudos por dentro."
+        },
+        {
+          "titulo": "Cortar y voltear sin parar",
+          "texto": "Con la rasera, corta el montón en trozos y ve dándoles la vuelta, cortando y moviendo sin parar, hasta que se deshagan en grumitos sueltos. Si se ven secas o se pegan, un chorrito de aceite por el borde.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "medio",
+          "temporizador_s": 1500,
+          "temporizador_editable": true,
+          "recordatorio": {
+            "quedan_s": 600,
+            "texto": "Prueba un grumito: si sigue pastoso por dentro, sube un poco el fuego y no dejes de moverlas."
+          },
+          "señal": "Grumitos sueltos del tamaño de un garbanzo, dorados por fuera y tiernos por dentro, que ya no se pegan a la rasera."
+        },
+        {
+          "titulo": "Juntar todo",
+          "texto": "Vuelve a echar los pimientos, el embutido y los ajos y mézclalo todo un par de minutos para que se caliente.",
+          "tipo": "fuera",
+          "donde": "sarten",
+          "fuego": "suave",
+          "usa": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "temporizador_s": 120
+        },
+        {
+          "titulo": "A la mesa",
+          "texto": "Como se han servido siempre: la sartén en el centro de la mesa y cada uno con su cuchara. Con uvas o melón al lado.",
+          "tipo": "fuera",
+          "donde": "mesa",
+          "usa": [
+            10
+          ]
+        }
+      ],
+      "trucos": [
+        "La proporción de siempre: el mismo peso de harina que de agua. Si las quieres más sueltas, echa 50 ml menos de agua.",
+        "La rasera no para: cortar y voltear es lo que las deja sueltas y tostadas.",
+        "Con uvas o melón: el dulce y fresco contrasta con lo salado y caliente. También van bien con sardinas asadas o granada.",
+        "Si sobran, al día siguiente se doran en la sartén con una gota de aceite."
+      ],
+      "coste": {
+        "tienda": "Mercadona",
+        "calculado": "2026-11-22",
+        "precios_hasta": "2026-11-21",
+        "total": 6.55,
+        "raciones": 4,
+        "por_racion": 1.64,
         "completo": true,
         "faltan": []
       }
